@@ -1,42 +1,42 @@
 <template>
-  <v-navigation-drawer app permanent>
-    <v-list>
-      <v-list-item>
-        <v-avatar size="40"
-          ><v-img :src="profileImage" alt="profile"></v-img
-        ></v-avatar>
-      </v-list-item>
-
-      <v-list-item-title style="position: absolute; left: 75px; top: 10px">
-        {{ username }}
-      </v-list-item-title>
-
-      <v-list-item-subtitle style="position: absolute; left: 75px; top: 35px">
-        {{ email }}
-      </v-list-item-subtitle>
-    </v-list>
-
-    <v-divider></v-divider>
-
-    <v-list nav>
-      <v-list-item
-        v-for="(item, i) in items"
-        :key="i"
-        :value="item.value"
-        color="primary"
-        @click="selectedItem = item.value"
-      >
-        <template v-slot:prepend>
-          <v-icon :icon="item.icon"></v-icon>
-        </template>
-        <v-list-item-title v-text="item.text"></v-list-item-title>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
-
-  <!-- main -->
-
   <v-container>
+    <v-navigation-drawer app permanent>
+      <v-list>
+        <v-list-item>
+          <v-avatar size="40"
+            ><v-img :src="profileImage" alt="profile"></v-img
+          ></v-avatar>
+        </v-list-item>
+
+        <v-list-item-title style="position: absolute; left: 75px; top: 10px">
+          {{ username }}
+        </v-list-item-title>
+
+        <v-list-item-subtitle style="position: absolute; left: 75px; top: 35px">
+          {{ email }}
+        </v-list-item-subtitle>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list nav>
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :value="item.value"
+          color="primary"
+          @click="selectedItem = item.value"
+        >
+          <template v-slot:prepend>
+            <v-icon :icon="item.icon"></v-icon>
+          </template>
+          <v-list-item-title v-text="item.text"></v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- main -->
+
     <!-- My profile -->
     <v-card
       v-if="selectedItem == 'profile'"
