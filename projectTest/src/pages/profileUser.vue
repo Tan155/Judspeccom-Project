@@ -83,6 +83,10 @@
         <h1>Email: {{ email }}</h1>
       </v-card-text>
     </v-card>
+
+    <v-card v-if="selectedItem == 'files'">
+      <h1>Hello</h1>
+    </v-card>
   </v-container>
 </template>
 
