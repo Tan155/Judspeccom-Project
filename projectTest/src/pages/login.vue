@@ -83,6 +83,10 @@ const login = async () => {
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("profileImage", response.data.profileImage);
       router.push("/");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     }
   } catch (error) {
     errorMessage.value =
