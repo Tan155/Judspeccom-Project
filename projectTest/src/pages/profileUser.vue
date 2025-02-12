@@ -134,6 +134,10 @@ const uploadImage = async (event) => {
     if (response.status === 200) {
       profileImage.value = response.data.profileImage;
       localStorage.setItem("profileImage", response.data.profileImage);
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     }
   } catch (error) {
     console.log("Upload error", error);
