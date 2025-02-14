@@ -1,58 +1,67 @@
 <template>
-    <v-container>
-        <v-card class="py-8 px-6 text-center mx-auto ma-4" elevation="12" max-width="400" width="100%">
-            <h3 class="text-h6 mb-4">Verify Your Account</h3>
-            <div class="text-body-2">
-                We sent a verification code to {{email}}
-                <br>
-                Please chceck your email and paste the code below.
-            </div>
+  <v-container>
+    <v-card
+      class="py-8 px-6 text-center mx-auto ma-4"
+      elevation="12"
+      max-width="400"
+      width="100%"
+    >
+      <h3 class="text-h6 mb-4">Verify Your Account</h3>
+      <div class="text-body-2">
+        We sent a verification code to {{ email }}
+        <br />
+        Please chceck your email and paste the code below.
+      </div>
 
-            <v-sheet color="surface">
-                <v-otp-input v-model="otp" type="text">
-                </v-otp-input>
-            </v-sheet>
+      <v-sheet color="surface">
+        <v-otp-input v-model="otp" type="text"> </v-otp-input>
+      </v-sheet>
 
-            <v-btn class="my-4" color="purple" height="40" text="Verify" width="70%" @click="verifyOtp">
-            </v-btn>
+      <v-btn
+        class="my-4"
+        color="purple"
+        height="40"
+        text="Verify"
+        width="70%"
+        @click="verifyOtp"
+      >
+      </v-btn>
 
-            <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
-        </v-card>
-    </v-container>
+      <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
+    </v-card>
+  </v-container>
 </template>
 
 <script setup>
-import {ref, computed} from 'vue'
-import axios from 'axios'
-import { useRoute, useRouter } from 'vue-router';
+import { ref, computed } from "vue";
+import axios from "axios";
+import { useRoute, useRouter } from "vue-router";
 
 // Value
-const route = useRoute()
-const router = useRouter()
-const email = ref(route.query.email || "")
-const otp = ref("")
-const errorMessage = ref("")
+const route = useRoute();
+const router = useRouter();
+const email = ref(route.query.email || "");
+const otp = ref("");
+const errorMessage = ref("");
 
 // Function
-const verifyOtp = async() =>{
-    try{
-        const response = await axios.post('http://localhost:5000/verify', {
-            email:email.value, otp:otp.value
-        })
+const verifyOtp = async () => {
+  try {
+    const response = await axios.post("http://localhost:5000/api/user/verify", {
+      email: email.value,
+      otp: otp.value,
+    });
 
-        if(response.status === 200){
-            alert("Verify Success")
-            router.push('/login')
-        }
-
-    }catch (error){
-        errorMessage.value = error.response?.data?.errorMessage || "Invalid OTP. please try again."
+    if (response.status === 200) {
+      alert("Verify Success");
+      router.push("/login");
     }
-}
-
-
+  } catch (error) {
+    errorMessage.value =
+      error.response?.data?.errorMessage || "Invalid OTP. please try again.";
+  }
+};
 </script>
 
 <style>
-
 </style>

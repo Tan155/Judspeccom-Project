@@ -71,7 +71,7 @@ const togglePassword = () => {
 
 const login = async () => {
   try {
-    const response = await axios.post("http://localhost:5000/login", {
+    const response = await axios.post("http://localhost:5000/api/user/login", {
       username: username.value,
       password: password.value,
     });
