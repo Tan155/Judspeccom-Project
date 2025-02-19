@@ -5,7 +5,10 @@ const mongoose = require('mongoose')
 
 // import
 const User = require('./model/userModel')
+const Product = require('./model/productModel')
+
 const routerUser = require('./routes/user')
+const routerProduct = require('./routes/products')
 
 const app = express()
 
@@ -24,6 +27,7 @@ mongoose
   })
 
 app.use('/api/user', routerUser)
+app.use('/api/products', routerProduct)
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 

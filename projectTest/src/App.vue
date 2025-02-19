@@ -2,56 +2,64 @@
   <v-app>
     <!-- NAVBAR -->
     <v-app-bar>
-      <router-link to="/">Home</router-link>
+      <router-link to="/">
+        Home
+      </router-link>
+      <v-spacer />
+      <router-link to="Computerjudspec">
+        Tools
+      </router-link>
       <v-spacer />
 
       <!-- Menu REGISTER AND LOGIN -->
 
       <v-menu v-if="!isLoggedIn">
-        <template v-slot:activator="{ props }">
-          <v-btn color="primary" v-bind="props"> Register </v-btn>
+        <template #activator="{ props }">
+          <v-btn color="primary" v-bind="props">
+            Register
+          </v-btn>
         </template>
         <v-list>
           <v-list-item>
             <!-- Register -->
-            <v-list-item-title
-              ><v-btn @click="register" prepend-icon="mdi-account"
-                >Register</v-btn
-              ></v-list-item-title
-            >
+            <v-list-item-title>
+              <v-btn prepend-icon="mdi-account" @click="register">
+                Register
+              </v-btn>
+            </v-list-item-title>
           </v-list-item>
           <!-- Login -->
           <v-list-item>
-            <v-list-item-title
-              ><v-btn @click="login" prepend-icon="mdi-login"
-                >Login</v-btn
-              ></v-list-item-title
-            >
+            <v-list-item-title>
+              <v-btn prepend-icon="mdi-login" @click="login">
+                Login
+              </v-btn>
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
       <!-- User and Logout -->
       <v-menu v-else>
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn color="primary" v-bind="props">
             <v-avatar size="32" class="mr-2">
-              <v-img :src="profileImage" alt="Profile"></v-img>
+              <v-img :src="profileImage" alt="Profile" />
             </v-avatar>
             {{ username }}
           </v-btn>
         </template>
         <v-list>
-          <v-list-item
-            ><v-btn @click="myProfile" prepend-icon="mdi-account"
-              >My Profile</v-btn
-            ></v-list-item
-          >
-          <v-list-item
-            ><v-btn @click="logout" prepend-icon="mdi-logout"
-              >Logout</v-btn
-            ></v-list-item
-          >
+          <v-list-item>
+            <v-btn prepend-icon="mdi-account" @click="myProfile">
+              My Profile
+            </v-btn>
+          </v-list-item>
+          <v-list-item>
+            <v-btn prepend-icon="mdi-logout" @click="logout">
+              Logout
+            </v-btn>
+          </v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
