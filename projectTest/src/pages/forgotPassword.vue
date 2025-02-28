@@ -56,14 +56,14 @@ const resetPassword = async () => {
   if (isValid) {
     try {
       const response = await axios.post(
-        "http://localhost:5000/forgotPassword",
+        "http://localhost:5000/api/user/forgotPassword",
         {
           email: email.value,
         }
       );
 
       if (response.status === 200) {
-        router.push("/resetPassword");
+        router.push({ path: "/verify", query: { email: email.value } });
       }
     } catch (error) {
       errorMessage.value =

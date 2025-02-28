@@ -78,7 +78,10 @@ const login = async () => {
 
     if (response.status === 200) {
       alert("Login Success");
-      localStorage.setItem("token", response.data.token);
+
+      const token = response.data.token;
+
+      localStorage.setItem("token", token);
       localStorage.setItem("username", response.data.username);
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("profileImage", response.data.profileImage);

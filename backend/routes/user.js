@@ -60,7 +60,9 @@ router.post('/register', async (req, res) => {
     // send otp
     await sendOTP(email, otp)
 
-    res.status(200).json({ message: 'Register success' })
+    res
+      .status(200)
+      .json({ message: 'Register success', isVerified: newUser.isVerified })
   } catch (err) {
     res.status(500).json({ message: 'Error register user', err })
   }
@@ -77,12 +79,15 @@ router.post('/verify', async (req, res) => {
     if (existEmail.otp !== otp)
       return res.status(400).json({ message: 'Invalid OTP' })
 
-    // Update
-    existEmail.isVerified = true
-    existEmail.otp = null
-    await existEmail.save()
+    if (existEmail.isVerified == false) {
+      // Update
+      existEmail.isVerified = true
+      existEmail.otp = null
+      await existEmail.save()
+      return res.status(200).json({ message: 'OTP Verified Successfully' })
+    }
 
-    res.status(200).json({ message: 'OTP Verified Successfully' })
+    res.status(201).json({ meassage: 'OTP Verified Successfully RESET' })
   } catch (error) {
     res.status(500).json({ message: 'Server error' })
   }
@@ -105,9 +110,14 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Incorrect Password' })
 
     const token = jwt.sign(
-      { id: user.id, username: user.username },
+      {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        profileImage: user.profileImage,
+      },
       'secret_key',
-      { expiresIn: '5h' }
+      { expiresIn: '1h' }
     )
 
     res.status(200).json({
@@ -153,7 +163,7 @@ router.post('/upload', uploads.single('image'), async (req, res) => {
   }
 })
 
-// Reset Password
+// forgot Password
 router.post('/forgotPassword', async (req, res) => {
   const { email } = req.body
   try {
@@ -166,9 +176,31 @@ router.post('/forgotPassword', async (req, res) => {
 
     await User.updateOne({ email: email }, { $set: { otp: otp } })
 
-    res.status(200).json('Send OTP Success')
+    res
+      .status(200)
+      .json({ message: 'Send OTP Success', isVerified: existEmail.isVerified })
   } catch (error) {
     res.status(500).json({ message: 'SERVER ERROR', error })
+  }
+})
+
+//reset Password
+router.post('/resetPassword', async (req, res) => {
+  const { email, password } = req.body
+  try {
+    const user = await User.findOne({ email })
+
+    if (!user) return res.status(400).json({ message: 'Email not Found' })
+
+    const hashPassword = await bcrypt.hash(password, 10)
+
+    user.password = hashPassword
+    user.otp = null
+    await user.save()
+
+    res.status(200).json({ message: 'success' })
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error', error })
   }
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-if="isVisit">
     <v-navigation-drawer app permanent>
       <v-list>
         <v-list-item>
@@ -83,21 +83,22 @@
         <h1>Email: {{ email }}</h1>
       </v-card-text>
     </v-card>
-
-    <v-card v-if="selectedItem == 'files'">
-      <h1>Hello</h1>
-    </v-card>
   </v-container>
+
+  <v-container v-else> </v-container>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import { useRoute, useRouter } from "vue-router";
 
 // value
 const selectedItem = ref("profile");
 const profileImage = ref("");
 const page = ref("0");
+const isVisit = ref(false);
+const router = useRouter();
 
 // Menu Navigation Drawer
 const items = [
@@ -113,6 +114,10 @@ onMounted(() => {
     username.value = localStorage.getItem("username");
     email.value = localStorage.getItem("email");
     profileImage.value = localStorage.getItem("profileImage");
+    isVisit.value = true;
+  } else {
+    isVisit.value = false;
+    router.push("/notFound");
   }
 });
 

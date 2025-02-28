@@ -42,6 +42,7 @@ const route = useRoute();
 const router = useRouter();
 const email = ref(route.query.email || "");
 const otp = ref("");
+const isVerified = ref(false);
 const errorMessage = ref("");
 
 // Function
@@ -55,6 +56,11 @@ const verifyOtp = async () => {
     if (response.status === 200) {
       alert("Verify Success");
       router.push("/login");
+    }
+
+    if (response.status === 201) {
+      alert("Verify Success");
+      router.push({ path: "/resetPassword", query: { email: email.value } });
     }
   } catch (error) {
     errorMessage.value =
