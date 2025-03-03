@@ -6,7 +6,9 @@
           <v-card-title class="headline text-center"
             >RESET PASSWORD</v-card-title
           >
-          <v-card-text style="text-align: center">{{ email }}</v-card-text>
+          <v-card-text style="text-align: center">{{
+            authStore.email
+          }}</v-card-text>
 
           <v-card-text>
             <v-form ref="form">
@@ -27,7 +29,7 @@
                 <h2>Confirm Password</h2>
                 <v-text-field
                   label="Confirm Password"
-                  v-mode="confirmPassword"
+                  v-model="confirmPassword"
                   :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                   :type="showPassword ? 'text' : 'password'"
                   :rules="confirmPasswordRules"
@@ -40,6 +42,7 @@
                 >Comfirm</v-btn
               >
             </v-form>
+            <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -49,17 +52,19 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import axios from "axios";
 import { useRoute, useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/authStore";
+import { AuthService } from "@/services/AuthService";
 
 //value
 const route = useRoute();
 const router = useRouter();
-const email = ref(route.query.email);
 const password = ref("");
 const confirmPassword = ref("");
 const showPassword = ref(false);
 const form = ref(null);
+const errorMessage = ref("");
+const authStore = useAuthStore();
 
 const passwordRules = [
   (v) => !!v || "Password is required",
@@ -82,25 +87,17 @@ const resetPassword = async () => {
 
   if (isvalid) {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/user/resetPassword",
-        {
-          email: email.value,
-          password: password.value,
-        }
+      const response = await AuthService.resetPasswordUser(
+        authStore.email,
+        password.value
       );
 
-      if (response.status == 200) {
-        alert("Reset Password Success");
-        router.push("/login");
+      if (response.message) {
+        alert(response.message);
+        router.push(response.redirectTo);
       }
     } catch (error) {
-      if (error.response && error.response.status === 400) {
-        alert(error.response.data.message);
-      } else {
-        alert("An error occurred while registering");
-      }
-      console.log(error);
+      errorMessage.value = error.message;
     }
   }
 };

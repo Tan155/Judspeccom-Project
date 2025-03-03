@@ -3,7 +3,7 @@ const path = require('path')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
-const multer = require('multer')
+const mongoose = require('mongoose')
 const User = require('../model/userModel')
 
 const router = express.Router()
@@ -114,49 +114,73 @@ router.post('/login', async (req, res) => {
         id: user.id,
         username: user.username,
         email: user.email,
-        profileImage: user.profileImage,
       },
       'secret_key',
       { expiresIn: '1h' }
     )
 
+    // set cookie
+    res.cookie('token', token, {
+      http: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 3600000,
+      sameSite: 'Strict',
+    })
+
     res.status(200).json({
       message: 'Login Success',
       token,
-      username: user.username,
-      email: user.email,
-      profileImage: user.profileImage,
     })
   } catch (error) {
     res.status(500).json({ message: 'Server Error' })
   }
 })
 
-// Upload Image
-const storage = multer.diskStorage({
-  destination: './uploads/profileUsers',
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`)
-  },
+// Logout
+router.post('/logout', (req, res) => {
+  res.clearCookie('token', { httpOnly: true, secure: true, sameSite: 'Strict' })
+  res.status(200).json({ message: 'Logout successful' })
 })
 
-const uploads = multer({ storage })
+// User
+router.get('/auth', async (req, res) => {
+  const token = req.cookies.token
+  if (!token) return res.status(401).json({ message: 'Not authenticated' })
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret_key')
+    const user = await User.findOne({ email: decoded.email })
+    if (!user) return res.status(400).json({ message: 'User Not Found' })
+    const email = user.email
+    const imageUrl = user.profileImage
 
-router.post('/upload', uploads.single('image'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ message: 'No file upload' })
+    res.status(200).json({
+      username: user.username,
+      email: user.email,
+      profileImage: imageUrl,
+    })
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid Token' })
+  }
+})
 
-  const { email } = req.body
-  const imageUrl = `http://localhost:5000/uploads/profileUsers/${req.file.filename}`
+// Upload Image
+
+router.post('/upload', async (req, res) => {
+  const { email, imageBase64 } = req.body
+  if (!email || !imageBase64) {
+    return res.status(400).json({ message: 'Missing email or image data' })
+  }
 
   try {
     const user = await User.findOneAndUpdate(
       { email },
-      { profileImage: imageUrl },
+      { profileImage: imageBase64 },
       { new: true }
     )
 
     if (!user) return res.status(404).json({ message: 'User Not Found' })
 
+    const imageUrl = user.profileImage
     res.status(200).json({ message: 'Image Uploaded', profileImage: imageUrl })
   } catch (error) {
     res.status(500).json({ message: 'Server Error', error })
@@ -201,6 +225,20 @@ router.post('/resetPassword', async (req, res) => {
     res.status(200).json({ message: 'success' })
   } catch (error) {
     res.status(500).json({ message: 'Server Error', error })
+  }
+})
+
+// check api
+router.get('/check', async (req, res) => {
+  try {
+    const token = req.cookies.token
+    if (!token) return res.status(201).json({ email: 'FAIL' })
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret_key')
+    const user = await User.findOne({ email: decoded.email })
+    if (!user) return res.status(201).json({ email: 'FAIL' })
+    return res.status(200).json({ email: 'PASS' })
+  } catch (error) {
+    return res.status(401).json({ email: 'FAIL', error: 'Invalid token' })
   }
 })
 

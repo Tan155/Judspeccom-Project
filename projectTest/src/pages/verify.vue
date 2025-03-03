@@ -8,7 +8,7 @@
     >
       <h3 class="text-h6 mb-4">Verify Your Account</h3>
       <div class="text-body-2">
-        We sent a verification code to {{ email }}
+        We sent a verification code to {{ authStore.email }}
         <br />
         Please chceck your email and paste the code below.
       </div>
@@ -34,37 +34,31 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import axios from "axios";
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/authStore";
+import { AuthService } from "@/services/AuthService";
 
 // Value
-const route = useRoute();
 const router = useRouter();
-const email = ref(route.query.email || "");
 const otp = ref("");
-const isVerified = ref(false);
 const errorMessage = ref("");
-
+const authStore = useAuthStore();
+const email = ref("");
 // Function
 const verifyOtp = async () => {
   try {
-    const response = await axios.post("http://localhost:5000/api/user/verify", {
-      email: email.value,
-      otp: otp.value,
-    });
+    const response = await AuthService.verifyOtp(authStore.email, otp.value);
 
-    if (response.status === 200) {
-      alert("Verify Success");
-      router.push("/login");
-    }
-
-    if (response.status === 201) {
-      alert("Verify Success");
-      router.push({ path: "/resetPassword", query: { email: email.value } });
+    alert(response.message);
+    if (response.redirectTo === "/login") {
+      router.push(response.redirectTo);
+    } else {
+      email.value = authStore.email;
+      authStore.setEmail(email);
+      router.push(response.redirectTo);
     }
   } catch (error) {
-    errorMessage.value =
-      error.response?.data?.errorMessage || "Invalid OTP. please try again.";
+    errorMessage.value = error.message;
   }
 };
 </script>

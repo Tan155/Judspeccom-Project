@@ -48,6 +48,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { AuthService } from "@/services/AuthService";
 
 // variable
 const router = useRouter();
@@ -71,29 +72,18 @@ const togglePassword = () => {
 
 const login = async () => {
   try {
-    const response = await axios.post("http://localhost:5000/api/user/login", {
-      username: username.value,
-      password: password.value,
-    });
+    const response = await AuthService.logIn(username.value, password.value);
 
-    if (response.status === 200) {
-      alert("Login Success");
-
-      const token = response.data.token;
-
-      localStorage.setItem("token", token);
-      localStorage.setItem("username", response.data.username);
-      localStorage.setItem("email", response.data.email);
-      localStorage.setItem("profileImage", response.data.profileImage);
-      router.push("/");
+    if (response.redirectTo) {
+      alert(response.message);
+      router.push(response.redirectTo);
 
       setTimeout(() => {
         window.location.reload();
       }, 100);
     }
   } catch (error) {
-    errorMessage.value =
-      error.response?.data?.message || "Invalid login credentials.";
+    errorMessage.value = error.message;
   }
 };
 </script>

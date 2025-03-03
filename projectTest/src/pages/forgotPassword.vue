@@ -34,16 +34,17 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { AuthService } from "@/services/AuthService";
+import { useAuthStore } from "@/stores/authStore";
 
 // value
 const email = ref("");
 const router = useRouter();
 const form = ref(null);
 const errorMessage = ref("");
-
+const authStore = useAuthStore();
 const emailRules = [
   (v) => !!v || "E-mail is required",
   (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
@@ -55,19 +56,14 @@ const resetPassword = async () => {
 
   if (isValid) {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/user/forgotPassword",
-        {
-          email: email.value,
-        }
-      );
-
-      if (response.status === 200) {
-        router.push({ path: "/verify", query: { email: email.value } });
+      const response = await AuthService.forgotPassword(email.value);
+      if (response.message) {
+        alert(response.message);
+        authStore.setEmail(email.value);
+        router.push(response.redirectTo);
       }
     } catch (error) {
-      errorMessage.value =
-        error.response?.data?.message || "Invalid login credentials.";
+      errorMessage.value = error.message;
     }
   }
 };

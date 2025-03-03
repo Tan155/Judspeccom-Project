@@ -68,7 +68,7 @@
           </v-img>
         </div>
 
-        <v-btn class="upload-btn"
+        <v-btn class="upload-btn" :loading="uploading"
           >Change PICTURE
           <input
             type="file"
@@ -85,13 +85,13 @@
     </v-card>
   </v-container>
 
-  <v-container v-else> </v-container>
+  <v-container v-else></v-container>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import axios from "axios";
 import { useRoute, useRouter } from "vue-router";
+import { AuthService } from "@/services/AuthService";
 
 // value
 const selectedItem = ref("profile");
@@ -99,6 +99,7 @@ const profileImage = ref("");
 const page = ref("0");
 const isVisit = ref(false);
 const router = useRouter();
+const uploading = ref(false);
 
 // Menu Navigation Drawer
 const items = [
@@ -109,47 +110,65 @@ const items = [
 const username = ref("");
 const email = ref("");
 
-onMounted(() => {
-  if (localStorage.getItem("token") && localStorage.getItem("username")) {
-    username.value = localStorage.getItem("username");
-    email.value = localStorage.getItem("email");
-    profileImage.value = localStorage.getItem("profileImage");
-    isVisit.value = true;
-  } else {
-    isVisit.value = false;
-    router.push("/notFound");
+onMounted(async () => {
+  await loadUserFromServer();
+  if (isVisit.value == false) {
+    router.push("/");
   }
 });
 
 // Function
+const loadUserFromServer = async () => {
+  try {
+    const user = await AuthService.loadUserFromServer();
+    if (user) {
+      isVisit.value = true;
+      username.value = user.username;
+      email.value = user.email;
+      profileImage.value = user.profileImage || "";
+    }
+  } catch (error) {
+    alert("Please Login again");
+    isVisit.value = false;
+    await logout();
+  }
+};
 
 // Upload Image
 const uploadImage = async (event) => {
   const file = event.target.files[0];
   if (!file) return;
-  const formData = new FormData();
-  formData.append("image", file);
-  formData.append("email", email.value);
 
-  try {
-    const response = await axios.post(
-      "http://localhost:5000/api/user/upload",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
 
-    if (response.status === 200) {
-      profileImage.value = response.data.profileImage;
-      localStorage.setItem("profileImage", response.data.profileImage);
-
+  reader.onload = async () => {
+    try {
+      uploading.value = true;
+      const newProfileImage = await AuthService.uploadProfileImage(
+        email.value,
+        reader.result
+      );
+      profileImage.value = newProfileImage; // Update without reloading
       setTimeout(() => {
         window.location.reload();
       }, 100);
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Upload failed. Please try again.");
+    } finally {
+      uploading.value = false;
     }
-  } catch (error) {
-    console.log("Upload error", error);
+  };
+};
+const logout = async () => {
+  const success = await AuthService.logOut();
+  if (success) {
+    isVisit.value = false;
+    username.value = "";
+    email.value = "";
+    profileImage.value = "";
+    router.push("/");
   }
 };
 

@@ -63,8 +63,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { AuthService } from "@/services/AuthService";
+import { APIProxy, API } from "@/services/AuthProxy";
+
 // value
 const router = useRouter();
 const isLoggedIn = ref(false);
@@ -72,19 +75,34 @@ const username = ref("");
 const email = ref("");
 const profileImage = ref("");
 
-// Condition
-if (
-  localStorage.getItem("token") &&
-  localStorage.getItem("username") &&
-  localStorage.getItem("email")
-) {
-  isLoggedIn.value = true;
-  username.value = localStorage.getItem("username");
-  email.value = localStorage.getItem("email");
-  profileImage.value = localStorage.getItem("profileImage");
-}
+onMounted(() => {
+  loadUserFromServer();
+});
 
 // Function
+const TestProxy = async () => {
+  const api = await new APIProxy(new API());
+  const emailApi = await api.request();
+  if (emailApi === "PASS") {
+    console.log("PASS");
+  } else if (emailApi === "FAIL") {
+    console.log("FAIL");
+  }
+};
+const loadUserFromServer = async () => {
+  try {
+    const user = await AuthService.loadUserFromServer();
+    if (user) {
+      isLoggedIn.value = true;
+      username.value = user.username;
+      email.value = user.email;
+      profileImage.value = user.profileImage || "";
+    }
+  } catch (error) {
+    alert("Please Login again");
+    logout();
+  }
+};
 
 const myProfile = () => {
   router.push("/profileUser");
@@ -98,14 +116,14 @@ const login = () => {
   router.push("/login");
 };
 
-const logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("username");
-  localStorage.removeItem("email");
-  localStorage.removeItem("profileImage");
-  username.value = "";
-  email.value = "";
-  isLoggedIn.value = false;
-  router.push("/");
+const logout = async () => {
+  const success = AuthService.logOut();
+  if (success) {
+    isLoggedIn.value = false;
+    username.value = "";
+    email.value = "";
+    profileImage.value = "";
+    router.push("/");
+  }
 };
 </script>

@@ -66,9 +66,10 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import axios from "axios";
 import { useRouter } from "vue-router";
-
+import { AuthService } from "@/services/AuthService";
+import { UserFactory } from "@/services/UserFactory";
+import { useAuthStore } from "@/stores/authStore";
 // Value
 const router = useRouter();
 const username = ref("");
@@ -78,6 +79,7 @@ const confirmpassword = ref("");
 const showPassword = ref(false);
 const valid = ref(false);
 const form = ref(null);
+const authStore = useAuthStore();
 // Value Rules
 const nameRules = [(v) => !!v || "Name is required"];
 
@@ -105,27 +107,22 @@ const register = async () => {
   const isvalid = await form.value.validate();
   if (isvalid) {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/user/register",
-        {
-          username: username.value,
-          email: email.value,
-          password: password.value,
-        }
-      );
+      const user = UserFactory.createUser({
+        username: username.value,
+        email: email.value,
+        password: password.value,
+      });
 
-      if (response.status === 200) {
+      const response = AuthService.register(user);
+
+      if (response) {
         alert("REGISTER SUCCESS PLEASE CHECK YOUR EMAIL");
         console.log("Register success please check your email");
-        router.push({ path: "/verify", query: { email: email.value } });
+        authStore.setEmail(email.value);
+        router.push({ path: "/verify" });
       }
     } catch (error) {
-      if (error.response && error.response.status === 400) {
-        alert(error.response.data.message);
-      } else {
-        alert("An error occurred while registering");
-      }
-      console.log(error);
+      alert(error.message);
     }
   }
 };
