@@ -67,8 +67,8 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-import { AuthService } from "@/services/AuthService";
-import { UserFactory } from "@/services/UserFactory";
+import authService from "@/services/AuthService";
+import userFactory from "@/services/UserFactory";
 import { useAuthStore } from "@/stores/authStore";
 // Value
 const router = useRouter();
@@ -107,13 +107,13 @@ const register = async () => {
   const isvalid = await form.value.validate();
   if (isvalid) {
     try {
-      const user = UserFactory.createUser({
+      const user = await userFactory.createUser({
         username: username.value,
         email: email.value,
         password: password.value,
       });
 
-      const response = AuthService.register(user);
+      const response = await authService.register(user);
 
       if (response) {
         alert("REGISTER SUCCESS PLEASE CHECK YOUR EMAIL");

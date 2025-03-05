@@ -65,8 +65,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { AuthService } from "@/services/AuthService";
-import { APIProxy, API } from "@/services/AuthProxy";
+import authService from "@/services/AuthService"; //เรียก class AuthService
+import apiProxy from "@/services/AuthProxy"; //เรียก class AuthProxy
 
 // value
 const router = useRouter();
@@ -80,18 +80,22 @@ onMounted(() => {
 });
 
 // Function
+const aaa = () => {
+  TestProxy();
+};
 const TestProxy = async () => {
-  const api = await new APIProxy(new API());
-  const emailApi = await api.request();
-  if (emailApi === "PASS") {
-    console.log("PASS");
-  } else if (emailApi === "FAIL") {
-    console.log("FAIL");
+  const emailApi = await apiProxy.request(); // เรียกclass proxy
+  if (emailApi.status) {
+    //ถ้า true
+    const emailProxy = emailApi.email; // ส่ง ชื่อ email
+    console.log("PASS" + " " + emailProxy);
+  } else {
+    console.log("FAIL"); // ถ้า false
   }
 };
 const loadUserFromServer = async () => {
   try {
-    const user = await AuthService.loadUserFromServer();
+    const user = await authService.loadUserFromServer();
     if (user) {
       isLoggedIn.value = true;
       username.value = user.username;
@@ -117,7 +121,7 @@ const login = () => {
 };
 
 const logout = async () => {
-  const success = AuthService.logOut();
+  const success = authService.logOut();
   if (success) {
     isLoggedIn.value = false;
     username.value = "";

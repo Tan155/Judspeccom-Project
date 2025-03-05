@@ -111,8 +111,8 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign(
       {
-        id: user.id,
-        username: user.username,
+        // id: user.id,
+        // username: user.username,
         email: user.email,
       },
       'secret_key',
@@ -232,13 +232,15 @@ router.post('/resetPassword', async (req, res) => {
 router.get('/check', async (req, res) => {
   try {
     const token = req.cookies.token
-    if (!token) return res.status(201).json({ email: 'FAIL' })
+    if (!token) return res.status(201).json({ email: false })
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret_key')
     const user = await User.findOne({ email: decoded.email })
     if (!user) return res.status(201).json({ email: 'FAIL' })
-    return res.status(200).json({ email: 'PASS' })
+    return res.status(200).json({ email: user.email, status: true })
   } catch (error) {
-    return res.status(401).json({ email: 'FAIL', error: 'Invalid token' })
+    return res
+      .status(401)
+      .json({ email: user.email, status: true, error: 'Invalid token' })
   }
 })
 

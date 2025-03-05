@@ -8,7 +8,7 @@
     >
       <h3 class="text-h6 mb-4">Verify Your Account</h3>
       <div class="text-body-2">
-        We sent a verification code to {{ authStore.email }}
+        We sent a verification code to {{ authStore.getEmail }}
         <br />
         Please chceck your email and paste the code below.
       </div>
@@ -36,7 +36,7 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/authStore";
-import { AuthService } from "@/services/AuthService";
+import authService from "@/services/AuthService";
 
 // Value
 const router = useRouter();
@@ -47,7 +47,7 @@ const email = ref("");
 // Function
 const verifyOtp = async () => {
   try {
-    const response = await AuthService.verifyOtp(authStore.email, otp.value);
+    const response = await authService.verifyOtp(authStore.getEmail, otp.value);
 
     alert(response.message);
     if (response.redirectTo === "/login") {

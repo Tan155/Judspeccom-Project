@@ -91,7 +91,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { AuthService } from "@/services/AuthService";
+import authService from "@/services/AuthService";
 
 // value
 const selectedItem = ref("profile");
@@ -120,7 +120,7 @@ onMounted(async () => {
 // Function
 const loadUserFromServer = async () => {
   try {
-    const user = await AuthService.loadUserFromServer();
+    const user = await authService.loadUserFromServer();
     if (user) {
       isVisit.value = true;
       username.value = user.username;
@@ -145,7 +145,7 @@ const uploadImage = async (event) => {
   reader.onload = async () => {
     try {
       uploading.value = true;
-      const newProfileImage = await AuthService.uploadProfileImage(
+      const newProfileImage = await authService.uploadProfileImage(
         email.value,
         reader.result
       );

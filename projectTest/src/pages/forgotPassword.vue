@@ -36,7 +36,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { AuthService } from "@/services/AuthService";
+import authService from "@/services/AuthService";
 import { useAuthStore } from "@/stores/authStore";
 
 // value
@@ -56,7 +56,7 @@ const resetPassword = async () => {
 
   if (isValid) {
     try {
-      const response = await AuthService.forgotPassword(email.value);
+      const response = await authService.forgotPassword(email.value);
       if (response.message) {
         alert(response.message);
         authStore.setEmail(email.value);

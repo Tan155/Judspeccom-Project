@@ -54,7 +54,7 @@
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/authStore";
-import { AuthService } from "@/services/AuthService";
+import authService from "@/services/AuthService";
 
 //value
 const route = useRoute();
@@ -87,7 +87,7 @@ const resetPassword = async () => {
 
   if (isvalid) {
     try {
-      const response = await AuthService.resetPasswordUser(
+      const response = await authService.resetPasswordUser(
         authStore.email,
         password.value
       );

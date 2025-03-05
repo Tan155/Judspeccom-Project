@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export class AuthService {
+class AuthService {
   // register
-  static async register(user) {
+  async register(user) {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/register",
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   // Authentication
-  static async verifyOtp(email, otp) {
+  async verifyOtp(email, otp) {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/verify",
@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   // loadUserFromServer
-  static async loadUserFromServer() {
+  async loadUserFromServer() {
     try {
       const response = await axios.get("http://localhost:5000/api/user/auth", {
         withCredentials: true,
@@ -66,7 +66,7 @@ export class AuthService {
   }
 
   // Login
-  static async logIn(username, password) {
+  async logIn(username, password) {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/login",
@@ -87,7 +87,7 @@ export class AuthService {
   }
 
   // Logout
-  static async logOut() {
+  async logOut() {
     try {
       await axios.post(
         "http://localhost:5000/api/user/logout",
@@ -102,7 +102,7 @@ export class AuthService {
   }
 
   // Upload Profile Image
-  static async uploadProfileImage(email, imageBase64) {
+  async uploadProfileImage(email, imageBase64) {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/upload",
@@ -121,7 +121,7 @@ export class AuthService {
   }
 
   // forgotPassword
-  static async forgotPassword(email) {
+  async forgotPassword(email) {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/forgotPassword",
@@ -143,7 +143,7 @@ export class AuthService {
   }
 
   // Reset Password
-  static async resetPasswordUser(email, password) {
+  async resetPasswordUser(email, password) {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/resetPassword",
@@ -162,3 +162,6 @@ export class AuthService {
     }
   }
 }
+
+const authService = new AuthService();
+export default authService;

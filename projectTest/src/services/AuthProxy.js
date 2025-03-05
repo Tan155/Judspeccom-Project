@@ -1,5 +1,5 @@
 import axios from "axios";
-export class API {
+class API {
   constructor() {
     this.email = null;
   }
@@ -8,7 +8,7 @@ export class API {
       withCredentials: true,
     });
     if (response.status === 200 || response.status === 201) {
-      this.email = response.data.email;
+      this.email = response.data;
       return this.email;
     }
     return null;
@@ -19,7 +19,7 @@ export class API {
   }
 }
 
-export class APIProxy {
+class APIProxy {
   constructor(api) {
     this.api = api;
   }
@@ -33,3 +33,7 @@ export class APIProxy {
     }
   }
 }
+
+const apiProxy = new APIProxy(new API());
+
+export default apiProxy;

@@ -1,4 +1,4 @@
-export class User {
+class User {
   constructor({ username, email, password }) {
     this.username = username;
     this.email = email;
@@ -6,8 +6,11 @@ export class User {
   }
 }
 
-export class UserFactory {
-  static createUser(userData) {
+class UserFactory {
+  createUser(userData) {
     return new User(userData);
   }
 }
+
+const userFactory = new UserFactory();
+export default userFactory;

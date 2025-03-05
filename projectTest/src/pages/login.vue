@@ -46,9 +46,8 @@
 
 <script setup>
 import { ref } from "vue";
-import axios from "axios";
 import { useRouter } from "vue-router";
-import { AuthService } from "@/services/AuthService";
+import authService from "@/services/AuthService";
 
 // variable
 const router = useRouter();
@@ -72,7 +71,7 @@ const togglePassword = () => {
 
 const login = async () => {
   try {
-    const response = await AuthService.logIn(username.value, password.value);
+    const response = await authService.logIn(username.value, password.value);
 
     if (response.redirectTo) {
       alert(response.message);
