@@ -19,11 +19,8 @@ const corsOptions = {
 }
 app.use(cookieParser())
 app.use(express.json())
-<<<<<<< HEAD
+
 app.use(cors(corsOptions))
-=======
-app.use()
->>>>>>> tools
 
 // MongoDB
 const dburl = 'mongodb://localhost:27017/Judspeccom'
