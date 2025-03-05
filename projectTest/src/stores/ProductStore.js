@@ -12,8 +12,8 @@ import {
   mdiServer,
   mdiFan,
   mdiMonitorScreenshot,
-  mdiAlphaXCircle,
-  mdiDeleteCircle,
+  // mdiAlphaXCircle,
+  // mdiDeleteCircle,
 } from "@mdi/js";
 
 export const useProductStore = defineStore("productStore", () => {
@@ -173,6 +173,17 @@ export const useProductStore = defineStore("productStore", () => {
   const m2Count = computed(() => m2s.value.length);
   const caseCount = computed(() => cases.value.length);
 
+  const superLength = computed(
+    () =>
+      cpuCount.value +
+      gpuCount.value +
+      mainboardCount.value +
+      ramCount.value +
+      psuCount.value +
+      m2Count.value +
+      caseCount.value
+  );
+
   const allProducts = computed(() => [
     ...cpus.value,
     ...gpus.value,
@@ -182,6 +193,16 @@ export const useProductStore = defineStore("productStore", () => {
     ...m2s.value,
     ...cases.value,
   ]);
+
+  let cmn = ref(0);
+
+  const setCurrentMenu = (index) => {
+    cmn.value = index;
+  };
+
+  const getCurrentMenu = () => {
+    return cmn.value;
+  };
 
   return {
     cpus,
@@ -210,5 +231,8 @@ export const useProductStore = defineStore("productStore", () => {
     m2Count,
     caseCount,
     Menu,
+    superLength,
+    setCurrentMenu,
+    getCurrentMenu,
   };
 });

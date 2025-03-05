@@ -4,9 +4,9 @@ const caseSchema = new mongoose.Schema({
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
-  price: { type: Number, required: true }, // ✅ แปลงราคาเป็นตัวเลข
+  price: { type: Number, required: true }, // convert string to number.
   additionalDetails: {
-    Brand: { type: String, default: 'Unknown' }, // ✅ ป้องกัน undefined
+    Brand: { type: String, default: 'Unknown' },
     Model: { type: String, required: true },
     FormFactor: { type: String, required: true },
     MainboardSupport: { type: String, required: true },

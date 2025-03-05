@@ -6,10 +6,13 @@
         Home
       </router-link>
       <v-spacer />
-      <router-link to="Computerjudspec">
-        Tools
+      <router-link to="/DrawerTool">
+        Drawer_Component
       </router-link>
       <v-spacer />
+      <router-link to="toolV1">
+        ToolV1
+      </router-link>
 
       <!-- Menu REGISTER AND LOGIN -->
 
@@ -82,9 +85,9 @@ const profileImage = ref("");
 
 // Condition
 if (
-  localStorage.getItem("token") &&
+  localStorage.getItem("token") && // for check auth
   localStorage.getItem("username") &&
-  localStorage.getItem("email")
+  localStorage.getItem("email") // for user || check auth
 ) {
   isLoggedIn.value = true;
   username.value = localStorage.getItem("username");

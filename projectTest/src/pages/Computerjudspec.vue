@@ -86,7 +86,7 @@
                           {{ product.price.toFixed(2) }} ฿
                         </v-col>
                         <v-col cols="2">
-                          <v-btn color="success">
+                          <v-btn color="success" @click="openDialog(product)">
                             Info
                           </v-btn>
                         </v-col>
@@ -94,6 +94,23 @@
                     </v-card>
                   </v-col>
                 </v-row>
+                <template v-if="openTest === 2">
+                  <v-dialog v-model="dialog" width="auto">
+                    <v-card max-width="600" prepend-icon="mdi-database" title="Product Info">
+                      <v-card-text>
+                        <p><strong>Name:</strong> {{ selectedProduct?.name || "N/A" }}</p>
+                        <p><strong>Price:</strong> {{ selectedProduct?.price?.toFixed(2) || "0.00" }} ฿</p>
+                        <p>
+                          <strong>Description:</strong> {{ selectedProduct?.description || "No description available"
+                          }}
+                        </p>
+                      </v-card-text>
+                      <template #actions>
+                        <v-btn class="ms-auto" text="Ok" @click="dialog = false" />
+                      </template>
+                    </v-card>
+                  </v-dialog>
+                </template>
                 <!-- แสดง "No products found." ถ้าพิมพ์แล้วแต่ไม่เจอ -->
                 <v-alert v-else-if="filteredProducts !== null && filteredProducts.length === 0" type="info">
                   No products found.
@@ -189,9 +206,16 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiSwapVertical, mdiArrowDown, mdiArrowUp, mdiLocationExit } from '@mdi/js';
 import { useProductStore } from '@/stores/ProductStore'
 
-const openTest = ref(0);
+const openTest = ref(2);
+const dialog = ref(false);
 const products = ref(null);
+const selectedProduct = ref(null);
 const productStore = useProductStore()
+
+const openDialog = (product) => {
+  selectedProduct.value = product;
+  dialog.value = true;
+};
 
 onMounted(() => {
   productStore.fetchAllProducts() // โหลดข้อมูลทั้งหมด
