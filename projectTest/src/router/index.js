@@ -9,6 +9,8 @@ import { createRouter, createWebHistory } from "vue-router/auto";
 import { setupLayouts } from "virtual:generated-layouts";
 import { routes } from "vue-router/auto-routes";
 
+import DrawerTool from "@/components/DrawerTool.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -16,6 +18,7 @@ const router = createRouter({
       path: "/",
       redirect: "/home", // การ redirect ไปที่ /home
     },
+    { path: "/DrawerTool", component: DrawerTool },
     ...setupLayouts(routes),
   ],
 });

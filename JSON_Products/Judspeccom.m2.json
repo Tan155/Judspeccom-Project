@@ -1,0 +1,228 @@
+[{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb0"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product6024_800.jpg",
+  "name": "M.2 (เอสเอสดี) LEXAR NM620 256GB PCIe/NVMe GEN3x4 (LNM620X256G-RNNNG)",
+  "detail": "",
+  "price": 770,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "FormFactor": "M.2 2280",
+    "Capacity": "256GB",
+    "Interface": "PCI Express 3.0",
+    "ReadSpeed": "3,300 MB/s",
+    "WriteSpeed": "1,300 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb1"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product38704_800.png",
+  "name": "M.2 (เอสเอสดี) LEXAR x iHAVECPU NM620 256GB PCIe/NVMe GEN3x4 (LNM620X256G-RNNBG)",
+  "detail": "",
+  "price": 770,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "FormFactor": "M.2 2280",
+    "Capacity": "256GB",
+    "Interface": "PCI Express 3.0",
+    "ReadSpeed": "3,500 MB/s",
+    "WriteSpeed": "1,300 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb2"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products45365_800.jpg",
+  "name": "M.2 (เอสเอสดี) WD BLUE SN580 250GB PCIe/NVMe (WDS250G3B0E)",
+  "detail": "",
+  "price": 880,
+  "additionalDetails": {
+    "Brand": "WD",
+    "FormFactor": "M.2 2280",
+    "Capacity": "250GB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "4,000 MB/s",
+    "WriteSpeed": "2,000 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb3"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80133_800.jpg",
+  "name": "M.2 (เอสเอสดี) BIWIN OPAL NV3500 512GB PCIe/NVMe GEN3x4 (BM350NN500G-RGX) (5Y)",
+  "detail": "",
+  "price": 1190,
+  "additionalDetails": {
+    "Brand": "BIWIN",
+    "FormFactor": "M.2 2280",
+    "Capacity": "512GB",
+    "Interface": "PCI Express 3.0",
+    "ReadSpeed": "3,500 MB/s",
+    "WriteSpeed": "2,500 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb4"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product52108_800.jpg",
+  "name": "M.2 (เอสเอสดี) MSI SPATIUM M450 500GB PCIe/NVMe GEN4x4",
+  "detail": "",
+  "price": 1190,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "FormFactor": "M.2 2280",
+    "Capacity": "500GB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "3,600 MB/s",
+    "WriteSpeed": "3,000 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb5"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products69063_800.jpg",
+  "name": "M.2 (เอสเอสดี) WD BLUE SN580 500GB PCIe/NVMe (WDS500G3B0E) (5Y)",
+  "detail": "",
+  "price": 1290,
+  "additionalDetails": {
+    "Brand": "WD",
+    "FormFactor": "M.2 2280",
+    "Capacity": "500GB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "4,000 MB/s",
+    "WriteSpeed": "3,600 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb6"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product9363_800.jpg",
+  "name": "M.2 (เอสเอสดี) PNY CS2241 500GB PCIe/NVMe GEN4x4 (M280CS2241-500-CL)",
+  "detail": "",
+  "price": 1390,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "FormFactor": "M.2 2280",
+    "Capacity": "500GB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "4,700 MB/s",
+    "WriteSpeed": "1,700 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb7"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products55857_800.jpg",
+  "name": "M.2 (เอสเอสดี) KINGSTON NV3 500GB PCIe 4/NVMe M.2 2280 (SNV3S/500G) (3Y)",
+  "detail": "",
+  "price": 1490,
+  "additionalDetails": {
+    "Brand": "KINGSTON",
+    "FormFactor": "M.2 2280",
+    "Capacity": "500GB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "5,000 MB/s",
+    "WriteSpeed": "3,000 MB/s",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb8"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product54588_800.png",
+  "name": "M.2 (เอสเอสดี) LEXAR x iHAVECPU NM620 1TB PCIe/NVMe GEN3x4 (LNM620X001T-RNNB)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "FormFactor": "M.2 2280",
+    "Capacity": "1TB",
+    "Interface": "PCI Express 3.0\nPCI Express 4.0",
+    "ReadSpeed": "3,500 MB/s",
+    "WriteSpeed": "3,000 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cb9"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products74833_800.jpg",
+  "name": "M.2 (เอสเอสดี) WD BLUE SN580 1TB PCIe/NVMe (WDS100T3B0E) (5Y)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "WD",
+    "FormFactor": "M.2 2280",
+    "Capacity": "1TB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "4,150 MB/s",
+    "WriteSpeed": "4,150 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cba"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products60202_800.jpg",
+  "name": "M.2 (เอสเอสดี) KINGSTON NV3 1TB PCIe 4/NVMe M.2 2280 (SNV3S/1000G) (3Y)",
+  "detail": "",
+  "price": 2090,
+  "additionalDetails": {
+    "Brand": "KINGSTON",
+    "FormFactor": "M.2 2280",
+    "Capacity": "1TB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "6,000 MB/s",
+    "WriteSpeed": "4,000 MB/s",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af59be32bda3f06f403cbb"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product16494_800.png",
+  "name": "M.2 (เอสเอสดี) GIGABYTE AORUS GEN4 7300 2TB PCIe 4x4/NVMe (AG4732TB)",
+  "detail": "",
+  "price": 6390,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "FormFactor": "M.2 2280",
+    "Capacity": "2TB",
+    "Interface": "PCI Express 4.0",
+    "ReadSpeed": "7,300 MB/s",
+    "WriteSpeed": "6,850 MB/s",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+}]

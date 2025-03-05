@@ -6,7 +6,10 @@ const mongoose = require('mongoose')
 
 // import
 const User = require('./model/userModel')
+const Product = require('./model/productModel')
+
 const routerUser = require('./routes/user')
+const routerProduct = require('./routes/products')
 
 const app = express()
 
@@ -16,7 +19,11 @@ const corsOptions = {
 }
 app.use(cookieParser())
 app.use(express.json())
+<<<<<<< HEAD
 app.use(cors(corsOptions))
+=======
+app.use()
+>>>>>>> tools
 
 // MongoDB
 const dburl = 'mongodb://localhost:27017/Judspeccom'
@@ -30,6 +37,7 @@ mongoose
   })
 
 app.use('/api/user', routerUser)
+app.use('/api/products', routerProduct)
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 

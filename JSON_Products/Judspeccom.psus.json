@@ -1,0 +1,980 @@
+[{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ec9c"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product36175_800.png",
+  "name": "(อุปกรณ์จ่ายไฟ) AZZA PSAZ 550W (80+BRONZE) (3Y)",
+  "detail": "",
+  "price": 1290,
+  "additionalDetails": {
+    "Brand": "AZZA",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "550 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Unknown",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ec9d"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products39843_800.png",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) MSI MAG A550BN 550W (80+BRONZE) (5Y)",
+  "detail": "",
+  "price": 1290,
+  "additionalDetails": {
+    "Brand": "MSI",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "550 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "8-4A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Protection OCP/ OVP/ OPP/ SCP/ OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ec9e"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product9619_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) AEROCOOL UNITED POWER 600W (80+WHITE) (3Y)",
+  "detail": "",
+  "price": 1390,
+  "additionalDetails": {
+    "Brand": "AEROCOOL",
+    "EnergyEfficient": "80 PLUS WHITE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "600 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "4.5 A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "4",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Unknown",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ec9f"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product49466_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) MSI MAG A600DN 600W (80+WHITE)",
+  "detail": "",
+  "price": 1390,
+  "additionalDetails": {
+    "Brand": "MSI",
+    "EnergyEfficient": "80 PLUS WHITE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "600 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "1 x 4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca0"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products50833_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE GP-P550SS 550W (80+SILVER) (3Y)",
+  "detail": "",
+  "price": 1490,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS SILVER",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "550 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "155-240 V",
+    "InputCurrent": "6.3 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 140 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca1"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products66171_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE GP-P550SS ICE 550W (80+SILVER) WHITE (3Y)",
+  "detail": "",
+  "price": 1590,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS SILVER",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "550 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "155-240 V",
+    "InputCurrent": "6.3 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca2"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products77679_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) AZZA PSAZ 650W (80+BRONZE) (3Y)",
+  "detail": "",
+  "price": 1590,
+  "additionalDetails": {
+    "Brand": "AZZA",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V\n200-240 V",
+    "InputCurrent": "10 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "1 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 165 x 86 mm",
+    "Protections": "Protection OPP/UVP/OVP/SCP/OCP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca3"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product2371_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) MSI MAG A650BN 650W (80+BRONZE)",
+  "detail": "",
+  "price": 1690,
+  "additionalDetails": {
+    "Brand": "MSI",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "10 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Unknown",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca4"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products46120_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) THERMALTAKE SMART BX1 650W (80+BRONZE) (5Y)",
+  "detail": "",
+  "price": 1690,
+  "additionalDetails": {
+    "Brand": "THERMALTAKE",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "12 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 140 x 86 mm",
+    "Protections": "Unknown",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca5"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products55878_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) CORSAIR CX650 650W (80+BRONZE) (5Y)",
+  "detail": "",
+  "price": 1690,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "10A-5A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "1 x 6+2-pin",
+    "SATAConnector": "3",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 125 x 86 mm.",
+    "Protections": "Unknown",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca6"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products77543_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) DEEPCOOL PK650D 650W (80+ BRONZE) (5Y)",
+  "detail": "",
+  "price": 1690,
+  "additionalDetails": {
+    "Brand": "DEEPCOOL",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "12 - 6A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "7",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 140 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca7"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products49254_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE GP-P650SS 650W (80+SILVER) (3Y)",
+  "detail": "",
+  "price": 1790,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS SILVER",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "155-240 V",
+    "InputCurrent": "6.3 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca8"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products68525_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE GP-P650SS ICE 650W (80+SILVER) WHITE (3Y)",
+  "detail": "",
+  "price": 1890,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS SILVER",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "155-240 V",
+    "InputCurrent": "6.3 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566eca9"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products77675_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) AZZA PSAZ 750W (80+BRONZE) (3Y)",
+  "detail": "",
+  "price": 1890,
+  "additionalDetails": {
+    "Brand": "AZZA",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "750 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V\n200-240 V",
+    "InputCurrent": "10 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 165 x 86 mm",
+    "Protections": "Protection OPP/UVP/OVP/SCP/OCP",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecaa"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product12843_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) ASUS TUF GAMING 650B - 650W (80+BRONZE) (6Y)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "ASUS",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "650 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "N/A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24/20-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "5",
+    "FanSize": "135 mm",
+    "Dimensions": "Unknown",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "6 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecab"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products71902_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) FSP VITA BD 750W (80+BRONZE) (5Y)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "FSP",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "750 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "200-240 V",
+    "InputCurrent": "6 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "1 x 4+4-Pin",
+    "PCIeConnector": "2 x 6+2-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecac"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products71909_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) COOLER MASTER MWE 750W BRONZE - V2 230V (80+BRONZE) (MPE-7501-ACABW-BTH) (5Y)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "COOLER MASTER",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "750 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "200-240 V",
+    "InputCurrent": "10 A 6 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "1 x 4+4-Pin\n1 x 8-Pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "Protection OCP/ OVP/ OPP/ SCP/ OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecad"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80514_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) DEEPCOOL PL750D 750W (80+ BRONZE) (5Y)",
+  "detail": "",
+  "price": 2290,
+  "additionalDetails": {
+    "Brand": "DEEPCOOL",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "750 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "Unknown",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "3 x 6+2-pin\n1 x 16-pin",
+    "SATAConnector": "8",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "Unknown",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecae"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products58128_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) MSI MAG A750BN PCIE5 750W (80+BRONZE) (7Y)",
+  "detail": "",
+  "price": 2390,
+  "additionalDetails": {
+    "Brand": "MSI",
+    "EnergyEfficient": "80 PLUS BRONZE",
+    "Modular": "Non Modular",
+    "ContinuousPowerW": "750 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "2 x 6+2-pin\n1 x 16-pin",
+    "SATAConnector": "5",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "Protection OCP/ OVP/ OPP/ SCP/ OTP",
+    "Warranty": "7 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecaf"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products57112_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE UD850GM 850W (80+GOLD)",
+  "detail": "",
+  "price": 3490,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "12 - 6A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "8",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 140 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb0"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products75627_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) THERMALTAKE TOUGHPOWER GT 850W 80+GOLD (5Y)",
+  "detail": "",
+  "price": 3590,
+  "additionalDetails": {
+    "Brand": "THERMALTAKE",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "10 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin\n1 x 12+4-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 140 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb1"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products74838_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) THERMALTAKE TOUGHPOWER GT SNOW 850W 80+GOLD (5Y)",
+  "detail": "",
+  "price": 3790,
+  "additionalDetails": {
+    "Brand": "THERMALTAKE",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "10 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin\n1 x 12+4-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "150 x 140 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb2"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80543_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) BE QUIET PURE POWER 12 M 850W (80+ GOLD)",
+  "detail": "",
+  "price": 3890,
+  "additionalDetails": {
+    "Brand": "BE QUIET",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "12 - 6A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "1 x 4+4-Pin\n1 x 8-Pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Unknown",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb3"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80523_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) CORSAIR RM850E - 850W (80+GOLD) (CP-9020296-NA) (7Y)",
+  "detail": "",
+  "price": 4450,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "10A-5A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "2 x 6+2-pin\n1 x 16-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "Unknown",
+    "Warranty": "7 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb4"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product38666_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) ENERMAX REVOLUTION D.F.X - 1050W (80+GOLD) FULLY MODULAR",
+  "detail": "",
+  "price": 4990,
+  "additionalDetails": {
+    "Brand": "ENERMAX",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1050 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "13 - 6.5 A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin",
+    "SATAConnector": "12",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "5 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb5"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80576_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) ASUS ROG LOKI 750P SFX-L - 750W (80+PLATINUM) (10Y)",
+  "detail": "",
+  "price": 4990,
+  "additionalDetails": {
+    "Brand": "ASUS",
+    "EnergyEfficient": "80 PLUS PLATINUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "750 Watt",
+    "FormFactor": "SFX-L",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "Unknown",
+    "MBConnector": "1 x 24/20-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "1 x 16-pin\n3 x 8-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "125 × 125 × 63.5 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb6"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products79909_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) COOLER MASTER V850 SFX GOLD - 850W (80+GOLD) (WHITE EDITION) (MPY-8501-SFHAGV-3EW) (10Y)",
+  "detail": "",
+  "price": 5390,
+  "additionalDetails": {
+    "Brand": "COOLER MASTER",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "SFX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "12 - 6A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "1 x 4+4-Pin\n1 x 8-Pin",
+    "PCIeConnector": "4 x 6+2-pin\n1 x 12V-2x6",
+    "SATAConnector": "8",
+    "FanSize": "92 mm",
+    "Dimensions": "125 x 100 x 63.5 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb7"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80535_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE UD1000GM PG5 - 1000W 80+ GOLD (ATX)",
+  "detail": "",
+  "price": 5890,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1000 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "15 A 6 A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 6+2-pin\n1 x 16-pin",
+    "SATAConnector": "8",
+    "FanSize": "120 mm",
+    "Dimensions": "140 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb8"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products39917_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) CORSAIR RM1000E 1000W 80+GOLD",
+  "detail": "",
+  "price": 5960,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "EnergyEfficient": "80 PLUS GOLD",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1000 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "12 - 6A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "3 x 6+2-pin",
+    "SATAConnector": "7",
+    "FanSize": "120 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Unknown",
+    "Warranty": "7 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecb9"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products79893_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) CORSAIR SF850 - 850W (80+ PLATINUM)",
+  "detail": "",
+  "price": 7290,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "EnergyEfficient": "80 PLUS PLATINUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "SFX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "10A-5A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "3 x 6+2-pin\n1 x 16-pin",
+    "SATAConnector": "8",
+    "FanSize": "92 mm",
+    "Dimensions": "125 x 100 x 63.5 mm",
+    "Protections": "Unknown",
+    "Warranty": "7 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecba"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80626_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) ASUS ROG LOKI 850P SFX-L-GAMING - 850W (80+PLATINUM) (10Y)",
+  "detail": "",
+  "price": 8900,
+  "additionalDetails": {
+    "Brand": "ASUS",
+    "EnergyEfficient": "80 PLUS PLATINUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "850 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "Unknown",
+    "MBConnector": "1 x 24/20-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "1 x 16-pin\n3 x 8-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "125 × 125 × 63.5 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecbb"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product11636_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) GIGABYTE AORUS AP1200PM 1200W (80+PLATINUM)",
+  "detail": "",
+  "price": 11900,
+  "additionalDetails": {
+    "Brand": "GIGABYTE",
+    "EnergyEfficient": "80 PLUS PLATINUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1200 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "15-7.5A",
+    "InputFrequency": "50-60Hz",
+    "MBConnector": "1 x 20+4-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "10 x 6+2-pin",
+    "SATAConnector": "16",
+    "FanSize": "140 mm",
+    "Dimensions": "Unknown",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecbc"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products65014_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) ASUS ROG LOKI 1200T SFX-L - 1200W (80+TITANIUM) (10Y)",
+  "detail": "",
+  "price": 13990,
+  "additionalDetails": {
+    "Brand": "ASUS",
+    "EnergyEfficient": "80 PLUS TITANIUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1200 Watt",
+    "FormFactor": "SFX-L",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "20 - 8 A",
+    "InputFrequency": "Unknown",
+    "MBConnector": "1 x 24/20-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "4 x 8-pin\n2 x 16-pin",
+    "SATAConnector": "6",
+    "FanSize": "120 mm",
+    "Dimensions": "125 × 125 × 63.5 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecbd"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products40282_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) CORSAIR HX1500I - 1500W (80+PLATINUM) (ATX) (10Y)",
+  "detail": "",
+  "price": 14990,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "EnergyEfficient": "80 PLUS PLATINUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1500 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "Unknown",
+    "InputCurrent": "10 A",
+    "InputFrequency": "47-63Hz",
+    "MBConnector": "1 x 24-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "1 x 12+4-pin",
+    "SATAConnector": "8",
+    "FanSize": "140 mm",
+    "Dimensions": "Unknown",
+    "Protections": "Unknown",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af5c76b3ec81175566ecbe"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80564_800.jpg",
+  "name": "PSU (อุปกรณ์จ่ายไฟ) ASUS ROG THOR 1600T GAMING - 1600W (80+TITANIUM)",
+  "detail": "",
+  "price": 16900,
+  "additionalDetails": {
+    "Brand": "ASUS",
+    "EnergyEfficient": "80 PLUS TITANIUM",
+    "Modular": "Fully Modular",
+    "ContinuousPowerW": "1600 Watt",
+    "FormFactor": "ATX",
+    "InputVoltage": "100-240 V",
+    "InputCurrent": "Unknown",
+    "InputFrequency": "Unknown",
+    "MBConnector": "1 x 24/20-pin",
+    "CPUConnector": "2 x 4+4-pin",
+    "PCIeConnector": "10 x 6+2-pin\n1 x 16-pin",
+    "SATAConnector": "12",
+    "FanSize": "135 mm",
+    "Dimensions": "190 x 150 x 86 mm",
+    "Protections": "OVP/OPP/SCP/UVP/OCP/OTP",
+    "Warranty": "10 Years"
+  },
+  "__v": 0
+}]

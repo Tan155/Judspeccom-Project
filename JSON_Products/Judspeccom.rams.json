@@ -1,0 +1,352 @@
+[{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad2"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product29982_800.png",
+  "name": "RAM (แรม) T-FORCE VULCAN 8GB (8x1) DDR5 5200MHz BLACK (FLRD58G5200HC40C01)",
+  "detail": "",
+  "price": 990,
+  "additionalDetails": {
+    "Brand": "T-FORCE",
+    "MemorySeries": "T-FORCE VULCAN",
+    "MemoryCapacity": "8GB (8GBx1)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL40",
+    "TestedLatency": "40-40-40-76",
+    "SPDVoltage": "1.25 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad3"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products73362_800.jpg",
+  "name": "RAM (แรม) GeIL ORION PHANTOM GAMING 16GB (8x2) DDR4 3200MHz GRAY (GAOG416GB3200C16BDC) (LT)",
+  "detail": "",
+  "price": 1050,
+  "additionalDetails": {
+    "Brand": "GEIL",
+    "MemorySeries": "ORION",
+    "MemoryCapacity": "16GB (2x 8GB)",
+    "Speed": "3200MHz",
+    "MemoryType": "DDR4",
+    "CasLatency": "CL16",
+    "TestedLatency": "Unknown",
+    "SPDVoltage": "Unknown",
+    "MemoryColor": "Unknown",
+    "Warranty": "Unknown"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad4"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product1942_800.jpg",
+  "name": "RAM (แรม) CORSAIR VENGEANCE LPX 16GB (8x2) DDR4 3200MHz BLACK (CMK16GX4M2E3200C16)",
+  "detail": "",
+  "price": 1090,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "MemorySeries": "VENGEANCE LPX",
+    "MemoryCapacity": "16GB (8GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR4",
+    "CasLatency": "CL16",
+    "TestedLatency": "16-20-20-38",
+    "SPDVoltage": "1.35 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad5"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product7613_800.jpg",
+  "name": "RAM (แรม) KINGSTON FURY BEAST 16GB (8x2) DDR4 3200MHz BLACK (KF432C16BBK2/16)",
+  "detail": "",
+  "price": 1090,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "MemorySeries": "KF432C16BBK2/16",
+    "MemoryCapacity": "16GB (8GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR4",
+    "CasLatency": "CL16",
+    "TestedLatency": "16-18-18",
+    "SPDVoltage": "1.2 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad6"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product12128_800.jpg",
+  "name": "RAM NOTEBOOK (แรมโน้ตบุ๊ค) ADATA 8GB 4800MHz DDR5 (AD5S48008G-S)",
+  "detail": "",
+  "price": 1150,
+  "additionalDetails": {
+    "Brand": "ADATA",
+    "MemorySeries": "AD5S48008G-S",
+    "MemoryCapacity": "8GB (8GBx1)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR5",
+    "CasLatency": "Unknown",
+    "TestedLatency": "Unknown",
+    "SPDVoltage": "1.1 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad7"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products74775_800.jpg",
+  "name": "RAM (แรม) PATRIOT VIPER VENOM 16GB (8x2) DDR5 5600MHz (9DE00304-PVV516G560C40K) (LT)",
+  "detail": "",
+  "price": 1890,
+  "additionalDetails": {
+    "Brand": "PATRIOT",
+    "MemorySeries": "Viper Venom",
+    "MemoryCapacity": "16GB (8GBx2)",
+    "Speed": "5600MHz",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL40",
+    "TestedLatency": "40-40-40-77",
+    "SPDVoltage": "1.25 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad8"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product2024_800.jpg",
+  "name": "RAM (แรม) CORSAIR VENGEANCE LPX 32GB (16x2) DDR4 3200MHz BLACK (CMK32GX4M2E3200C16)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "MemorySeries": "VENGEANCE LPX",
+    "MemoryCapacity": "32GB (16GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR4",
+    "CasLatency": "CL16",
+    "TestedLatency": "16-20-20-38",
+    "SPDVoltage": "1.35 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ad9"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product9273_800.jpg",
+  "name": "RAM (แรม) KINGSTON FURY BEAST 16GB (8x2) DDR5 5600MHz BLACK (KF556C40BBK2-16)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "Unknown",
+    "MemorySeries": "FURY BEAST",
+    "MemoryCapacity": "16GB (8GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL40",
+    "TestedLatency": "40-40-40",
+    "SPDVoltage": "1.25 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ada"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product12321_800.jpg",
+  "name": "RAM (แรม) KINGSTON FURY BEAST 32GB (16x2) DDR4 3200MHz BLACK (KF432C16BBK2/32)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "KINGSTON",
+    "MemorySeries": "FURY BEAST",
+    "MemoryCapacity": "32GB (16GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR4",
+    "CasLatency": "CL16",
+    "TestedLatency": "16-20-20",
+    "SPDVoltage": "1.2 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3adb"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products55793_800.jpg",
+  "name": "RAM (แรม) GeIL ORION V 16GB (8x2) DDR5 5600MHz WHITE (GAVW516GB5600C38ADC) (LT)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "GEIL",
+    "MemorySeries": "ORION V",
+    "MemoryCapacity": "16GB (2x 8GB)",
+    "Speed": "5600MHz",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL38",
+    "TestedLatency": "38-44-44-84",
+    "SPDVoltage": "1.35 V",
+    "MemoryColor": "WHITE",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3adc"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products72129_800.jpg",
+  "name": "RAM (แรม) CORSAIR VENGEANCE LPX 32GB (16x2) DDR4 3200MHz WHITE (CMK32GX4M2E3200C16W) (LT)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "MemorySeries": "VENGEANCE LPX",
+    "MemoryCapacity": "32GB (16GBx2)",
+    "Speed": "3200MHz",
+    "MemoryType": "DDR4",
+    "CasLatency": "CL16",
+    "TestedLatency": "16-20-20-38",
+    "SPDVoltage": "1.2 V",
+    "MemoryColor": "WHITE",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3add"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products77520_800.jpg",
+  "name": "RAM (แรม) GeIL ORION V 16GB (8x2) DDR5 5600MHz GRAY (GAVG516GB5600C38ADC) (LT)",
+  "detail": "",
+  "price": 1990,
+  "additionalDetails": {
+    "Brand": "GEIL",
+    "MemorySeries": "ORION V",
+    "MemoryCapacity": "16GB (8GBx2)",
+    "Speed": "5600MHz",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL38",
+    "TestedLatency": "38-44-44-84",
+    "SPDVoltage": "1.25-1.35 V",
+    "MemoryColor": "GRAY",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ade"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products63415_800.jpg",
+  "name": "RAM (แรม) LEXAR THOR OC 16GB (8x2) DDR5 6000MHz (LD5U08G60C38LG-RGD) (LT)",
+  "detail": "",
+  "price": 2290,
+  "additionalDetails": {
+    "Brand": "LEXAR",
+    "MemorySeries": "THOR",
+    "MemoryCapacity": "16GB (8GBx2)",
+    "Speed": "6000MHz",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL38",
+    "TestedLatency": "38-48-48-96",
+    "SPDVoltage": "1.35 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3adf"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product7623_800.jpg",
+  "name": "RAM (แรม) KINGSTON FURY BEAST 32GB (16x2) DDR5 5600MHz BLACK (KF556C40BBK2-32)",
+  "detail": "",
+  "price": 3390,
+  "additionalDetails": {
+    "Brand": "KINGSTON",
+    "MemorySeries": "FURY BEAST RGB",
+    "MemoryCapacity": "32GB (16GBx2)",
+    "Speed": "5600MHz",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL40",
+    "TestedLatency": "40-40-40",
+    "SPDVoltage": "1.25 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ae0"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product54596_800.png",
+  "name": "RAM (แรม) CORSAIR VENGEANCE RGB 32GB (16x2) DDR5 5600MHz BLACK (CMH32GX5M2B5600C40K)",
+  "detail": "",
+  "price": 3990,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "MemorySeries": "VENGEANCE RGB",
+    "MemoryCapacity": "32GB (16GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL40",
+    "TestedLatency": "40-40-40-77",
+    "SPDVoltage": "1.25 V",
+    "MemoryColor": "BLACK",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af56ded138ebc3838b3ae1"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product54600_800.png",
+  "name": "RAM (แรม) CORSAIR VENGEANCE RGB 32GB (16x2) DDR5 5600MHz WHITE (CMH32GX5M2B5600C40W)",
+  "detail": "",
+  "price": 3990,
+  "additionalDetails": {
+    "Brand": "CORSAIR",
+    "MemorySeries": "VENGEANCE RGB DDR5 DRAM",
+    "MemoryCapacity": "32GB (16GBx2)",
+    "Speed": "Unknown",
+    "MemoryType": "DDR5",
+    "CasLatency": "CL40",
+    "TestedLatency": "40-40-40-77",
+    "SPDVoltage": "1.25 V",
+    "MemoryColor": "WHITE",
+    "Warranty": "Lifetime"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,594 @@
+[{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f02"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product780_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM4 RYZEN 5 4500 3.6GHz 6C 12T (3Y)",
+  "detail": "",
+  "price": 2590,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 5000 Series",
+    "ProcessorNumber": "Ryzen™ 5 4500",
+    "SocketType": "AM4",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 3.6,
+    "MaxTurboFrequency": 4.1,
+    "L2Cache": 3,
+    "L3Cache": 8,
+    "GraphicsModels": "Discrete Graphics Card Required",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f03"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product771_800.jpg",
+  "name": "CPU (ซีพียู) INTEL CORE I3-12100F [1700]",
+  "detail": "",
+  "price": 2790,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "12th Gen Intel® Core™",
+    "ProcessorNumber": "Core™ i3-12100F",
+    "SocketType": "LGA 1700",
+    "Cores": 4,
+    "Threads": 8,
+    "BaseFrequency": 3.3,
+    "MaxTurboFrequency": 4.3,
+    "L2Cache": 5,
+    "L3Cache": 12,
+    "GraphicsModels": "Discrete Graphics Card Required",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "58 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f04"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product735_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM4 RYZEN 5 5500 3.6GHz 6C 12T",
+  "detail": "",
+  "price": 2990,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 5000 Series",
+    "ProcessorNumber": "Ryzen™ 5 5500",
+    "SocketType": "AM4",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 3.6,
+    "MaxTurboFrequency": 4.2,
+    "L2Cache": 3,
+    "L3Cache": 16,
+    "GraphicsModels": "Discrete Graphics Card Required",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f05"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product736_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM4 RYZEN 5 5600 3.5GHz 6C 12T",
+  "detail": "",
+  "price": 3690,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 5000 Series",
+    "ProcessorNumber": "Ryzen™ 5 5600",
+    "SocketType": "AM4",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 3.5,
+    "MaxTurboFrequency": 4.4,
+    "L2Cache": 3,
+    "L3Cache": 32,
+    "GraphicsModels": "Discrete Graphics Card Required",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f06"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product778_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1700 CORE I5-12400F 2.5GHz 6C 12T",
+  "detail": "",
+  "price": 3790,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "12th Gen Intel® Core™",
+    "ProcessorNumber": "Core™ i5-12400F",
+    "SocketType": "LGA 1700",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 2.5,
+    "MaxTurboFrequency": 4.4,
+    "L2Cache": 7.5,
+    "L3Cache": 18,
+    "GraphicsModels": "Discrete Graphics Card Required",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f07"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product5609_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1700 CORE I3-12100 3.3GHz 4C 8T",
+  "detail": "",
+  "price": 3790,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "12th Gen Intel® Core™",
+    "ProcessorNumber": "Core™ i3-12100",
+    "SocketType": "LGA 1700",
+    "Cores": 4,
+    "Threads": 8,
+    "BaseFrequency": 3.3,
+    "MaxTurboFrequency": 4.3,
+    "L2Cache": 5,
+    "L3Cache": 12,
+    "GraphicsModels": "Intel® UHD Graphics 730",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "60 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f08"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product30259_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM4 RYZEN 5 5500GT 3.6GHz 6C 12T",
+  "detail": "",
+  "price": 4390,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 5000 Series",
+    "ProcessorNumber": "Ryzen™ 5 5500GT",
+    "SocketType": "AM4",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 3.6,
+    "MaxTurboFrequency": 4.4,
+    "L2Cache": 3,
+    "L3Cache": 16,
+    "GraphicsModels": "AMD Radeon™ Graphics",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f09"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product744_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1700 CORE I5-12400 2.5GHz 6C 12T",
+  "detail": "",
+  "price": 4890,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "12th Gen Intel® Core™",
+    "ProcessorNumber": "Core™ i5-12400",
+    "SocketType": "LGA 1700",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 2.5,
+    "MaxTurboFrequency": 4.4,
+    "L2Cache": 7.5,
+    "L3Cache": 18,
+    "GraphicsModels": "Intel® UHD Graphics 730",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f0a"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product30253_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1700 CORE I5-14400F 4.7GHz 10C 16T",
+  "detail": "",
+  "price": 5990,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ (14th gen)",
+    "ProcessorNumber": "Core™ i5-14400F",
+    "SocketType": "LGA 1700",
+    "Cores": 10,
+    "Threads": 16,
+    "BaseFrequency": 3.5,
+    "MaxTurboFrequency": 4.7,
+    "L2Cache": 9.5,
+    "L3Cache": 20,
+    "GraphicsModels": "N/A",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f0b"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product30261_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM5 RYZEN 5 8500G 3.5GHz 6C 12T",
+  "detail": "",
+  "price": 6590,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 8000 Series",
+    "ProcessorNumber": "Ryzen™ 5 8500G",
+    "SocketType": "AM5",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 3.5,
+    "MaxTurboFrequency": 5,
+    "L2Cache": 6,
+    "L3Cache": 16,
+    "GraphicsModels": "AMD Radeon™ 740M",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f0c"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product30254_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1700 CORE I5-14500 5.0GHz 14C 20T",
+  "detail": "",
+  "price": 8990,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ (14th gen)",
+    "ProcessorNumber": "Core™ i5-14500",
+    "SocketType": "LGA 1700",
+    "Cores": 14,
+    "Threads": 20,
+    "BaseFrequency": 2.6,
+    "MaxTurboFrequency": 5,
+    "L2Cache": 11.5,
+    "L3Cache": 24,
+    "GraphicsModels": "Intel® UHD Graphics 770",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f0d"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products75639_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1851 CORE ULTRA 5 225F 3.3GHz 10C 10T (3Y)",
+  "detail": "",
+  "price": 9290,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ Ultra Processors (Series 2)",
+    "ProcessorNumber": "Core™ ultra 5-255F",
+    "SocketType": "LGA 1851",
+    "Cores": 10,
+    "Threads": 10,
+    "BaseFrequency": 3.3,
+    "MaxTurboFrequency": 4.9,
+    "L2Cache": 22,
+    "L3Cache": 20,
+    "GraphicsModels": "Intel® Ultra 5",
+    "Bit64Support": "N/A",
+    "CPUCooler": "N/A",
+    "MaximumTurboPower": "121 W",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f0e"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products54645_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM5 RYZEN 5 9600X 3.9GHz 6C 12T (3Y)",
+  "detail": "",
+  "price": 10190,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 9000 Series",
+    "ProcessorNumber": "Ryzen™ 5 9600X",
+    "SocketType": "AM5",
+    "Cores": 6,
+    "Threads": 12,
+    "BaseFrequency": 3.9,
+    "MaxTurboFrequency": 5.4,
+    "L2Cache": 6,
+    "L3Cache": 32,
+    "GraphicsModels": "AMD Radeon™ Graphics",
+    "Bit64Support": "N/A",
+    "CPUCooler": "No",
+    "MaximumTurboPower": "N/A",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f0f"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products75642_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1851 CORE ULTRA 5 235 3.4GHz 14C 14T (3Y)",
+  "detail": "",
+  "price": 10390,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ Ultra Processors (Series 2)",
+    "ProcessorNumber": "Core™ ultra 5-235",
+    "SocketType": "LGA 1851",
+    "Cores": 14,
+    "Threads": 14,
+    "BaseFrequency": 3.4,
+    "MaxTurboFrequency": 5,
+    "L2Cache": 26,
+    "L3Cache": 24,
+    "GraphicsModels": "Intel® Ultra 5",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "121 W",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f10"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product30266_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM5 RYZEN 7 8700G 4.2GHz 8C 16T",
+  "detail": "",
+  "price": 11090,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 8000 Series",
+    "ProcessorNumber": "Ryzen™ 7 8700G",
+    "SocketType": "AM5",
+    "Cores": 8,
+    "Threads": 16,
+    "BaseFrequency": 4.2,
+    "MaxTurboFrequency": 5.1,
+    "L2Cache": 8,
+    "L3Cache": 16,
+    "GraphicsModels": "AMD Radeon™ 780M",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f11"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product30256_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1700 CORE I7-14700F 5.4GHz 20C 28T",
+  "detail": "",
+  "price": 11200,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ (14th gen)",
+    "ProcessorNumber": "Core™ i7-14700F",
+    "SocketType": "LGA 1700",
+    "Cores": 20,
+    "Threads": 28,
+    "BaseFrequency": 2.4,
+    "MaxTurboFrequency": 5.4,
+    "L2Cache": 28,
+    "L3Cache": 33,
+    "GraphicsModels": "N/A",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "65 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f12"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products63025_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1851 CORE ULTRA 5 245K 3.6GHz 14C 14T (3Y)",
+  "detail": "",
+  "price": 11290,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ Ultra Processors (Series 2)",
+    "ProcessorNumber": "Core™ ultra 5-245K",
+    "SocketType": "LGA 1851",
+    "Cores": 14,
+    "Threads": 14,
+    "BaseFrequency": 4.2,
+    "MaxTurboFrequency": 5.2,
+    "L2Cache": 26,
+    "L3Cache": 24,
+    "GraphicsModels": "N/A",
+    "Bit64Support": "N/A",
+    "CPUCooler": "No",
+    "MaximumTurboPower": "125 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f13"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products63026_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1851 CORE ULTRA 7 265KF 3.3GHz 20C 20T (3Y)",
+  "detail": "",
+  "price": 14290,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ Ultra Processors (Series 2)",
+    "ProcessorNumber": "Core™ ultra 7-265KF",
+    "SocketType": "LGA 1851",
+    "Cores": 20,
+    "Threads": 20,
+    "BaseFrequency": 3.9,
+    "MaxTurboFrequency": 5.5,
+    "L2Cache": 36,
+    "L3Cache": 30,
+    "GraphicsModels": "N/A",
+    "Bit64Support": "N/A",
+    "CPUCooler": "No",
+    "MaximumTurboPower": "125 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f14"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products63027_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1851 CORE ULTRA 7 265K 3.3GHz 20C 20T (3Y)",
+  "detail": "",
+  "price": 14890,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ Ultra Processors (Series 2)",
+    "ProcessorNumber": "Core™ ultra 7-265K",
+    "SocketType": "LGA 1851",
+    "Cores": 20,
+    "Threads": 20,
+    "BaseFrequency": 3.9,
+    "MaxTurboFrequency": 5.5,
+    "L2Cache": 36,
+    "L3Cache": 30,
+    "GraphicsModels": "N/A",
+    "Bit64Support": "N/A",
+    "CPUCooler": "No",
+    "MaximumTurboPower": "125 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f15"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/product33222_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM5 RYZEN 7 7800X3D 4.2 GHz 8C 16T (MPK)",
+  "detail": "",
+  "price": 16990,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 7000 Series",
+    "ProcessorNumber": "Ryzen™ 7 7800X3D",
+    "SocketType": "AM5",
+    "Cores": 8,
+    "Threads": 16,
+    "BaseFrequency": 4.2,
+    "MaxTurboFrequency": 5,
+    "L2Cache": 8,
+    "L3Cache": 96,
+    "GraphicsModels": "AMD Radeon™ Graphics",
+    "Bit64Support": "N/A",
+    "CPUCooler": "No",
+    "MaximumTurboPower": "120 Watt",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f16"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products80638_800.jpg",
+  "name": "CPU (ซีพียู) INTEL 1851 CORE ULTRA 9 285 2.5GHz 24C 24T (3Y)",
+  "detail": "",
+  "price": 22990,
+  "additionalDetails": {
+    "Brand": "intel",
+    "Series": "Intel® Core™ Ultra Processors (Series 2)",
+    "ProcessorNumber": "Core™ ultra 9-285",
+    "SocketType": "LGA 1851",
+    "Cores": 24,
+    "Threads": 24,
+    "BaseFrequency": 2.5,
+    "MaxTurboFrequency": 5.6,
+    "L2Cache": 40,
+    "L3Cache": 36,
+    "GraphicsModels": "Intel® Graphics",
+    "Bit64Support": "N/A",
+    "CPUCooler": "Yes",
+    "MaximumTurboPower": "182 W",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67af493f8632069fadbe1f17"
+  },
+  "img": "https://ihcupload.s3.ap-southeast-1.amazonaws.com/img/product/products63035_800.jpg",
+  "name": "CPU (ซีพียู) AMD AM5 RYZEN 9 9950X 4.3GHz 16C 32T (3Y)",
+  "detail": "",
+  "price": 24690,
+  "additionalDetails": {
+    "Brand": "amd",
+    "Series": "AMD Ryzen 9000 Series",
+    "ProcessorNumber": "Ryzen™ 9 9950X",
+    "SocketType": "AM5",
+    "Cores": 16,
+    "Threads": 32,
+    "BaseFrequency": 4.3,
+    "MaxTurboFrequency": 5.7,
+    "L2Cache": 16,
+    "L3Cache": 64,
+    "GraphicsModels": "AMD Radeon™ Graphics",
+    "Bit64Support": "N/A",
+    "CPUCooler": "N/A",
+    "MaximumTurboPower": "N/A",
+    "Warranty": "3 Years"
+  },
+  "__v": 0
+}]

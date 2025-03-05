@@ -1,20 +1,26 @@
 /**
  * main.js
  *
- * Bootstraps Vuetify and other plugins then mounts the App`
+ * Bootstraps Vuetify and other plugins then mounts the App
  */
 
 // Plugins
-import { registerPlugins } from '@/plugins'
-
+import { registerPlugins } from "@/plugins";
+import { createPinia } from "pinia";
 // Components
-import App from './App.vue'
+import App from "./App.vue";
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
-const app = createApp(App)
+// ✅ ต้องกำหนด `app` ก่อนใช้งาน
+const app = createApp(App);
 
-registerPlugins(app)
+// ✅ ติดตั้ง Pinia ให้ Vue ก่อน
+app.use(createPinia());
 
-app.mount('#app')
+// ✅ ลงทะเบียน Plugins (ต้องทำหลังจากกำหนด `app`)
+registerPlugins(app);
+
+// ✅ Mount แอป
+app.mount("#app");
