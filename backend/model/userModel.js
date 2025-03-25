@@ -6,6 +6,10 @@ let UserSchma = mongoose.Schema({
   password: String,
   isVerified: { type: Boolean, default: false },
   otp: String,
+  status: {
+    type: String,
+    default: 'Customer',
+  },
   profileImage: {
     type: String,
     default: 'https://cdn.vuetifyjs.com/images/john.png',

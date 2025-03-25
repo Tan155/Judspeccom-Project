@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 const mongoose = require('mongoose')
 const User = require('../model/userModel')
-
 const router = express.Router()
 
 // Authentication
@@ -123,7 +122,7 @@ router.post('/login', async (req, res) => {
     res.cookie('token', token, {
       http: true,
       secure: process.env.NODE_ENV === 'production',
-      maxAge: 3600000,
+      maxAge: 3600000 * 5,
       sameSite: 'Strict',
     })
 
@@ -150,13 +149,13 @@ router.get('/auth', async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret_key')
     const user = await User.findOne({ email: decoded.email })
     if (!user) return res.status(400).json({ message: 'User Not Found' })
-    const email = user.email
     const imageUrl = user.profileImage
 
     res.status(200).json({
       username: user.username,
       email: user.email,
       profileImage: imageUrl,
+      status: user.status,
     })
   } catch (error) {
     res.status(401).json({ message: 'Invalid Token' })

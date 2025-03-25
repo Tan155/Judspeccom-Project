@@ -10,25 +10,14 @@
               <!-- Username -->
               <div>
                 <h2>Username:</h2>
-                <v-text-field
-                  label="username"
-                  v-model="username"
-                  :rules="nameRules"
-                  required
-                ></v-text-field>
+                <v-text-field label="username" v-model="username" :rules="nameRules" required></v-text-field>
               </div>
 
               <div>
                 <h2>Password:</h2>
-                <v-text-field
-                  label="password"
-                  v-model="password"
-                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                  :rules="passwordRules"
-                  :type="showPassword ? 'text' : 'password'"
-                  @click:append="togglePassword"
-                  required
-                ></v-text-field>
+                <v-text-field label="password" v-model="password"
+                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" :rules="passwordRules"
+                  :type="showPassword ? 'text' : 'password'" @click:append="togglePassword" required></v-text-field>
                 <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
               </div>
               <v-btn block color="primary" @click="login">Login</v-btn>
@@ -56,7 +45,8 @@ const password = ref("");
 const errorMessage = ref("");
 const showPassword = ref(false);
 
-const nameRules = [(v) => !!v || "Name is required"];
+const nameRules = [(v) => !!v || "Name is required",
+(v) => /^[A-Za-z0-9_]+$/.test(v) || "Username must not contain special characters or spaces",];
 
 const passwordRules = [
   (v) => !!v || "Password is required",
@@ -87,5 +77,4 @@ const login = async () => {
 };
 </script>
 
-<style>
-</style>
+<style></style>

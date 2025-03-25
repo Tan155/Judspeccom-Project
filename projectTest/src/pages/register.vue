@@ -9,50 +9,28 @@
               <!-- User -->
               <div>
                 <h2>User:</h2>
-                <v-text-field
-                  label="User"
-                  v-model="username"
-                  :rules="nameRules"
-                  required
-                ></v-text-field>
+                <v-text-field label="User" v-model="username" :rules="nameRules" required></v-text-field>
               </div>
 
               <!-- Email -->
               <div>
                 <h2>Email:</h2>
-                <v-text-field
-                  label="Email"
-                  v-model="email"
-                  :rules="emailRules"
-                  required
-                ></v-text-field>
+                <v-text-field label="Email" v-model="email" :rules="emailRules" required></v-text-field>
               </div>
 
               <!-- Password -->
               <div>
                 <h2>Password:</h2>
-                <v-text-field
-                  label="Password"
-                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                  v-model="password"
-                  :rules="passwordRules"
-                  :type="showPassword ? 'text' : 'password'"
-                  @click:append="togglePassword"
-                  required
-                ></v-text-field>
+                <v-text-field label="Password" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                  v-model="password" :rules="passwordRules" :type="showPassword ? 'text' : 'password'"
+                  @click:append="togglePassword" required></v-text-field>
               </div>
               <!-- Confirm Password -->
               <div>
                 <h2>Confirm Password:</h2>
-                <v-text-field
-                  label="Confirm Password"
-                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                  :type="showPassword ? 'text' : 'password'"
-                  v-model="confirmpassword"
-                  :rules="confirmPasswordRules"
-                  @click:append="togglePassword"
-                  required
-                ></v-text-field>
+                <v-text-field label="Confirm Password" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="showPassword ? 'text' : 'password'" v-model="confirmpassword" :rules="confirmPasswordRules"
+                  @click:append="togglePassword" required></v-text-field>
               </div>
 
               <v-btn block color="primary" @click="register">Register</v-btn>
@@ -81,7 +59,8 @@ const valid = ref(false);
 const form = ref(null);
 const authStore = useAuthStore();
 // Value Rules
-const nameRules = [(v) => !!v || "Name is required"];
+const nameRules = [(v) => !!v || "Name is required",
+(v) => /^[A-Za-z0-9_]+$/.test(v) || "Username must not contain special characters or spaces",];
 
 const emailRules = [
   (v) => !!v || "E-mail is required",
@@ -128,5 +107,4 @@ const register = async () => {
 };
 </script>
 
-<style>
-</style>
+<style></style>

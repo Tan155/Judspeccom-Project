@@ -2,67 +2,55 @@
   <v-app>
     <!-- NAVBAR -->
     <v-app-bar>
-      <router-link to="/">
-        Home
-      </router-link>
+      <router-link to="/">Home</router-link>
       <v-spacer />
-      <router-link to="/DrawerTool">
-        Drawer_Component
-      </router-link>
-      <v-spacer />
-      <router-link to="toolV1">
-        ToolV1
-      </router-link>
 
       <!-- Menu REGISTER AND LOGIN -->
 
       <v-menu v-if="!isLoggedIn">
-        <template #activator="{ props }">
-          <v-btn color="primary" v-bind="props">
-            Register
-          </v-btn>
+        <template v-slot:activator="{ props }">
+          <v-btn color="primary" v-bind="props"> Register </v-btn>
         </template>
         <v-list>
           <v-list-item>
             <!-- Register -->
-            <v-list-item-title>
-              <v-btn prepend-icon="mdi-account" @click="register">
-                Register
-              </v-btn>
-            </v-list-item-title>
+            <v-list-item-title><v-btn @click="register" prepend-icon="mdi-account">Register</v-btn></v-list-item-title>
           </v-list-item>
           <!-- Login -->
           <v-list-item>
-            <v-list-item-title>
-              <v-btn prepend-icon="mdi-login" @click="login">
-                Login
-              </v-btn>
-            </v-list-item-title>
+            <v-list-item-title><v-btn @click="login" prepend-icon="mdi-login">Login</v-btn></v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
       <!-- User and Logout -->
-      <v-menu v-else>
-        <template #activator="{ props }">
+      <v-menu v-if="isLoggedIn && status === 'Customer'">
+        <template v-slot:activator="{ props }">
           <v-btn color="primary" v-bind="props">
             <v-avatar size="32" class="mr-2">
-              <v-img :src="profileImage" alt="Profile" />
+              <v-img :src="profileImage" alt="Profile"></v-img>
             </v-avatar>
             {{ username }}
           </v-btn>
         </template>
         <v-list>
-          <v-list-item>
-            <v-btn prepend-icon="mdi-account" @click="myProfile">
-              My Profile
-            </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn prepend-icon="mdi-logout" @click="logout">
-              Logout
-            </v-btn>
-          </v-list-item>
+          <v-list-item><v-btn @click="myProfile" prepend-icon="mdi-account">My Profile</v-btn></v-list-item>
+          <v-list-item><v-btn @click="logout" prepend-icon="mdi-logout">Logout</v-btn></v-list-item>
+        </v-list>
+      </v-menu>
+
+      <v-menu v-if="isLoggedIn && status === 'Admin'">
+        <template v-slot:activator="{ props }">
+          <v-btn color="primary" v-bind="props">
+            <v-avatar size="32" class="mr-2">
+              <v-img :src="profileImage" alt="Profile"></v-img>
+            </v-avatar>
+            {{ username }}
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item><v-btn @click="manageAdmin" prepend-icon="mdi-account">Manage Data</v-btn></v-list-item>
+          <v-list-item><v-btn @click="logout" prepend-icon="mdi-logout">Logout</v-btn></v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
@@ -85,6 +73,7 @@ const isLoggedIn = ref(false);
 const username = ref("");
 const email = ref("");
 const profileImage = ref("");
+const status = ref("")
 
 onMounted(() => {
   loadUserFromServer();
@@ -112,7 +101,9 @@ const loadUserFromServer = async () => {
       username.value = user.username;
       email.value = user.email;
       profileImage.value = user.profileImage || "";
+      status.value = user.status
     }
+    console.log("User Status:", status.value);
   } catch (error) {
     alert("Please Login again");
     logout();
@@ -121,6 +112,10 @@ const loadUserFromServer = async () => {
 
 const myProfile = () => {
   router.push("/profileUser");
+};
+
+const manageAdmin = () => {
+  router.push("/manageAdmin");
 };
 
 const register = () => {
@@ -138,6 +133,7 @@ const logout = async () => {
     username.value = "";
     email.value = "";
     profileImage.value = "";
+    status.value = "";
     router.push("/");
   }
 };

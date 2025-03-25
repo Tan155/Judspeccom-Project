@@ -3,9 +3,7 @@
     <v-navigation-drawer app permanent>
       <v-list>
         <v-list-item>
-          <v-avatar size="40"
-            ><v-img :src="profileImage" alt="profile"></v-img
-          ></v-avatar>
+          <v-avatar size="40"><v-img :src="profileImage" alt="profile"></v-img></v-avatar>
         </v-list-item>
 
         <v-list-item-title style="position: absolute; left: 75px; top: 10px">
@@ -20,13 +18,8 @@
       <v-divider></v-divider>
 
       <v-list nav>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :value="item.value"
-          color="primary"
-          @click="selectedItem = item.value"
-        >
+        <v-list-item v-for="(item, i) in items" :key="i" :value="item.value" color="primary"
+          @click="selectedItem = item.value">
           <template v-slot:prepend>
             <v-icon :icon="item.icon"></v-icon>
           </template>
@@ -38,44 +31,29 @@
     <!-- main -->
 
     <!-- My profile -->
-    <v-card
-      v-if="selectedItem == 'profile'"
-      class="pa-6"
-      style="
+    <v-card v-if="selectedItem == 'profile'" class="pa-6" style="
         height: 650px;
         margin-left: -275px;
         margin-right: -15px;
         margin-top: -80px;
         margin-bottom: -1000px;
         background-color: black;
-      "
-    >
-      <v-card-text
-        ><h1 style="position: absolute; left: 550px">
+      ">
+      <v-card-text>
+        <h1 style="position: absolute; left: 550px">
           Welcome {{ username }}
-        </h1></v-card-text
-      >
+        </h1>
+      </v-card-text>
 
       <v-card-text>
         <div class="">
-          <v-img
-            :src="profileImage"
-            width="250"
-            height="250"
-            class="profile-img"
-            style="position: absolute; left: 510px; bottom: 300px"
-          >
+          <v-img :src="profileImage" width="250" height="250" class="profile-img"
+            style="position: absolute; left: 510px; bottom: 300px">
           </v-img>
         </div>
 
-        <v-btn class="upload-btn" :loading="uploading"
-          >Change PICTURE
-          <input
-            type="file"
-            @change="uploadImage"
-            class="file-input"
-            accept="image/*"
-        /></v-btn>
+        <v-btn class="upload-btn" :loading="uploading">Change PICTURE
+          <input type="file" @change="uploadImage" class="file-input" accept="image/*" /></v-btn>
       </v-card-text>
 
       <v-card-text style="position: absolute; bottom: 100px; left: 400px">
@@ -118,6 +96,7 @@ onMounted(async () => {
 });
 
 // Function
+const status = ref("")
 const loadUserFromServer = async () => {
   try {
     const user = await authService.loadUserFromServer();
@@ -126,6 +105,10 @@ const loadUserFromServer = async () => {
       username.value = user.username;
       email.value = user.email;
       profileImage.value = user.profileImage || "";
+      status.value = user.status
+    }
+    if (status.value === 'Admin') {
+      router.push('/')
     }
   } catch (error) {
     alert("Please Login again");
@@ -179,16 +162,19 @@ const logout = async () => {
 .text-center {
   text-align: center;
 }
+
 .profile-img {
   border-radius: 50%;
   object-fit: cover;
 }
+
 .upload-btn {
   position: absolute;
   left: 550px;
   bottom: 250px;
   overflow: hidden;
 }
+
 .file-input {
   position: absolute;
   left: 0;
@@ -198,6 +184,7 @@ const logout = async () => {
   opacity: 0;
   cursor: pointer;
 }
+
 .bk {
   background-color: aquamarine;
 }

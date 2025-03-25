@@ -7,9 +7,11 @@ const mongoose = require('mongoose')
 // import
 const User = require('./model/userModel')
 const Product = require('./model/productModel')
+const Admin = require('./model/adminModel')
 
 const routerUser = require('./routes/user')
 const routerProduct = require('./routes/products')
+const routerAdmin = require('./routes/admin')
 
 const app = express()
 
@@ -17,6 +19,7 @@ const corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true,
 }
+
 app.use(cookieParser())
 app.use(express.json())
 
@@ -35,6 +38,7 @@ mongoose
 
 app.use('/api/user', routerUser)
 app.use('/api/products', routerProduct)
+app.use('/api/admin', routerAdmin)
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 

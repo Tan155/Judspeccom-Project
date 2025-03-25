@@ -16,9 +16,10 @@
     "axios": "^1.7.9",
     "express": "^4.21.2",
     "js-cookie": "^3.0.5",
-    "jwt-decode": "^4.0.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.4",
+    "jwt-decode": "^4.0.0",
+    "magic-string-ast": "^0.7.0",
     "roboto-fontface": "*",
     "vue": "^3.4.31",
     "vuetify": "^3.6.14"
