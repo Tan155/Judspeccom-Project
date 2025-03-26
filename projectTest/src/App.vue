@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, provide } from "vue";
 import { useRouter } from "vue-router";
 import authService from "@/services/AuthService"; //เรียก class AuthService
 import apiProxy from "@/services/AuthProxy"; //เรียก class AuthProxy
@@ -83,16 +83,21 @@ onMounted(() => {
 const aaa = () => {
   TestProxy();
 };
+
 const TestProxy = async () => {
   const emailApi = await apiProxy.request(); // เรียกclass proxy
   if (emailApi.status) {
     //ถ้า true
     const emailProxy = emailApi.email; // ส่ง ชื่อ email
     console.log("PASS" + " " + emailProxy);
+    return { status: true, email: emailProxy };
   } else {
     console.log("FAIL"); // ถ้า false
+    return { status: false, email: undefined };
   }
 };
+
+provide('TestProxy', TestProxy);
 const loadUserFromServer = async () => {
   try {
     const user = await authService.loadUserFromServer();

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const caseSchema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
@@ -37,6 +38,7 @@ const caseSchema = new mongoose.Schema({
 })
 
 const cpuSchema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
@@ -66,6 +68,7 @@ const cpuSchema = new mongoose.Schema({
 })
 
 const gpuSchema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
@@ -94,6 +97,7 @@ const gpuSchema = new mongoose.Schema({
 })
 
 const m2Schema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
@@ -110,6 +114,7 @@ const m2Schema = new mongoose.Schema({
 })
 
 const mainboardSchema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
@@ -148,6 +153,7 @@ const mainboardSchema = new mongoose.Schema({
 })
 
 const psuSchema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },
@@ -173,6 +179,7 @@ const psuSchema = new mongoose.Schema({
 })
 
 const ramSchema = new mongoose.Schema({
+  _id: { type: String, require: true },
   img: { type: String, required: true },
   name: { type: String, required: true },
   detail: { type: String, default: '' },

@@ -3,7 +3,9 @@
     <v-navigation-drawer app permanent>
       <v-list>
         <v-list-item>
-          <v-avatar size="40"><v-img :src="profileImage" alt="profile"></v-img></v-avatar>
+          <v-avatar size="40">
+            <v-img :src="profileImage" alt="profile" />
+          </v-avatar>
         </v-list-item>
 
         <v-list-item-title style="position: absolute; left: 75px; top: 10px">
@@ -15,15 +17,15 @@
         </v-list-item-subtitle>
       </v-list>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-list nav>
         <v-list-item v-for="(item, i) in items" :key="i" :value="item.value" color="primary"
           @click="selectedItem = item.value">
-          <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
+          <template #prepend>
+            <v-icon :icon="item.icon" />
           </template>
-          <v-list-item-title v-text="item.text"></v-list-item-title>
+          <v-list-item-title v-text="item.text" />
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -48,12 +50,13 @@
       <v-card-text>
         <div class="">
           <v-img :src="profileImage" width="250" height="250" class="profile-img"
-            style="position: absolute; left: 510px; bottom: 300px">
-          </v-img>
+            style="position: absolute; left: 510px; bottom: 300px" />
         </div>
 
-        <v-btn class="upload-btn" :loading="uploading">Change PICTURE
-          <input type="file" @change="uploadImage" class="file-input" accept="image/*" /></v-btn>
+        <v-btn class="upload-btn" :loading="uploading">
+          Change PICTURE
+          <input type="file" class="file-input" accept="image/*" @change="uploadImage">
+        </v-btn>
       </v-card-text>
 
       <v-card-text style="position: absolute; bottom: 100px; left: 400px">
@@ -63,7 +66,7 @@
     </v-card>
   </v-container>
 
-  <v-container v-else></v-container>
+  <v-container v-else />
 </template>
 
 <script setup>
