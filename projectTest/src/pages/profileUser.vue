@@ -3,9 +3,9 @@
     <v-navigation-drawer app permanent>
       <v-list>
         <v-list-item>
-          <v-avatar size="40"
-            ><v-img :src="profileImage" alt="profile"></v-img
-          ></v-avatar>
+          <v-avatar size="40">
+            <v-img :src="profileImage" alt="profile" />
+          </v-avatar>
         </v-list-item>
 
         <v-list-item-title style="position: absolute; left: 75px; top: 10px">
@@ -17,20 +17,15 @@
         </v-list-item-subtitle>
       </v-list>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-list nav>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :value="item.value"
-          color="primary"
-          @click="selectedItem = item.value"
-        >
-          <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
+        <v-list-item v-for="(item, i) in items" :key="i" :value="item.value" color="primary"
+          @click="selectedItem = item.value">
+          <template #prepend>
+            <v-icon :icon="item.icon" />
           </template>
-          <v-list-item-title v-text="item.text"></v-list-item-title>
+          <v-list-item-title v-text="item.text" />
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -38,60 +33,85 @@
     <!-- main -->
 
     <!-- My profile -->
-    <v-card
-      v-if="selectedItem == 'profile'"
-      class="pa-6"
-      style="
+    <template v-if="selectedItem == 'profile'">
+      <v-card v-if="selectedItem == 'profile'" class="pa-6" style="
         height: 650px;
         margin-left: -275px;
         margin-right: -15px;
         margin-top: -80px;
         margin-bottom: -1000px;
         background-color: black;
-      "
-    >
-      <v-card-text
-        ><h1 style="position: absolute; left: 550px">
-          Welcome {{ username }}
-        </h1></v-card-text
-      >
+      ">
+        <v-card-text>
+          <h1 style="position: absolute; left: 550px">
+            Welcome {{ username }}
+          </h1>
+        </v-card-text>
 
-      <v-card-text>
-        <div class="">
-          <v-img
-            :src="profileImage"
-            width="250"
-            height="250"
-            class="profile-img"
-            style="position: absolute; left: 510px; bottom: 300px"
-          >
-          </v-img>
+        <v-card-text>
+          <div class="">
+            <v-img :src="profileImage" width="250" height="250" class="profile-img"
+              style="position: absolute; left: 510px; bottom: 300px" />
+          </div>
+
+          <v-btn class="upload-btn" :loading="uploading">
+            Change PICTURE
+            <input type="file" class="file-input" accept="image/*" @change="uploadImage">
+          </v-btn>
+        </v-card-text>
+
+        <v-card-text style="position: absolute; bottom: 100px; left: 400px">
+          <h1>Username: {{ username }}</h1>
+          <h1>Email: {{ email }}</h1>
+        </v-card-text>
+      </v-card>
+    </template>
+    <template v-else>
+      <v-card class="bg-green-accent-3">
+        <div>
+          <h2>User Build</h2>
+          <p><strong>Email:</strong> {{ authStore.getEmail }}</p>
+          <button @click="authStore.fetchUserBuild">
+            Reload Data
+          </button>
+
+          <div v-if="authStore.getUserBuild">
+            <h3>Selected Parts:</h3>
+            <ul>
+              <li v-for="(id, part) in authStore.getUserBuild.selectedParts" :key="part">
+                <strong>{{ part }}:</strong> {{ id || "Not Selected" }}
+              </li>
+            </ul>
+          </div>
+          <p v-else>
+            Loading...
+          </p>
         </div>
-
-        <v-btn class="upload-btn" :loading="uploading"
-          >Change PICTURE
-          <input
-            type="file"
-            @change="uploadImage"
-            class="file-input"
-            accept="image/*"
-        /></v-btn>
-      </v-card-text>
-
-      <v-card-text style="position: absolute; bottom: 100px; left: 400px">
-        <h1>Username: {{ username }}</h1>
-        <h1>Email: {{ email }}</h1>
-      </v-card-text>
-    </v-card>
+        test test
+        <v-row v-for="(item, index) in arr" :key="index">
+          <v-col>
+            <v-btn color="success" block>
+              {{ item }}
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
+    </template>
   </v-container>
 
-  <v-container v-else></v-container>
+  <v-container v-else />
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import authService from "@/services/AuthService";
+import { useAuthStore } from "@/stores/authStore";
+
+
+const authStore = useAuthStore();
+
+const arr = [1, 2, 3, 4, 5, 6]
 
 // value
 const selectedItem = ref("profile");
@@ -112,6 +132,7 @@ const email = ref("");
 
 onMounted(async () => {
   await loadUserFromServer();
+  authStore.fetchUserBuild();
   if (isVisit.value == false) {
     router.push("/");
   }
@@ -179,16 +200,19 @@ const logout = async () => {
 .text-center {
   text-align: center;
 }
+
 .profile-img {
   border-radius: 50%;
   object-fit: cover;
 }
+
 .upload-btn {
   position: absolute;
   left: 550px;
   bottom: 250px;
   overflow: hidden;
 }
+
 .file-input {
   position: absolute;
   left: 0;
@@ -198,6 +222,7 @@ const logout = async () => {
   opacity: 0;
   cursor: pointer;
 }
+
 .bk {
   background-color: aquamarine;
 }

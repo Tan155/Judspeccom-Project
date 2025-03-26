@@ -32,6 +32,7 @@ export const useDrawer = defineStore("Drawer", () => {
       img: "null",
       socket: "null",
       object: [],
+      values: 0,
     }))
   );
 
@@ -60,12 +61,22 @@ export const useDrawer = defineStore("Drawer", () => {
       img: s.img,
       socket: s.socket,
       object: s.object,
+      values: s.values,
     }));
   }
 
   function getPrice() {
     let error = 0;
-    return `${price.value.toFixed(2) ?? error.toFixed(2)} ฿`;
+    // return `${price.value.toFixed(2) ?? error.toFixed(2)}`;
+    if (price.value) {
+      return (
+        price.value.toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }) + ` ฿`
+      );
+    }
+    return `${error.toFixed(2)} ฿`;
   }
 
   function getStackAt(index) {
@@ -76,15 +87,21 @@ export const useDrawer = defineStore("Drawer", () => {
     return stack[index];
   }
 
-  //Methods.
+  let isProcessing = false;
+
   function StackAdd(item) {
+    if (isProcessing) return; // ถ้ากำลังประมวลผลอยู่แล้วให้หยุดทำงาน
+    isProcessing = true; // ตั้งค่าสถานะให้กำลังประมวลผล
+
     const temp = item;
     const CurrentMenu = products.getCurrentMenu();
 
     if (!temp) {
       console.error(`❌ no index  : ${CurrentMenu}`);
+      isProcessing = false;
       return;
     }
+
     console.log(`📌 B Menu: ${CurrentMenu}`);
     console.log(
       `📌 B Stack : [${CurrentMenu}] =`,
@@ -107,6 +124,7 @@ export const useDrawer = defineStore("Drawer", () => {
           ? temp?.additionalDetails?.MemoryType
           : "Null",
       object: temp,
+      values: 1,
     };
 
     console.log(`📌 A Menu : ${CurrentMenu}`);
@@ -114,6 +132,8 @@ export const useDrawer = defineStore("Drawer", () => {
     testStack();
 
     Calculate();
+
+    isProcessing = false; // เมื่อเสร็จแล้วกลับสู่สถานะปกติ
   }
 
   function StackPop(index) {
@@ -123,17 +143,52 @@ export const useDrawer = defineStore("Drawer", () => {
       price: 0,
       img: "null",
       socket: "null",
+      object: [],
+      values: 0,
     };
     Calculate();
   }
 
   function Calculate() {
-    price.value = stack.reduce((sum, item) => sum + item.price, 0);
+    price.value = stack.reduce((sum, item) => sum + item?.price, 0);
     console.log(`Now Price : ${price.value}`);
   }
 
   function testStack() {
     console.table(stack);
+    console.table(stack[0]?.object?._id ?? "null");
+    tableID();
+  }
+
+  function tableID() {
+    stack.forEach((st, i) => {
+      console.log(`stackID [${i}] ${st?.object?._id || "No ID"}`);
+    });
+  }
+
+  function stackEmpty() {
+    let status = ref(true);
+    stack.forEach((st) => {
+      if (st?.status === 1) {
+        status.value = false;
+      }
+    });
+    return status.value;
+  }
+
+  function updateStackValues(option, index) {
+    //Check null
+    if (index < 0 && (option !== "add" || option !== "pop")) {
+      console.error(`updateStackValues(${option}, ${index} ) is error`);
+      return;
+    }
+    if (option === "add") {
+      stack[index].values = stack[index].values + 1;
+    } else if (option === "pop") {
+      stack[index].values = stack[index].values - 1;
+    } else {
+      console.error(`updateStackValues(${option}, ${index} ) is error`);
+    }
   }
 
   return {
@@ -143,6 +198,8 @@ export const useDrawer = defineStore("Drawer", () => {
     getStack,
     getMenu,
     getStackAt,
+    updateStackValues,
+    stackEmpty,
     // Stack,
   };
 });

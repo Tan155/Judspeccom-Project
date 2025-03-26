@@ -1,34 +1,17 @@
 <template>
   <template v-if="isLoading">
-    <v-container
-      class="d-flex align-center justify-center"
-      style="height: 100vh;"
-    >
-      <v-progress-circular
-        :size="130"
-        :width="12"
-        color="primary"
-        indeterminate
-        style="transform: translateY(-20vh);"
-      />
+    <v-container class="d-flex align-center justify-center" style="height: 100vh;">
+      <v-progress-circular :size="130" :width="12" color="primary" indeterminate
+        style="transform: translateY(-20vh);" />
     </v-container>
   </template>
 
   <template v-else>
     <v-card v-if="productStore">
       <v-layout>
-        <v-navigation-drawer
-          ref="scrollContainer"
-          class="bg-deep-purple"
-          theme="light"
-          permanent
-          app
-          style=" transform: translateY(0px); overflow-y: auto;"
-        >
-          <v-card
-            class="mt-2 sticky-total"
-            elevation="4"
-          >
+        <v-navigation-drawer ref="scrollContainer" class="bg-indigo-lighten-5" theme="light" permanent app
+          style=" transform: translateY(0px); overflow-y: auto;">
+          <v-card class="mt-2 sticky-total" elevation="4">
             <v-list color="transparent">
               <v-list-item title="Total">
                 <h4>{{ drawer?.getPrice() }}</h4>
@@ -37,45 +20,25 @@
           </v-card>
 
           <v-list>
-            <v-list-item
-              v-for="(item, index) in drawer?.getMenu()"
-              :key="index"
-            >
+            <v-list-item v-for="(item, index) in drawer?.getMenu()" :key="index">
               <template v-if="(drawer?.getStackAt(index)?.status === 0)">
-                <v-card
-                  block
-                  class="text-start"
-                  @click="products.selectMenu(index)"
-                >
-                  <svg-icon
-                    type="mdi"
-                    :path="item?.icon"
-                  />
+                <v-card block class="text-start" @click="products.selectMenu(index)">
+                  <svg-icon type="mdi" :path="item?.icon" />
                   {{ item?.name ?? 'N/A' }}
                 </v-card>
               </template>
 
               <template v-else-if="(drawer?.getStackAt(index)?.status === 1)">
-                <v-card
-                  class="bg-deep-purple-lighten-5 cursor-default"
-                  @click="products?.selectMenu(index)"
-                >
+                <v-card class="cursor-default" color="#BBDEFB" @click="products?.selectMenu(index)">
                   <v-row>
                     <v-col cols="6">
-                      <v-img
-                        width="50px"
-                        :src="drawer?.getStackAt(index)?.img"
-                      />
+                      <v-img width="50px" class="cursor-pointer" :src="drawer?.getStackAt(index)?.img"
+                        @click="openDialog(drawer?.getStackAt(index)?.object)" />
                     </v-col>
-                    <v-col cols="6">
-                      <svg-icon
-                        type="mdi"
-                        :path="mdiLocationExit"
-                        size="40"
-                        style="transform: translateX(90%) translateY(20%);"
-                        class="cursor-pointer text-red"
-                        @click="drawer?.StackPop(index)"
-                      />
+                    <v-col cols="4">
+                      <svg-icon type="mdi" :path="mdiLocationExit" size="40"
+                        style="transform: translateX(90%) translateY(20%);" class="cursor-pointer text-red"
+                        @click="drawer?.StackPop(index)" />
                     </v-col>
                   </v-row>
                   <v-row>
@@ -87,66 +50,41 @@
               </template>
             </v-list-item>
           </v-list>
-
-          <v-container>
-            <PDF />
-          </v-container>
+          <Suspense>
+            <v-container>
+              <PDF ref="pdf" />
+            </v-container>
+          </Suspense>
         </v-navigation-drawer>
 
 
         <v-main>
-          <v-container>
+          <v-container class="mb-10">
             <!--Features Box-->
             <v-card class="text-center bg-indigo-lighten-2 sticky-header">
               <!--Search Box-->
               <v-container class="search-container">
                 <v-card>
-                  <v-text-field
-                    v-model="searchQuery"
-                    label="Search Product"
-                    variant="solo"
-                    clearable
-                    prepend-inner-icon="mdi-magnify"
-                    class="custom-search"
-                    style="width: 400px;"
-                    density="comfortable"
-                    @click:clear="ClearSearch"
-                  />
+                  <v-text-field v-model="searchQuery" label="Search Product" variant="solo" clearable
+                    prepend-inner-icon="mdi-magnify" class="custom-search" style="width: 400px;" density="comfortable"
+                    @click:clear="ClearSearch" />
 
                   <!-- แสดงสินค้าถ้ามีข้อมูล -->
                   <v-row v-if="filteredProducts && filteredProducts.length > 0">
-                    <v-col
-                      v-for="product in filteredProducts"
-                      :key="product.id"
-                      cols="12"
-                    >
+                    <v-col v-for="product in filteredProducts" :key="product.id" cols="12">
                       <v-card class="pa-1 bordered-card bg-green-lighten-5">
                         <v-row align="center">
                           <v-col cols="2">
-                            <v-img
-                              :src="product.img"
-                              height="50px"
-                              width="50px"
-                              cover
-                            />
+                            <v-img :src="product.img" height="50px" width="50px" cover />
                           </v-col>
-                          <v-col
-                            cols="6"
-                            class="text-start"
-                          >
+                          <v-col cols="6" class="text-start">
                             {{ product.name }}
                           </v-col>
-                          <v-col
-                            cols="2"
-                            class="text-start"
-                          >
+                          <v-col cols="2" class="text-start">
                             {{ product.price.toFixed(2) }} ฿
                           </v-col>
                           <v-col cols="2">
-                            <v-btn
-                              color="success"
-                              @click="openDialog(product)"
-                            >
+                            <v-btn color="success" @click="openDialog(product)">
                               Info
                             </v-btn>
                           </v-col>
@@ -155,15 +93,8 @@
                     </v-col>
                   </v-row>
                   <template v-if="openTest === 2">
-                    <v-dialog
-                      v-model="dialog"
-                      width="auto"
-                    >
-                      <v-card
-                        max-width="600"
-                        prepend-icon="mdi-database"
-                        title="Product Info"
-                      >
+                    <v-dialog v-model="dialog" width="auto">
+                      <v-card max-width="600" prepend-icon="mdi-database" title="Product Info">
                         <v-card-text>
                           <p><strong>Name:</strong> {{ selectedProduct?.name || "N/A" }}</p>
                           <br>
@@ -175,10 +106,7 @@
                             <th>Spec</th>
                           </thead>
                           <tbody>
-                            <tr
-                              v-for="(value, key) in selectedProduct?.additionalDetails"
-                              :key="key"
-                            >
+                            <tr v-for="(value, key) in selectedProduct?.additionalDetails" :key="key">
                               <td>{{ key }}</td>
                               <td>{{ value }}</td>
                             </tr>
@@ -186,20 +114,13 @@
                         </div>
 
                         <template #actions>
-                          <v-btn
-                            class="ms-auto"
-                            text="Ok"
-                            @click="dialog = false"
-                          />
+                          <v-btn class="ms-auto" text="Ok" @click="dialog = false" />
                         </template>
                       </v-card>
                     </v-dialog>
                   </template>
                   <!-- แสดง "No products found." ถ้าพิมพ์แล้วแต่ไม่เจอ -->
-                  <v-alert
-                    v-else-if="filteredProducts !== null && filteredProducts.length === 0"
-                    type="info"
-                  >
+                  <v-alert v-if="!filteredProducts && searchQuery.length > 0" type="info">
                     No products found.
                   </v-alert>
                 </v-card>
@@ -210,14 +131,8 @@
                   <template #activator="{ props: menu }">
                     <v-tooltip location="top">
                       <template #activator="{ props: tooltip }">
-                        <v-btn
-                          color="primary"
-                          v-bind="mergeProps(menu, tooltip)"
-                        >
-                          <svg-icon
-                            type="mdi"
-                            :path="mdiSwapVertical"
-                          />
+                        <v-btn color="primary" v-bind="mergeProps(menu, tooltip)">
+                          <svg-icon type="mdi" :path="mdiSwapVertical" />
                           <h4>Filter</h4>
                         </v-btn>
                       </template>
@@ -225,15 +140,8 @@
                     </v-tooltip>
                   </template>
                   <v-list>
-                    <v-list-item
-                      v-for="(item, index) in items"
-                      :key="index"
-                      @click="products.selectSort(index)"
-                    >
-                      <svg-icon
-                        type="mdi"
-                        :path="item.icon"
-                      />
+                    <v-list-item v-for="(item, index) in items" :key="index" @click="products.selectSort(index)">
+                      <svg-icon type="mdi" :path="item.icon" />
                       {{ item.title }}
                     </v-list-item>
                   </v-list>
@@ -243,50 +151,39 @@
                 </v-btn>
               </div>
             </v-card>
+            <!--Pagination-->
+            <v-card v-if="products?.ProductSize(products?.CurrentMenu) > 0" class="text-center mt-2"
+              style="transform: translateY(15px);">
+              <v-pagination v-model="products.page"
+                :length="Math.ceil(products?.ProductSize(products?.CurrentMenu) / 15 + 1 ?? 1) - 1 ?? 1"
+                :total-visible="4" @update:model-value="scrollToTop" />
+            </v-card>
             <!--items Box-->
-            <v-card style="min-height: 70vh">
+            <v-card style="min-height: 70vh; margin-top: 20px;">
               <v-row align="stretch">
                 <template v-if="products?.getProduct(products.CurrentMenu)?.length > 0">
-                  <v-col
-                    v-for="(item, index) in products?.getProduct()"
-                    :key="index"
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    lg="3"
-                  >
-                    <v-card
-                      class="product-card"
-                      height="100%"
-                    >
-                      <v-img
-                        :src="item?.img"
-                        max-width="250px"
-                      />
-                      <v-card-title
-                        primary-title
-                        style="font-size: 10px;"
-                      >
-                        {{ item?.name }}
+                  <v-col v-for="(item, index) in products?.getProduct()" :key="index" cols="12" sm="6" md="4" lg="3">
+                    <v-card class="product-card bg-indigo-accent-2">
+                      <v-img :src="item?.img" max-width="100%" class="IMG_tag" @click="openDialog(item)" />
+                      <v-card-title primary-title style="font-size: 10px;">
+                        <p style="font-size: 16px;" class="P_tag">
+                          {{ item?.name.replace(/\s*\([^)]*\)/, "").trim() }}
+                          <v-tooltip activator="parent" location="top">
+                            {{ item?.name }}
+                          </v-tooltip>
+                        </p>
                       </v-card-title>
                       <v-card-actions>
                         <v-card-title primary-title>
                           <p style="font-size: 20px;">
-                            {{ item?.price?.toFixed(2) }} ฿
+                            {{ formatPrice(item?.price) }}
                           </p>
                         </v-card-title>
-                        <v-btn
-                          color=" #FFFFFF"
-                          style="background-color:#42A5F5;"
-                          @click="drawer?.StackAdd(item)"
-                        >
+                        <v-btn color=" #FFFFFF" style="background-color:#42A5F5;" @click="drawer?.StackAdd(item)">
                           <p style="font-size: 10px;">
                             ADD
                           </p>
-                          <v-icon
-                            icon="mdi-checkbox-marked-circle"
-                            end
-                          />
+                          <v-icon icon="mdi-checkbox-marked-circle" end />
                         </v-btn>
                       </v-card-actions>
                     </v-card>
@@ -295,13 +192,7 @@
                 <template v-else>
                   <v-sheet
                     class="d-flex align-center justify-center flex-wrap text-center mx-auto px-4 bg-grey-darken-3 emptydata"
-                    elevation="4"
-                    height="250"
-                    max-width="600"
-                    width="100%"
-                    rounded
-                    style="transform: translateY(80%);"
-                  >
+                    elevation="4" height="250" max-width="600" width="100%" rounded style="transform: translateY(80%);">
                     <div>
                       <h2 class="text-h3 font-weight-black text-red-lighten-1">
                         SORRY...
@@ -320,17 +211,11 @@
               </v-row>
             </v-card>
             <!--Pagination-->
-            <v-card
-              v-if="products?.ProductSize(products?.CurrentMenu) > 0"
-              class="text-center"
-              style="transform: translateY(15px);"
-            >
-              <v-pagination
-                v-model="products.page"
+            <v-card v-if="products?.ProductSize(products?.CurrentMenu) > 0" class="text-center mt-2"
+              style="transform: translateY(15px);">
+              <v-pagination v-model="products.page"
                 :length="Math.ceil(products?.ProductSize(products?.CurrentMenu) / 15 + 1 ?? 1) - 1 ?? 1"
-                :total-visible="4"
-                @update:model-value="scrollToTop"
-              />
+                :total-visible="4" @update:model-value="scrollToTop" />
             </v-card>
           </v-container>
         </v-main>
@@ -339,10 +224,8 @@
   </template>
 </template>
 
-
-
 <script setup>
-import { mergeProps, ref, computed, watchEffect, onMounted, shallowReactive, reactive } from "vue";
+import { mergeProps, ref, computed, watchEffect, onMounted, shallowReactive, inject } from "vue";
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiSwapVertical, mdiArrowDown, mdiArrowUp, mdiLocationExit } from '@mdi/js';
 import { useProductStore } from '@/stores/ProductStore'
@@ -354,16 +237,26 @@ const openTest = ref(2);
 const dialog = ref(false);
 const products = ref(null);
 const selectedProduct = ref(null);
-const productStore = useProductStore()
+const productStore = useProductStore();
+const TestProxy = inject('TestProxy');
+const isVerified = ref(false);
+
+const callTestProxy = async () => {
+  if (!TestProxy) {
+    // alert(`Failed to find TestProxy`);
+    return;
+  }
+
+  const result = await TestProxy();
+  isVerified.value = result.status;
+};
+
 
 const openDialog = (product) => {
+  console.log(product?.additionalDetails);
   selectedProduct.value = product;
   dialog.value = true;
 };
-
-onMounted(() => {
-  productStore.fetchAllProducts() // โหลดข้อมูลทั้งหมด
-})
 
 class Products {
   static instance = null;
@@ -515,7 +408,6 @@ class Products {
     let normal = [...this.typeProducts[this.currentMenu]];
     let expensive = [...this.typeProducts[this.currentMenu]].sort((a, b) => b.price - a.price);
     let cheap = [...this.typeProducts[this.currentMenu]].sort((a, b) => a.price - b.price);
-
     switch (this.sorted) {
       case 0: return expensive.slice(this.start, this.end);
       case 1: return cheap.slice(this.start, this.end);
@@ -545,9 +437,12 @@ onMounted(async () => {
   await productStore.fetchAllProducts();
   products.value = Products.getInstance(store);
   isLoading.value = false;
+  callTestProxy();
 });
 
-
+const formatPrice = (price) => {
+  return price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " ฿";
+}
 
 watchEffect(() => {
   console.log("🔄 Page : ", products.value?.getPage());
@@ -591,7 +486,8 @@ const scrollToTop = () => {
 
 <style lang="scss" scoped>
 .product-card {
-  min-height: 380px;
+  min-height: 280px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -603,20 +499,6 @@ const scrollToTop = () => {
   top: 0;
   z-index: 1000;
 }
-
-// .sticky-header {
-//   position: fixed;
-//   top: 64px;
-//   /* ปรับให้ไม่ทับ v-app-bar (ถ้ามี) */
-//   left: 20%;
-//   width: 75%;
-//   z-index: 1100;
-//   /* ให้สูงกว่า v-navigation-drawer */
-//   background: #6C75E0;
-//   padding: 10px;
-//   max-height: 600px;
-//   overflow-y: auto;
-// }
 
 .fixedClass {
   position: fixed !important;
@@ -637,5 +519,15 @@ const scrollToTop = () => {
   align-items: center;
   padding: 10px;
   width: 100%;
+}
+
+.P_tag:hover {
+  transform: translateX(-70%);
+  transition: 1.5s ease-in-out;
+}
+
+.IMG_tag:hover {
+  transform: scale(110%);
+  transition: 0.3s ease;
 }
 </style>

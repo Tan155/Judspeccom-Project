@@ -7,9 +7,12 @@ const mongoose = require('mongoose')
 // import
 const User = require('./model/userModel')
 const Product = require('./model/productModel')
+const UserBuild = require('./model/UserBuild')
 
 const routerUser = require('./routes/user')
 const routerProduct = require('./routes/products')
+
+const routerSetComputer = require('./routes/setComputer')
 
 const app = express()
 
@@ -35,6 +38,8 @@ mongoose
 
 app.use('/api/user', routerUser)
 app.use('/api/products', routerProduct)
+
+app.use('/api/setcomputer', routerSetComputer)
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
