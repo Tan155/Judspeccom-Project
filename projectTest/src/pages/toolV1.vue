@@ -7,12 +7,11 @@
   </template>
 
   <template v-else>
-    <v-card v-if="productStore">
+    <v-card class="test" v-if="productStore">
       <v-layout>
-        <v-navigation-drawer ref="scrollContainer" class="bg-indigo-lighten-5" theme="light" permanent app
-          style=" transform: translateY(0px); overflow-y: auto;">
+        <v-navigation-drawer ref="scrollContainer" class="Fill-product" permanent app>
           <v-card class="mt-2 sticky-total" elevation="4">
-            <v-list color="transparent">
+            <v-list class="Total">
               <v-list-item title="Total">
                 <h4>{{ drawer?.getPrice() }}</h4>
               </v-list-item>
@@ -22,8 +21,8 @@
           <v-list>
             <v-list-item v-for="(item, index) in drawer?.getMenu()" :key="index">
               <template v-if="(drawer?.getStackAt(index)?.status === 0)">
-                <v-card block class="text-start" @click="products.selectMenu(index)">
-                  <svg-icon type="mdi" :path="item?.icon" />
+                <v-card block class="block-product" @click="products.selectMenu(index)">
+                  <svg-icon type="mdi" :path="item?.icon" style="width: 40px; height: 40px; margin-right: 8px;" />
                   {{ item?.name ?? 'N/A' }}
                 </v-card>
               </template>
@@ -51,23 +50,21 @@
             </v-list-item>
           </v-list>
           <Suspense>
-            <v-container>
+            <v-container style="margin-left: 30px;">
               <PDF ref="pdf" />
             </v-container>
           </Suspense>
         </v-navigation-drawer>
 
-
         <v-main>
           <v-container class="mb-10">
             <!--Features Box-->
-            <v-card class="text-center bg-indigo-lighten-2 sticky-header">
+            <v-card class="main-search">
               <!--Search Box-->
               <v-container class="search-container">
-                <v-card>
-                  <v-text-field v-model="searchQuery" label="Search Product" variant="solo" clearable
-                    prepend-inner-icon="mdi-magnify" class="custom-search" style="width: 400px;" density="comfortable"
-                    @click:clear="ClearSearch" />
+                <v-card class=" behide-search ">
+                  <v-text-field v-model="searchQuery" label="Search Product" clearable prepend-inner-icon="mdi-magnify"
+                    class="custom-search" @click:clear="ClearSearch" />
 
                   <!-- แสดงสินค้าถ้ามีข้อมูล -->
                   <v-row v-if="filteredProducts && filteredProducts.length > 0">
@@ -94,27 +91,28 @@
                   </v-row>
                   <template v-if="openTest === 2">
                     <v-dialog v-model="dialog" width="auto">
-                      <v-card max-width="600" prepend-icon="mdi-database" title="Product Info">
-                        <v-card-text>
+                      <v-card width="700" style="background-color: whitesmoke ; color: black; overflow-x: auto;">
+                        <p class="Titleinfo"> Product Info </p>
+                        <v-card-text class="Finfo">
                           <p><strong>Name:</strong> {{ selectedProduct?.name || "N/A" }}</p>
                           <br>
                           <p><strong>Price:</strong> {{ selectedProduct?.price?.toFixed(2) || "0.00" }} ฿</p>
                         </v-card-text>
-                        <div>
-                          <thead>
-                            <th>Option</th>
-                            <th>Spec</th>
+                        <div class="Sinfo">
+                          <thead class="F-Sinfo">
+                            <th style="transform: translateX(-50px);">Option</th>
+                            <th style="transform: translateX(10px);">Spec</th>
                           </thead>
-                          <tbody>
+                          <tbody class="S-Sinfo">
                             <tr v-for="(value, key) in selectedProduct?.additionalDetails" :key="key">
                               <td>{{ key }}</td>
-                              <td>{{ value }}</td>
+                              <td style=" transform: translateX(150px);">{{ value }}</td>
                             </tr>
                           </tbody>
                         </div>
 
                         <template #actions>
-                          <v-btn class="ms-auto" text="Ok" @click="dialog = false" />
+                          <v-btn class="ms-auto" text="Ok" @click="dialog = false" style="background-color: green;" />
                         </template>
                       </v-card>
                     </v-dialog>
@@ -125,8 +123,10 @@
                   </v-alert>
                 </v-card>
               </v-container>
+
+
               <!--Filter Block-->
-              <div style="transform: translateX(30%) translateY(-40px);">
+              <div class="block-filter">
                 <v-menu transition="scale-transition">
                   <template #activator="{ props: menu }">
                     <v-tooltip location="top">
@@ -146,24 +146,19 @@
                     </v-list-item>
                   </v-list>
                 </v-menu>
-                <v-btn class="bg-deep-orange-lighten-1">
+                <!-- <v-btn class="bg-deep-orange-lighten-1">
                   {{ products?.ProductSize(products?.CurrentMenu) ?? 0 }}
-                </v-btn>
+                </v-btn> -->
               </div>
             </v-card>
-            <!--Pagination-->
-            <v-card v-if="products?.ProductSize(products?.CurrentMenu) > 0" class="text-center mt-2"
-              style="transform: translateY(15px);">
-              <v-pagination v-model="products.page"
-                :length="Math.ceil(products?.ProductSize(products?.CurrentMenu) / 15 + 1 ?? 1) - 1 ?? 1"
-                :total-visible="4" @update:model-value="scrollToTop" />
-            </v-card>
+
+
             <!--items Box-->
-            <v-card style="min-height: 70vh; margin-top: 20px;">
+            <v-card class="item-Box">
               <v-row align="stretch">
                 <template v-if="products?.getProduct(products.CurrentMenu)?.length > 0">
                   <v-col v-for="(item, index) in products?.getProduct()" :key="index" cols="12" sm="6" md="4" lg="3">
-                    <v-card class="product-card bg-indigo-accent-2">
+                    <v-card class="product-card">
                       <v-img :src="item?.img" max-width="100%" class="IMG_tag" @click="openDialog(item)" />
                       <v-card-title primary-title style="font-size: 10px;">
                         <p style="font-size: 16px;" class="P_tag">
@@ -179,8 +174,9 @@
                             {{ formatPrice(item?.price) }}
                           </p>
                         </v-card-title>
-                        <v-btn color=" #FFFFFF" style="background-color:#42A5F5;" @click="drawer?.StackAdd(item)">
-                          <p style="font-size: 10px;">
+                        <v-btn color=" #FFFFFF" style="background-color:green; font-size: 12px;"
+                          @click="drawer?.StackAdd(item)">
+                          <p style="font-size: 12px;">
                             ADD
                           </p>
                           <v-icon icon="mdi-checkbox-marked-circle" end />
@@ -240,6 +236,7 @@ const selectedProduct = ref(null);
 const productStore = useProductStore();
 const TestProxy = inject('TestProxy');
 const isVerified = ref(false);
+const isDarkMode = inject('isDarkMode', ref(false));
 
 const callTestProxy = async () => {
   if (!TestProxy) {
@@ -485,15 +482,7 @@ const scrollToTop = () => {
 </script>
 
 <style lang="scss" scoped>
-.product-card {
-  min-height: 280px;
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
+// all main
 .sticky-total {
   position: sticky;
   top: 0;
@@ -513,13 +502,65 @@ const scrollToTop = () => {
   left: 40%;
 }
 
+.main-search {
+  text-align: center;
+  background-color: #FFFFFF;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  padding: 10px 20px 10px 20px;
+  flex-direction: row;
+}
+
+.dark-mode .main-search {
+  background-color: #141414;
+}
+
+.block-filter {
+  display: flex;
+  margin-top: 30px;
+}
+
+// .dark-mode .main-search {
+//   background-color: #141414 !important;  
+// }
+
 .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   width: 100%;
+  background-color: rgb(255, 255, 255) !important;
 }
+
+.dark-mode .search-container {
+  background-color: #141414 !important;
+}
+
+.custom-search {
+  background-color: #FFFFFF !important;
+  color: black;
+  width: 1000px;
+  border: solid 1px rgb(5, 4, 4);
+  border-radius: 30px;
+}
+
+.dark-mode .custom-search {
+  background-color: #ffffff !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+.behide-search {
+  background-color: transparent;
+  border-radius: 30px;
+}
+
+.dark-mode .behide-search {
+  background-color: #141414 !important;
+}
+
 
 .P_tag:hover {
   transform: translateX(-70%);
@@ -529,5 +570,115 @@ const scrollToTop = () => {
 .IMG_tag:hover {
   transform: scale(110%);
   transition: 0.3s ease;
+}
+
+.dark-mode .product-card {
+  background-color: #ffffff !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+//Box Item
+.item-Box {
+  min-height: 70vh;
+  margin-top: 20px;
+  background-color: rgb(250, 250, 250);
+  padding: 20px 20px 20px 20px;
+}
+
+.dark-mode .item-Box {
+  background-color: #141414 !important;
+  color: rgb(240, 238, 238) !important;
+}
+
+.product-card {
+  min-height: 280px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #141414 !important;
+  color: rgb(240, 238, 238) !important;
+  border-radius: 15px;
+  border: solid 2px #141414
+}
+
+.Titleinfo {
+  font-size: 25px;
+  transform: translateX(270px);
+  margin-top: 10px;
+}
+
+// style="font-size: 25px; font-family: 'Kanit' sans-serif; transform: translateX(270px); margin-top: 10px;"
+
+.Finfo {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+}
+
+.Sinfo {
+  display: flex;
+  flex-direction: column;
+  // border: solid 2px red;
+}
+
+.F-Sinfo {
+  display: flex;
+  color: rgb(0, 0, 0);
+  justify-content: space-evenly;
+  font-size: 20px;
+}
+
+.S-Sinfo {
+  transform: translateX(80px);
+  font-size: 18px;
+  // border: solid 2px green; 
+  // text-align: start ;
+}
+
+body,
+.Finfo,
+.F-Sinfo,
+.S-Sinfo,
+.Sinfo,
+.Titleinfo {
+  font-family: 'Kanit', sans-serif;
+}
+
+
+// .pdf{
+//   width: 200px;
+//   height: 10px;
+//   background-color: black;
+//   border: solid 2px red;
+// }
+
+
+.Fill-product {
+  transform: translateY(0px);
+  overflow-y: auto;
+  width: 300px !important;
+  background-color: #FFFFFF !important;
+  // border: solid 2px green;
+}
+
+.dark-mode .Fill-product {
+  background-color: #141414 !important;
+}
+
+.Total {
+  background-color: rgb(250, 250, 250) !important;
+  color: black !important;
+  // border: solid 2px #141414;
+}
+
+.block-product {
+  display: flex;
+  height: 50px;
+  font-size: 15px;
+  background-color: rgb(250, 250, 250) !important;
+  color: #000000;
+  align-items: center;
+  // border: solid 2px #141414;
 }
 </style>

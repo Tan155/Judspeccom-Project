@@ -41,6 +41,7 @@ router.delete('/deleteUser', async (req, res) => {
 router.delete('/deleteProduct', async (req, res) => {
   try {
     const { id, category } = req.body
+    console.log(id, category)
     if (!id || !category) {
       return res.status(400).json({ error: 'Missing id or category' })
     }
@@ -74,6 +75,8 @@ router.delete('/deleteProduct', async (req, res) => {
     }
 
     const deletedProduct = await productModel.findByIdAndDelete(id)
+
+    console.log('Product to be deleted:', deletedProduct)
 
     if (!deletedProduct)
       return res.status(404).json({ error: 'Product not found' })

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="{ 'dark-mode': isDarkMode }">
     <!-- NAVBAR -->
     <v-app-bar fixed flat elevation="0" height="64"
       style="background-color: transparent; z-index: 9999; position: fixed; top: 0; left: 0; width: 100%;">
@@ -17,40 +17,84 @@
             <v-btn text to="/compare" class="text-h5">Compare</v-btn>
           </v-col>
 
+          <v-btn @click="toggleTheme" icon class="ml-2">
+            <v-icon>{{ isDarkMode ? 'mdi-weather-night' : 'mdi-white-balance-sunny' }}</v-icon>
+          </v-btn>
 
           <v-col cols="auto" class="d-flex justify-end">
             <v-menu v-if="!isLoggedIn">
-              <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props" class="text-h5"> Register </v-btn>
+              <template #activator="{ props }">
+                <v-btn color="primary" v-bind="props" class="text-h5">
+                  Register
+                </v-btn>
               </template>
               <v-list>
                 <v-list-item>
-                  <v-btn @click="register" prepend-icon="mdi-account" class="text-h6">Register</v-btn>
+                  <!-- Register -->
+                  <v-list-item-title>
+                    <v-btn prepend-icon="mdi-account" @click="register" class="text-h6">
+                      Register
+                    </v-btn>
+                  </v-list-item-title>
                 </v-list-item>
+                <!-- Login -->
                 <v-list-item>
-                  <v-btn @click="login" prepend-icon="mdi-login" class="text-h6">Login</v-btn>
+                  <v-list-item-title>
+                    <v-btn prepend-icon="mdi-login" @click="login" class="text-h6">
+                      Login
+                    </v-btn>
+                  </v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
 
-            <v-menu v-else>
-              <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props" class="text-h6">
+            <!-- User and Logout -->
+            <v-menu v-if="isLoggedIn && status === 'Customer'">
+              <template #activator="{ props }">
+                <v-btn color="primary" v-bind="props">
                   <v-avatar size="32" class="mr-2">
-                    <v-img :src="profileImage" alt="Profile"></v-img>
+                    <v-img :src="profileImage" alt="Profile" />
                   </v-avatar>
                   {{ username }}
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item>
-                  <v-btn @click="myProfile" prepend-icon="mdi-account" class="text-h6">My Profile</v-btn>
+                  <v-btn prepend-icon="mdi-account" @click="myProfile" class="text-h6">
+                    My Profile
+                  </v-btn>
                 </v-list-item>
                 <v-list-item>
-                  <v-btn @click="logout" prepend-icon="mdi-logout" class="text-h6">Logout</v-btn>
+                  <v-btn prepend-icon="mdi-logout" @click="logout" class="text-h6">
+                    Logout
+                  </v-btn>
                 </v-list-item>
               </v-list>
             </v-menu>
+
+            <v-menu v-if="isLoggedIn && status === 'Admin'">
+              <template #activator="{ props }">
+                <v-btn color="primary" v-bind="props">
+                  <v-avatar size="32" class="mr-2">
+                    <v-img :src="profileImage" alt="Profile" />
+                  </v-avatar>
+                  {{ username }}
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item>
+                  <v-btn prepend-icon="mdi-account" @click="manageAdmin">
+                    Manage Data
+                  </v-btn>
+                </v-list-item>
+                <v-list-item>
+                  <v-btn prepend-icon="mdi-logout" @click="logout">
+                    Logout
+                  </v-btn>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
           </v-col>
         </v-row>
       </v-container>
@@ -61,7 +105,7 @@
       <router-view />
     </v-main>
 
-    <footer v-if="!isRegisterOrLoginPage" class="footer">
+    <footer v-if="!$route.path.includes('profileUser') && !$route.path.includes('manage')" class="footer">
       <v-container>
         <v-row>
           <v-col cols="12" md="4" class="text-center">
@@ -176,7 +220,18 @@ const logout = async () => {
     status.value = "";
     router.push("/");
   }
-}; 
+};
+
+
+
+// new Features
+const isDarkMode = ref(false);
+
+const toggleTheme = () => {
+  isDarkMode.value = !isDarkMode.value;
+  document.body.classList.toggle('dark-mode', isDarkMode.value);
+  provide('isDarkMode', isDarkMode);
+};
 </script>
 
 <style scoped>
@@ -255,5 +310,24 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.v-main {
+  background-color: rgb(246, 249, 252);
+}
+
+.dark-mode {
+  background-color: #141414 !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+.dark-mode .v-main {
+  background-color: #141414 !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+.dark-mode .v-app-bar {
+  background-color: rgb(246, 249, 252) !important;
+  color: black !important;
 }
 </style>
