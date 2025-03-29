@@ -1,95 +1,94 @@
 <template>
   <v-app>
     <!-- NAVBAR -->
-    <v-app-bar>
-      <router-link to="/">
-        Home
-      </router-link>
-      <v-spacer />
-      <router-link to="/LabCompare">
-        Lab
-      </router-link>
+    <v-app-bar fixed flat elevation="0" height="64"
+      style="background-color: transparent; z-index: 9999; position: fixed; top: 0; left: 0; width: 100%;">
+      <v-container class="fill-width" style="max-width: none;">
+        <v-row align="center" justify="space-between" class="fill-width" style="width: 100%;">
+          <!-- Home Button (ซ้ายสุด) -->
+          <v-col cols="auto">
+            <v-img src="@/assets/logo1.png" alt="Home Logo" width="150" height="auto" @click="goHome" />
+          </v-col>
 
-      <!-- Menu REGISTER AND LOGIN -->
+          <v-col v-if="!isRegisterOrLoginPage" class="d-flex justify-center">
+            <v-btn text to="/" class="text-h5">Home</v-btn>
+            <v-btn text to="/about" class="text-h5">Computer Set</v-btn>
+            <v-btn text to="/customize" class="text-h5">Customize</v-btn>
+            <v-btn text to="/compare" class="text-h5">Compare</v-btn>
+          </v-col>
 
-      <v-menu v-if="!isLoggedIn">
-        <template #activator="{ props }">
-          <v-btn color="primary" v-bind="props">
-            Register
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item>
-            <!-- Register -->
-            <v-list-item-title>
-              <v-btn prepend-icon="mdi-account" @click="register">
-                Register
-              </v-btn>
-            </v-list-item-title>
-          </v-list-item>
-          <!-- Login -->
-          <v-list-item>
-            <v-list-item-title>
-              <v-btn prepend-icon="mdi-login" @click="login">
-                Login
-              </v-btn>
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
 
-      <!-- User and Logout -->
-      <v-menu v-if="isLoggedIn && status === 'Customer'">
-        <template #activator="{ props }">
-          <v-btn color="primary" v-bind="props">
-            <v-avatar size="32" class="mr-2">
-              <v-img :src="profileImage" alt="Profile" />
-            </v-avatar>
-            {{ username }}
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item>
-            <v-btn prepend-icon="mdi-account" @click="myProfile">
-              My Profile
-            </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn prepend-icon="mdi-logout" @click="logout">
-              Logout
-            </v-btn>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+          <v-col cols="auto" class="d-flex justify-end">
+            <v-menu v-if="!isLoggedIn">
+              <template v-slot:activator="{ props }">
+                <v-btn color="primary" v-bind="props" class="text-h5"> Register </v-btn>
+              </template>
+              <v-list>
+                <v-list-item>
+                  <v-btn @click="register" prepend-icon="mdi-account" class="text-h6">Register</v-btn>
+                </v-list-item>
+                <v-list-item>
+                  <v-btn @click="login" prepend-icon="mdi-login" class="text-h6">Login</v-btn>
+                </v-list-item>
+              </v-list>
+            </v-menu>
 
-      <v-menu v-if="isLoggedIn && status === 'Admin'">
-        <template #activator="{ props }">
-          <v-btn color="primary" v-bind="props">
-            <v-avatar size="32" class="mr-2">
-              <v-img :src="profileImage" alt="Profile" />
-            </v-avatar>
-            {{ username }}
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item>
-            <v-btn prepend-icon="mdi-account" @click="manageAdmin">
-              Manage Data
-            </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn prepend-icon="mdi-logout" @click="logout">
-              Logout
-            </v-btn>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+            <v-menu v-else>
+              <template v-slot:activator="{ props }">
+                <v-btn color="primary" v-bind="props" class="text-h6">
+                  <v-avatar size="32" class="mr-2">
+                    <v-img :src="profileImage" alt="Profile"></v-img>
+                  </v-avatar>
+                  {{ username }}
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item>
+                  <v-btn @click="myProfile" prepend-icon="mdi-account" class="text-h6">My Profile</v-btn>
+                </v-list-item>
+                <v-list-item>
+                  <v-btn @click="logout" prepend-icon="mdi-logout" class="text-h6">Logout</v-btn>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-col>
+        </v-row>
+      </v-container>
+
     </v-app-bar>
 
-    <v-main>
+    <v-main style="--v-layout-top: 0px; --v-layout-bottom: 0px; padding-top: 0px;">
       <router-view />
     </v-main>
+
+    <footer v-if="!isRegisterOrLoginPage" class="footer">
+      <v-container>
+        <v-row>
+          <v-col cols="12" md="4" class="text-center">
+            <v-img src="@/assets/logo1.png" alt="Logo" width="400" height="100" class="mr-4"></v-img>
+            <p>Judspeccom is a website where you can design your own dream computer.</p>
+          </v-col>
+          <v-col cols="12" md="4" class="text-center sitemap-links">
+            <h4>Sitemap</h4>
+            <v-btn text to="/" class="footer-btn">Home</v-btn>
+            <v-btn text to="/about" class="footer-btn">Computer Set</v-btn>
+            <v-btn text to="/customize" class="footer-btn">Customize</v-btn>
+            <v-btn text to="/compare" class="footer-btn">Compare</v-btn>
+          </v-col>
+          <v-col cols="12" md="4" class="text-right">
+            <h4>Let's get Social!</h4>
+            <v-btn icon href="https://facebook.com" target="_blank">
+              <v-icon>mdi-facebook</v-icon>
+            </v-btn>
+            <v-btn icon href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+              <v-icon>mdi-email</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </footer>
   </v-app>
+
 </template>
 
 <script setup>
@@ -144,6 +143,11 @@ const loadUserFromServer = async () => {
     alert("Please Login again");
     logout();
   }
+
+  const isRegisterOrLoginPage = computed(() => {
+    return route.path === "/register" || route.path === "/login";
+  });
+
 };
 
 const myProfile = () => {
@@ -172,5 +176,84 @@ const logout = async () => {
     status.value = "";
     router.push("/");
   }
-};
+}; 
 </script>
+
+<style scoped>
+body,
+.v-btn,
+.v-col,
+.content,
+h1,
+h2,
+p {
+  font-family: 'Kanit', sans-serif;
+}
+
+.v-btn,
+.v-col {
+  font-family: 'Kanit', sans-serif;
+}
+
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer h4 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-btn {
+  margin: 5px;
+  padding: 0;
+  font-size: 12px;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.footer .sitemap-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer .social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer .text-center {
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.footer .text-left,
+.footer .text-right {
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
