@@ -53,26 +53,25 @@ router.post('/user-builds', async (req, res) => {
   }
 })
 
-router.get('/user-builds/:email/details', async (req, res) => {
+// GET: Retrieve all User Builds by User Email
+router.get('/user-builds', async (req, res) => {
   try {
-    const userBuild = await UserBuild.findOne({ userEmail: req.params.email })
+    const { userEmail } = req.query // รับค่า userEmail จาก query parameter
+    console.log('📌 Fetching user builds for email:', userEmail)
 
-    if (!userBuild) {
-      return res.status(404).json({ error: 'User build not found' })
+    // ใช้ find แทน findOne เพื่อดึงข้อมูลทั้งหมดที่ตรงกับ userEmail
+    const userBuilds = await UserBuild.find({ userEmail })
+
+    if (userBuilds.length === 0) {
+      return res
+        .status(404)
+        .json({ error: 'No user builds found for this email' })
     }
 
-    // ✅ กรองเฉพาะ selectedParts ที่มีค่า ไม่เอา null
-    const filteredParts = Object.fromEntries(
-      Object.entries(userBuild.selectedParts).filter(
-        ([key, value]) => value !== null
-      )
-    )
-
-    res
-      .status(200)
-      .json({ userEmail: userBuild.userEmail, selectedParts: filteredParts })
+    // ส่งข้อมูลทั้งหมดที่พบกลับไป
+    res.status(200).json({ message: 'User builds found', data: userBuilds })
   } catch (error) {
-    console.error('❌ Error fetching user build details:', error)
+    console.error('❌ Error fetching user builds:', error)
     res.status(500).json({ error: 'Internal Server Error' })
   }
 })

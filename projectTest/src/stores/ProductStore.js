@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import axios from "axios";
 
 import {
@@ -27,16 +27,20 @@ export const useProductStore = defineStore("productStore", () => {
   const cases = ref([]);
 
   const Menu = ref([
-    { icon: mdiCpu64Bit, name: "ซีพียู" },
-    { icon: mdiChip, name: "เมนบอร์ด" },
-    { icon: mdiExpansionCard, name: "การ์ดจอ" },
-    { icon: mdiNas, name: "แรม" },
-    { icon: mdiHarddisk, name: "การ์ด M.2" },
-    { icon: mdiGeneratorPortable, name: "พาวเวอร์ซัพพลาย" },
-    { icon: mdiServer, name: "เคส" },
-    { icon: mdiFan, name: "พัดลม" },
-    { icon: mdiMonitorScreenshot, name: "จอมอนิเตอร์" },
+    { icon: mdiCpu64Bit, name: "CPU" },
+    { icon: mdiExpansionCard, name: "GRAPHIC CARD" },
+    { icon: mdiChip, name: "MAINBOARD" },
+    { icon: mdiNas, name: "RAM" },
+    { icon: mdiGeneratorPortable, name: "POWER SUPPLY" },
+    { icon: mdiHarddisk, name: "SSD M.2" },
+    { icon: mdiServer, name: "CASE" },
+    { icon: mdiFan, name: "FAN" },
+    { icon: mdiMonitorScreenshot, name: "MONITOR" },
   ]);
+
+  function getMenuAt(index) {
+    return Menu.value[index] ?? [];
+  }
 
   const loading = ref(false);
   const error = ref(null);
@@ -152,17 +156,58 @@ export const useProductStore = defineStore("productStore", () => {
   };
 
   // ✅ Fetch ข้อมูลทั้งหมดพร้อมกัน
+  // const fetchAllProducts = async () => {
+  //   await Promise.all([
+  //     fetchCpus(),
+  //     fetchGpus(),
+  //     fetchMainboards(),
+  //     fetchRams(),
+  //     fetchPsus(),
+  //     fetchM2s(),
+  //     fetchCases(),
+  //   ]);
+  // };
+
+  const allProducts = ref([]);
+
   const fetchAllProducts = async () => {
-    await Promise.all([
-      fetchCpus(),
-      fetchGpus(),
-      fetchMainboards(),
-      fetchRams(),
-      fetchPsus(),
-      fetchM2s(),
-      fetchCases(),
-    ]);
+    try {
+      console.log("Fetching products...");
+      await Promise.all([
+        fetchCpus(),
+        fetchGpus(),
+        fetchMainboards(),
+        fetchRams(),
+        fetchPsus(),
+        fetchM2s(),
+        fetchCases(),
+      ]);
+      console.log("All products fetched!");
+
+      // ตรวจสอบว่าข้อมูลถูกเก็บลงใน allProducts
+      allProducts.value = [
+        cpus.value,
+        gpus.value,
+        mainboards.value,
+        rams.value,
+        psus.value,
+        m2s.value,
+        cases.value,
+      ];
+      console.log("Cpu[0].id : ", cpus.value[0]._id);
+      // console.log("Finished Fetching: ", allProducts.value); // เพิ่มการตรวจสอบข้อมูล
+      // console.log(
+      //   "Products loaded:",
+      //   JSON.stringify(allProducts.value[3][0].name)
+      // );
+    } catch (err) {
+      console.error("Error fetching products:", err);
+    }
   };
+
+  onMounted(() => {
+    fetchAllProducts();
+  });
 
   // ✅ Getters (จำนวนสินค้าแต่ละประเภท)
   const cpuCount = computed(() => cpus.value.length);
@@ -172,6 +217,10 @@ export const useProductStore = defineStore("productStore", () => {
   const psuCount = computed(() => psus.value.length);
   const m2Count = computed(() => m2s.value.length);
   const caseCount = computed(() => cases.value.length);
+
+  const CountProducts = computed(() => {
+    return allProducts.value.length; // คำนวณจำนวนสินค้าทั้งหมด
+  });
 
   const superLength = computed(
     () =>
@@ -184,7 +233,7 @@ export const useProductStore = defineStore("productStore", () => {
       caseCount.value
   );
 
-  const allProducts = computed(() => [
+  const allProducts2 = computed(() => [
     ...cpus.value,
     ...gpus.value,
     ...mainboards.value,
@@ -203,6 +252,15 @@ export const useProductStore = defineStore("productStore", () => {
   const getCurrentMenu = () => {
     return cmn.value;
   };
+
+  async function getArrayProductAt(index) {
+    if (allProducts.value[index]) {
+      return allProducts.value[index];
+    } else {
+      console.log("No products loaded yet.");
+      return [];
+    }
+  }
 
   return {
     cpus,
@@ -234,5 +292,10 @@ export const useProductStore = defineStore("productStore", () => {
     superLength,
     setCurrentMenu,
     getCurrentMenu,
+    getArrayProductAt,
+    // getCountProductsAt,
+    CountProducts,
+    getMenuAt,
+    allProducts2,
   };
 });

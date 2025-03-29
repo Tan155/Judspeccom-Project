@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="info" width="300" height="100" @click="usePrintPDF">
+  <v-btn class="pdf" @click="usePrintPDF">
     Download PDF
   </v-btn>
 
@@ -170,6 +170,7 @@ const global = useStaticStore();;
 const dialog = ref(false);
 const page = ref('cart');
 const maximumValues = 5;
+const isDarkMode = inject('isDarkMode', ref(false));
 
 const login = () => {
   router.push("/login");
@@ -500,5 +501,12 @@ defineExpose({ generatePDF });
   margin-top: 10px;
   padding: 4px;
   overflow: hidden;
+}
+
+.pdf {
+  width: 200px;
+  height: 100px;
+  background-color: black;
+  color: white;
 }
 </style>

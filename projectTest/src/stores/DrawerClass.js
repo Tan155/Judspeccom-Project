@@ -37,15 +37,15 @@ export const useDrawer = defineStore("Drawer", () => {
   );
 
   const menu = ref([
-    { icon: mdiCpu64Bit, name: "ซีพียู" },
-    { icon: mdiChip, name: "เมนบอร์ด" },
-    { icon: mdiExpansionCard, name: "การ์ดจอ" },
-    { icon: mdiNas, name: "แรม" },
-    { icon: mdiHarddisk, name: "การ์ด M.2" },
-    { icon: mdiGeneratorPortable, name: "พาวเวอร์ซัพพลาย" },
-    { icon: mdiServer, name: "เคส" },
-    { icon: mdiFan, name: "พัดลม" },
-    { icon: mdiMonitorScreenshot, name: "จอมอนิเตอร์" },
+    { icon: mdiCpu64Bit, name: "CPU" },
+    { icon: mdiChip, name: "MAINNBOARD" },
+    { icon: mdiExpansionCard, name: "GRAPHIC CARD" },
+    { icon: mdiNas, name: "RAM" },
+    { icon: mdiHarddisk, name: "SSD M.2" },
+    { icon: mdiGeneratorPortable, name: "POWER SUPPLY" },
+    { icon: mdiServer, name: "CASE" },
+    { icon: mdiFan, name: "FAN" },
+    { icon: mdiMonitorScreenshot, name: "MONITOR" },
   ]);
 
   //getter.

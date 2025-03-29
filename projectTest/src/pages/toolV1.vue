@@ -453,7 +453,7 @@ watchEffect(() => {
 const searchQuery = ref('');
 const filteredProducts = computed(() => {
   if (!searchQuery.value.trim()) return null;
-  const result = productStore.allProducts.filter(product =>
+  const result = productStore.allProducts2.filter(product =>
     product.name.toLowerCase().includes(searchQuery.value.toLowerCase())
   );
   return result.length ? result : 0;
