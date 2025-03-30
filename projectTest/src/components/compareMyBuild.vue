@@ -4,12 +4,12 @@
       <v-col cols="8">
         <h1>Compare My Build</h1>
       </v-col>
-      <v-col v-if="status" color="info" cols="4">
+      <!-- <v-col v-if="status" color="info" cols="4">
         Login Successful
       </v-col>
       <v-col v-else color="accent" cols="4">
         Login UnSuccessful
-      </v-col>
+      </v-col> -->
     </v-row>
 
     <v-container>
@@ -354,6 +354,7 @@ function getProduct(index) {
     const psuId = BuildCollection.value[index].selectedParts.psuId;
     const m2Id = BuildCollection.value[index].selectedParts.m2Id;
     const caseId = BuildCollection.value[index].selectedParts.caseId;
+    // const ID = b
 
     // ตรวจสอบว่า allProducts.value[0] เป็น array และค้นหาด้วย _id
     if (Array.isArray(useProduct.allProducts[0])) {

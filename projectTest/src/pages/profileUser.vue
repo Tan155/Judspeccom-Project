@@ -64,15 +64,16 @@
         <h1>Email: {{ email }}</h1>
       </v-card-text>
     </v-card>
-  </v-container>
 
-  <v-container v-else />
+    <collectionBuildforUser v-else />
+  </v-container>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import authService from "@/services/AuthService";
+import collectionBuildforUser from "@/components/collectionBuildforUser.vue";
 
 // value
 const selectedItem = ref("profile");
