@@ -167,12 +167,12 @@
                 <v-img :src="item?.img" width="100%" />
                 <v-container>
                   <v-row>
-                    <p style="font-size: 12px;">
+                    <p style="font-size: 12px; text-align: start;">
                       {{ Utility.cleanNameItem(item?.name) }}
                     </p>
                   </v-row>
                   <v-row>
-                    <p>{{ Utility.formatPrice(item?.price) }} ฿</p>
+                    <p>{{ Utility.formatPrice(item?.price) }}</p>
                   </v-row>
                 </v-container>
               </button>
