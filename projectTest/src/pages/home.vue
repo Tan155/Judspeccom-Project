@@ -1,11 +1,13 @@
 <template>
   <v-container fluid class="pa-0">
     <!-- ✅ พื้นหลังเคลื่อนไหวและเบลอตามการเลื่อน -->
-    <div class="background-container" ref="background">
+    <div ref="background" class="background-container">
       <div class="content">
         <h1>Welcome to Judpeccom!</h1>
         <p>We will help you build your dream computer.</p>
-        <v-btn text to="/customize" color="primary" class="start-btn">Let's Start It</v-btn>
+        <v-btn text to="/toolV1" color="primary" class="start-btn">
+          Let's Start It
+        </v-btn>
       </div>
     </div>
 
@@ -13,14 +15,14 @@
     <div class="slider-container">
       <div class="slider">
         <div class="slider-wrapper">
-          <div class="spacer"></div>
-          <img v-for="(image, index) in images" :key="index" :src="image" class="slider-item" />
-          <div class="spacer"></div>
+          <div class="spacer" />
+          <img v-for="(image, index) in images" :key="index" :src="image" class="slider-item">
+          <div class="spacer" />
         </div>
       </div>
     </div>
 
-    <div class="after-slider-content" ref="knowledgeSection">
+    <div ref="knowledgeSection" class="after-slider-content">
       <h2>KNOWLAGE ABOUT COMPUTER</h2>
     </div>
 
@@ -29,8 +31,8 @@
     </v-container>
 
     <!-- ✅ ลูกศรแอนิเมชันที่เคลื่อนไหว -->
-    <div class="arrow-container" ref="arrow" @click="scrollToKnowledgeSection">
-      <div class="arrow"></div>
+    <div ref="arrow" class="arrow-container" @click="scrollToKnowledgeSection">
+      <div class="arrow" />
     </div>
   </v-container>
 </template>

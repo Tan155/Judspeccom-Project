@@ -11,9 +11,15 @@
           </v-col>
 
           <v-col v-if="!isRegisterOrLoginPage" class="d-flex justify-center">
-            <v-btn text to="/" class="text-h5">Home</v-btn>
-            <v-btn text to="/toolV1" class="text-h5">Customize</v-btn>
-            <v-btn text to="/LabCompare" class="text-h5">Compare</v-btn>
+            <v-btn text to="/" class="text-h5">
+              Home
+            </v-btn>
+            <v-btn text to="/toolV1" class="text-h5">
+              Customize
+            </v-btn>
+            <v-btn text to="/LabCompare" class="text-h5">
+              Compare
+            </v-btn>
           </v-col>
 
           <v-btn icon class="ml-2" @click="toggleTheme">
@@ -111,25 +117,23 @@
           </v-col>
           <v-col cols="12" md="4" class="text-center sitemap-links">
             <h4>Sitemap</h4>
-            <v-btn text to="/" class="footer-btn">
+            <v-btn text to="/" block class="footer-btn" @click="scrollToTop">
               Home
             </v-btn>
-            <v-btn text to="/about" class="footer-btn">
-              Computer Set
+            <v-btn text to="/toolV1" block class="footer-btn" @click="scrollToTop">
+              Customize PC
             </v-btn>
-            <v-btn text to="/customize" class="footer-btn">
-              Customize
-            </v-btn>
-            <v-btn text to="/compare" class="footer-btn">
+            <v-btn text to="/LabCompare" block class="footer-btn" @click="scrollToTop">
               Compare
             </v-btn>
           </v-col>
+
           <v-col cols="12" md="4" class="text-right">
             <h4>Let's get Social!</h4>
             <v-btn icon href="https://facebook.com" target="_blank">
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
-            <v-btn icon href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+            <v-btn icon href="https://mail.google.com/mail/u/0/#inbox" style="margin-left: 10px;" target="_blank">
               <v-icon>mdi-email</v-icon>
             </v-btn>
           </v-col>
@@ -203,6 +207,13 @@ onMounted(() => {
     await loadUserFromServer();
   }, 10000); // ทุก 10 วินาที
 });
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // ทำให้การเลื่อนขึ้นไปที่บนสุดทำได้อย่างนุ่มนวล
+  });
+}
 
 
 const myProfile = () => {

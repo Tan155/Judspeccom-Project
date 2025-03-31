@@ -69,7 +69,7 @@
           </div>
 
           <!-- ปุ่มอยู่ใต้รูป -->
-          <div class="mt-4">
+          <div class="mt-4" style="cursor: grab;">
             <v-btn class="upload-btn text-none" color="#1A237E" :loading="uploading">
               Change Picture
               <input type="file" class="file-input" accept="image/*" @change="uploadImage">

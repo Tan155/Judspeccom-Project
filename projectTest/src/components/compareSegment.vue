@@ -65,15 +65,21 @@
                     </v-col>
                   </v-row>
                   <v-row>
-                    <div class="info1" style="width: 500px; overflow-x: auto; color: white; font-size: 16px;" >
+                    <div class="info1" style="width: 500px; overflow-x: auto; color: white; font-size: 16px;">
                       <thead>
                         <th>Option</th>
-                        <th style="transform: translateX(-20px);">Spec</th>
+                        <th style="transform: translateX(-20px);">
+                          Spec
+                        </th>
                       </thead>
                       <tbody>
                         <tr v-for="(value, key) in getStackDialogAt(0).object.additionalDetails" :key="key">
-                          <td style="transform:  translateX(10px);">{{ key }}</td>
-                          <td style="transform: translateX(35px);">{{ value }}</td>
+                          <td style="transform:  translateX(10px);">
+                            {{ key }}
+                          </td>
+                          <td style="transform: translateX(35px);">
+                            {{ value }}
+                          </td>
                         </tr>
                       </tbody>
                     </div>
@@ -134,12 +140,18 @@
                     <div class="info2" style="width: 500px; overflow-x: auto; color: white; font-size: 16px;">
                       <thead>
                         <th>Option</th>
-                        <th style="transform: translateX(-20px);">Spec</th>
+                        <th style="transform: translateX(-20px);">
+                          Spec
+                        </th>
                       </thead>
                       <tbody>
                         <tr v-for="(value, key) in getStackDialogAt(1).object.additionalDetails" :key="key">
-                          <td style="transform:  translateX(10px);">{{ key }}</td>
-                          <td style="transform: translateX(35px);">{{ value }}</td>
+                          <td style="transform:  translateX(10px);">
+                            {{ key }}
+                          </td>
+                          <td style="transform: translateX(35px);">
+                            {{ value }}
+                          </td>
                         </tr>
                       </tbody>
                     </div>
@@ -152,7 +164,7 @@
                 <h2>Product II</h2>
                 <v-btn class="ItemBox" @click="openItemDialog(1)">
                   <svg-icon type="mdi" :path="mdiPlusCircle" size="70%" />
-                  <h2></h2>
+                  <h2 />
                 </v-btn>
               </v-col>
             </template>
@@ -162,8 +174,8 @@
       <v-dialog v-model="isItemDialog" scrollable :overlay="false" class="DialogBox" transition="dialog-transition">
         <v-container v-if="!isLoading && getCurrentMenu() >= 0" style="overflow-y: auto;">
           <v-row>
-            <v-col v-for="(item, index) in currentProductList" :key="index" cols="2">
-              <button class="eachItem" @click="AddStackDialogAt(StrategyStep(), item) ">
+            <v-col v-for="(item, index) in currentProductList" :key="index" cols="3">
+              <button class="eachItem" @click="AddStackDialogAt(StrategyStep(), item)">
                 <v-img :src="item?.img" width="100%" />
                 <v-container style=" min-height: 85px ">
                   <v-row>
@@ -172,7 +184,9 @@
                     </p>
                   </v-row>
                   <v-row>
-                    <p style="font-size: 15px;">{{ Utility.formatPrice(item?.price) }}</p>
+                    <h1 style="font-size: 18px;">
+                      {{ Utility.formatPrice(item?.price) }}
+                    </h1>
                   </v-row>
                 </v-container>
               </button>
@@ -339,7 +353,7 @@ function StrategyStep() {
   background-color: #E8EAF6;
 }
 
-.blockCompare{
+.blockCompare {
   height: 100vh;
   display: flex;
   justify-content: center;
