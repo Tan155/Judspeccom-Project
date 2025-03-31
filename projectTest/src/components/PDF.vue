@@ -100,7 +100,7 @@
           </v-row>
           <v-row>
             <v-col cols="10" offset="1">
-              <v-card class="bg-green-accent-3" height="250px" align="center" @click="generatePDF()">
+              <v-card class="bg-green-accent-3" height="250px" align="center" @click="generatePDF(0)">
                 <svg-icon type="mdi" :path="mdiFileDownload" size="150" color="#FF6D00" />
                 <v-card-text>
                   <h2>Download Build List</h2>
@@ -109,7 +109,7 @@
             </v-col>
             <v-col cols="10" offset="1">
               <v-card :class="ProxyState?.status ? 'bg-indigo-accent-4' : 'bg-teal-lighten-5'" align="center"
-                height="250px" @click="ProxyState?.status ? generatePDF() : login()">
+                height="250px" @click="ProxyState?.status ? generatePDF(1) : login()">
                 <template v-if="ProxyState?.status">
                   <v-container>
                     <v-row>
@@ -170,7 +170,6 @@ const global = useStaticStore();;
 const dialog = ref(false);
 const page = ref('cart');
 const maximumValues = 5;
-const isDarkMode = inject('isDarkMode', ref(false));
 
 const login = () => {
   router.push("/login");
@@ -310,7 +309,6 @@ class ModelObjectPDF {
       keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
-
 }
 
 async function createUserBuild(userEmail, selectedParts) {
@@ -344,36 +342,34 @@ const formatDetails = (details) => {
     .join("\n");
 };
 
-const cleanName = (name) => {
-  return name.replace(/\s*\([^)]*\)/, "").trim();
+const formatFunctions = {
+  0: () => dataPDF.getCPUData(),
+  1: () => dataPDF.getMBData(),
+  2: () => dataPDF.getGPUData(),
+  3: () => dataPDF.getRAMData(),
+  4: () => dataPDF.getM2Data(),
+  5: () => dataPDF.getPSUData(),
+  6: () => dataPDF.getCaseData(),
 };
 
 const getFormattedDetails = (index) => {
-  switch (index) {
-    case 0: return formatDetails(dataPDF.getCPUData());
-    case 1: return formatDetails(dataPDF.getMBData());
-    case 2: return formatDetails(dataPDF.getGPUData());
-    case 3: return formatDetails(dataPDF.getRAMData());
-    case 4: return formatDetails(dataPDF.getM2Data());
-    case 5: return formatDetails(dataPDF.getPSUData());
-    case 6: return formatDetails(dataPDF.getCaseData());
-    default: return "N/A";
-  }
+  const formatFunction = formatFunctions[index];
+  return formatFunction ? formatDetails(formatFunction()) : "N/A";
 };
 
 const ProxyState = await callTestProxy();
 
-const generatePDF = async () => {
-  // let count = 0;
-  // for (let i = 0; i < drawer?.getStack()?.length; i++) {
-  //   if (drawer?.getStackAt(i)?.status === 1) {
-  //     count++;
-  //   }
-  // }
-  // if (count < drawer?.getStack()?.length - 2) {
-  //   alert(`Empty Data`);
-  //   return;
-  // }
+const generatePDF = async (index) => {
+  let count = 0;
+  for (let i = 0; i < drawer?.getStack()?.length; i++) {
+    if (drawer?.getStackAt(i)?.status === 1) {
+      count++;
+    }
+  }
+  if (count < drawer?.getStack()?.length - 2) {
+    alert(`Empty Data`);
+    return;
+  }
   if (!confirm("Download PDF?")) return;
   const doc = new jsPDF();
 
@@ -398,7 +394,7 @@ const generatePDF = async () => {
     .filter((item) => item.status === 1)
     .map((item, index) => [
       index + 1,
-      cleanName(item.name),
+      item.object.name,
       getFormattedDetails(index),
       item.values,
       `${item.price.toFixed(2)}`,
@@ -464,8 +460,10 @@ const generatePDF = async () => {
     drawer?.getStack()?.filter(st => st?.status === 1).forEach((st, i) => {
       console.log(`stackID [${i}] ${st?.object?._id || "No ID"}`);
     });
+    if (index) {
+      createUserBuild(Proxy.email, item_id);
+    }
 
-    createUserBuild(Proxy.email, item_id);
   }
   snackbar.value = true;
   global.setGoDownload(false);

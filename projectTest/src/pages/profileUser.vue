@@ -25,7 +25,7 @@
           <template #prepend>
             <v-icon :icon="item.icon" />
           </template>
-          <v-list-item-title v-text="item.text" />
+          {{ item.text }}
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -33,37 +33,56 @@
     <!-- main -->
 
     <!-- My profile -->
-    <v-card v-if="selectedItem == 'profile'" class="pa-6" style="
-        height: 650px;
-        margin-left: -275px;
-        margin-right: -15px;
-        margin-top: -80px;
-        margin-bottom: -1000px;
-        background-color: black;
-      ">
-      <v-card-text>
-        <h1 style="position: absolute; left: 550px">
-          Welcome {{ username }}
-        </h1>
-      </v-card-text>
+    <v-container v-if="selectedItem == 'profile'" fluid class="pa-5"
+      style="min-height: 100vh; background-color: #121212; color: white; transform: translateX(-13%);">
+      <v-row>
+        <v-col cols="12">
+          <h1 style="font-size: 48px;">
+            My Profile
+          </h1>
+        </v-col>
+      </v-row>
+      <v-row class="fill-height" align="center" justify="center" no-gutters>
+        <!-- Left: Text Section -->
+        <v-col cols="12" md="6" class="d-flex flex-column justify-center pl-md-16 pr-md-10 px-6">
+          <div>
+            <h1 class="profile-name">
+              {{ username }}
+              <span class="underline-highlight" />
+            </h1>
+            <h2 class="profile-title mt-2">
+              {{ email }}
+            </h2>
 
-      <v-card-text>
-        <div class="">
-          <v-img :src="profileImage" width="250" height="250" class="profile-img"
-            style="position: absolute; left: 510px; bottom: 300px" />
-        </div>
+            <v-btn class="email-verified d-flex align-center mt-6 cursor-grab">
+              <v-icon size="28" color="green-lighten-2" class="mr-2">
+                mdi-check-decagram
+              </v-icon>
+              <span class="verified-text">Email verified successfully</span>
+            </v-btn>
+          </div>
+        </v-col>
+        <!-- Right: Profile Image Box -->
+        <v-col cols="12" md="6" class="d-flex flex-column align-center mt-6 mt-md-0">
+          <div class="profile-box">
+            <img :src="profileImage" class="profile-img">
+          </div>
 
-        <v-btn class="upload-btn" :loading="uploading">
-          Change PICTURE
-          <input type="file" class="file-input" accept="image/*" @change="uploadImage">
-        </v-btn>
-      </v-card-text>
+          <!-- ปุ่มอยู่ใต้รูป -->
+          <div class="mt-4">
+            <v-btn class="upload-btn text-none" color="#1A237E" :loading="uploading">
+              Change Picture
+              <input type="file" class="file-input" accept="image/*" @change="uploadImage">
+            </v-btn>
+          </div>
+        </v-col>
+        <v-row>
+          <collectionBuildforUser />
+        </v-row>
+      </v-row>
+    </v-container>
 
-      <v-card-text style="position: absolute; bottom: 100px; left: 400px">
-        <h1>Username: {{ username }}</h1>
-        <h1>Email: {{ email }}</h1>
-      </v-card-text>
-    </v-card>
+
 
     <collectionBuildforUser v-else />
   </v-container>
@@ -86,7 +105,7 @@ const uploading = ref(false);
 // Menu Navigation Drawer
 const items = [
   { text: "My Profile", icon: "mdi-account", value: "profile" },
-  { text: "My Files", icon: "mdi-folder", value: "files" },
+  // { text: "My Files", icon: "mdi-folder", value: "files" },
 ];
 
 const username = ref("");
@@ -137,9 +156,10 @@ const uploadImage = async (event) => {
         reader.result
       );
       profileImage.value = newProfileImage; // Update without reloading
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 100);
+      loadUserFromServer();
     } catch (error) {
       console.error("Upload error:", error);
       alert("Upload failed. Please try again.");
@@ -163,7 +183,7 @@ const logout = async () => {
 </script>
 
 <style>
-.text-center {
+/* .text-center {
   text-align: center;
 }
 
@@ -173,11 +193,14 @@ const logout = async () => {
 }
 
 .upload-btn {
-  position: absolute;
-  left: 550px;
-  bottom: 250px;
   overflow: hidden;
 }
+
+
+
+.bk {
+  background-color: aquamarine;
+} */
 
 .file-input {
   position: absolute;
@@ -189,7 +212,63 @@ const logout = async () => {
   cursor: pointer;
 }
 
-.bk {
-  background-color: aquamarine;
+/* New */
+.profile-name {
+  font-size: 54px;
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+  color: white;
+}
+
+.underline-highlight {
+  position: absolute;
+  width: 300px;
+  height: 10px;
+  background-color: #00c58e;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.profile-title {
+  font-size: 26px;
+  font-weight: 400;
+  color: #cccccc;
+}
+
+.email-verified {
+  background-color: #1e1e1e;
+  padding: 10px 18px;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.verified-text {
+  font-size: 16px;
+  color: #d0f0c0;
+  font-weight: 500;
+}
+
+.profile-box {
+  background-color: #263238;
+  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 </style>

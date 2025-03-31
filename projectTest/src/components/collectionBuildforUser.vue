@@ -2,85 +2,98 @@
   <v-container class="Container">
     <v-card v-for="(item, index) in arrProduct" :key="index" class="Card">
       <v-row>
-        <v-col cols="4">
+        <!-- Title Row -->
+        <v-col cols="12">
           <h1 style="font-size: 24px;">
             Collection {{ index + 1 }}
           </h1>
-          <!-- <p>ID: {{ item.id }}</p> -->
-        </v-col>
-        <v-col cols="4" />
-        <v-col cols="3">
-          <v-row>
-            <v-col cols="12">
-              <v-btn color="#607D8B" block @click="() => { swapDialog(); setisSelectedCollection(index); }">
-                information
-              </v-btn>
-            </v-col>
-            <v-col cols="12">
-              <v-btn color="#66BB6A" style="margin-top: 10px;" block @click="goDownloadPDF(item)">
-                Download
-              </v-btn>
-            </v-col>
-          </v-row>
         </v-col>
       </v-row>
-      <v-row style="transform: translateY(-20%) translateX(2%);">
-        <v-col cols="1">
-          <v-img :src="item.Cpu.img" width="100px" />
+
+      <v-row>
+        <!-- Row for Images -->
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.Cpu.img" width="90px" />
         </v-col>
-        <v-col cols="1">
-          <v-img :src="item.Gpu.img" width="100px" />
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.Gpu.img" width="90px" />
         </v-col>
-        <v-col cols="1">
-          <v-img :src="item.Mainboard.img" width="100px" />
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.Mainboard.img" width="90px" />
         </v-col>
-        <v-col cols="1">
-          <v-img :src="item.Ram.img" width="100px" />
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.Ram.img" width="90px" />
         </v-col>
-        <v-col cols="1">
-          <v-img :src="item.Psu.img" width="100px" />
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.Psu.img" width="90px" />
         </v-col>
-        <v-col cols="1">
-          <v-img :src="item.M2.img" width="100px" />
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.M2.img" width="90px" />
         </v-col>
-        <v-col cols="1">
-          <v-img :src="item.Case.img" width="100px" />
+        <v-col cols="colIMG" class="d-flex justify-center">
+          <v-img :src="item.Case.img" width="90px" />
+        </v-col>
+      </v-row>
+
+      <v-row justify="center">
+        <v-col cols="4" class="d-flex justify-center">
+          <v-btn color="#607D8B" block @click="() => { swapDialog(); setisSelectedCollection(index); }">
+            Information
+          </v-btn>
+        </v-col>
+        <v-col cols="4" class="d-flex justify-center">
+          <v-btn color="#66BB6A" block @click="goDownloadPDF(item)">
+            Download
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn color="error" block @click="deleteUserBuildByIndex(index)">
+            Delete
+          </v-btn>
         </v-col>
       </v-row>
     </v-card>
   </v-container>
-  <v-dialog v-model="isdialog" scrollable :overlay="false" width="800px" transition="dialog-transition">
-    <v-container style="overflow-y: auto; display: flex; flex-direction: row; background-color: black;" width="auto">
+  <v-dialog v-model="isdialog" scrollable :overlay="false" width="1200px" min-height="80%"
+    transition="dialog-transition">
+    <v-container
+      style="overflow-y: auto; display: flex; flex-direction: row; background-color: black; transform: translateY(30px); max-height: 750px;"
+      width="auto">
       <v-row>
         <v-col v-for="(item, index) in arrProduct[getisSelectedCollection()]" :key="index" cols="12">
-          <v-card width="100%">
+          <v-card width="100%" class="bg-blue-grey-darken-3" @click="setisdisplayInfo(index)">
             <v-row>
               <v-col cols="4">
-                <v-img :src="item.img" style="width: 100%; height: 100%;" />
+                <v-img :src="item.img" style="width: 90%; height: 90%; transform: translateY(5%);" />
               </v-col>
               <v-col cols="8">
                 <v-row>
                   <v-col cols="12">
-                    <p style="font-size: 24px; font-weight: bold;">
+                    <p style="font-size: 36px; font-weight: bold;">
                       {{ Utility.cleanNameItem(item.name) }}
                     </p>
                   </v-col>
                   <v-col cols="6">
-                    <p style="font-size: 28px; font-weight: bold;">
+                    <p style="font-size: 48px; font-weight: bold;">
                       {{ Utility.formatPrice(item.price) }}
                     </p>
                   </v-col>
                 </v-row>
-                <v-row>
-                  <v-col cols="6">
-                    <v-btn v-if="getisdisplayInfo(index)" block color="success" @click="setisdisplayInfo(index)">
-                      Hide
+                <!-- <v-row>
+                  <v-col cols="8">
+                    <v-btn v-if="getisdisplayInfo(index)" style="height: 60px;" block color="#283593"
+                      @click="setisdisplayInfo(index)">
+                      <h2 style="font-size:24px;">
+                        Hide
+                      </h2>
                     </v-btn>
-                    <v-btn v-else block color="success" @click="setisdisplayInfo(index)">
-                      Show additionalDetails
+                    <v-btn v-else block color="#1565C0" style="height: 60px;" @click="setisdisplayInfo(index)">
+                      <h2 style="font-size: 24px;">
+                        Show additionalDetails
+                      </h2>
                     </v-btn>
                   </v-col>
-                </v-row>
+                </v-row> -->
               </v-col>
             </v-row>
             <v-row v-if="getisdisplayInfo(index)">
@@ -164,10 +177,45 @@ const fetchUserBuild = async (email) => {
   if (BuildCollection.value && BuildCollection.value.length > 0) {
     for (let i = 0; i < BuildCollection.value.length; i++) {
       getProduct(i);
-      console.log(arrProduct.value[i].Cpu ?? 'N/A')
+      // console.log(arrProduct.value[i].Cpu ?? 'N/A')
     }
   } else {
     console.log('BuildCollection is not loaded yet');
+  }
+};
+
+const deleteUserBuildByIndex = async (index) => {
+  if (!confirm("Measure delete your collection ?")) return;
+  try {
+    const build = BuildCollection.value[index];
+    if (!build || !build.id) {
+      console.warn("Build not found at index:", index);
+      return;
+    }
+
+    const id = build.id;
+
+    const response = await axios.delete(
+      `http://localhost:5000/api/setcomputer/delete-build/${id}`
+    );
+    console.log("✅ Delete response:", response.data);
+
+    BuildCollection.value.splice(index, 1);
+    arrProduct.value.splice(index, 1);
+
+    if (isSelectedCollection.value >= BuildCollection.value.length) {
+      isSelectedCollection.value = BuildCollection.value.length - 1;
+    }
+
+    isdisplayInfo.value = Array.from({ length: BuildCollection.value.length }, () => false);
+
+    arrProduct.value = [];
+    for (let i = 0; i < BuildCollection.value.length; i++) {
+      getProduct(i);
+    }
+
+  } catch (error) {
+    console.error("❌ Error deleting build:", error.message);
   }
 };
 
@@ -211,6 +259,12 @@ function getProduct(index) {
     console.log("Selected parts or BuildCollection[index] is undefined.");
   }
 }
+
+//const Variable
+const colIMG = () => {
+  let x = 12 / 7;
+  return x.toFixed(3);
+};
 
 //AuthService
 const email = ref("");
@@ -296,8 +350,9 @@ watch(() => arrProduct.value, (newVal) => {
 }, { immediate: true, deep: true });
 
 function goDownloadPDF(object) {
+  console.log("OBJECT : ", object);
   if (!object) return;
-
+  console.log("object CPU", object?.Cpu?.additionalDetails || {});
   stack.value[0].object = object?.Cpu || {};
   stack.value[1].object = object?.Mainboard || {};
   stack.value[2].object = object?.Gpu || {};
@@ -305,7 +360,7 @@ function goDownloadPDF(object) {
   stack.value[4].object = object?.Psu || {};
   stack.value[5].object = object?.M2 || {};
   stack.value[6].object = object?.Case || {};
-
+  console.table("object CPU[]: ", stack.value[0].object.additionalDetails.Brand || {});
   console.table(stack.value);
   generatePDF();
 }
@@ -333,25 +388,26 @@ class ModelPDF {
   }
 
   getCPUData() {
-    const details = stack.value[0]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
+    const details = stack?.value[0]?.object?.additionalDetails;
+    console.log("CPU details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
       return {};
     }
-
     const keysToKeep = ["Cores", "BaseFrequency", "MaximumTurboPower", "SocketType", "GraphicsModels", "Warranty"];
 
     this.CPU = Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
 
     return this.CPU;
   }
 
   getMBData() {
-    const details = stack.value[1]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
+    const details = stack?.value[1]?.object?.additionalDetails;
+    console.log("MB details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
       return {};
     }
     const keysToKeep = [
@@ -369,14 +425,15 @@ class ModelPDF {
     ];
 
     return Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
 
   getGPUData() {
-    const details = stack.value[2]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
+    const details = stack?.value[2]?.object?.additionalDetails;
+    console.log("GPU details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
       return {};
     }
     const keysToKeep = [
@@ -391,14 +448,15 @@ class ModelPDF {
     ];
 
     return Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
 
   getRAMData() {
-    const details = stack.value[3]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
+    const details = stack?.value[3]?.object?.additionalDetails;
+    console.log("Ram details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
       return {};
     }
     const keysToKeep = [
@@ -410,33 +468,15 @@ class ModelPDF {
     ];
 
     return Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
-    );
-  }
-
-  getM2Data() {
-    const details = stack.value[4]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
-      return {};
-    }
-    const keysToKeep = [
-      "Capacity",
-      "Interface",
-      "ReadSpeed",
-      "WriteSpeed",
-      "Warranty"
-    ];
-
-    return Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
 
   getPSUData() {
-    const details = stack.value[5]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
+    const details = stack?.value[4]?.object?.additionalDetails;
+    console.log("PSU details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
       return {};
     }
     const keysToKeep = [
@@ -449,14 +489,35 @@ class ModelPDF {
     ];
 
     return Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
+    );
+  }
+
+  getM2Data() {
+    const details = stack?.value[5]?.object?.additionalDetails;
+    console.log("M2 details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
+      return {};
+    }
+    const keysToKeep = [
+      "Capacity",
+      "Interface",
+      "ReadSpeed",
+      "WriteSpeed",
+      "Warranty"
+    ];
+
+    return Object.fromEntries(
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
 
   getCaseData() {
-    const details = stack.value[6]?.object?.additionalDetails;
-    if (!details) {
-      console.log("Error: Object details not found");
+    const details = stack?.value[6]?.object?.additionalDetails;
+    console.log("Case details:", details);
+    if (!details || typeof details !== 'object') {
+      console.warn("getCPUData: details ยังไม่พร้อมหรือเป็น undefined");
       return {};
     }
     const keysToKeep = [
@@ -469,10 +530,11 @@ class ModelPDF {
     ];
 
     return Object.fromEntries(
-      keysToKeep.map((key) => [key, details[key]]).filter((value) => value !== undefined)
+      keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
-};
+
+}
 
 const dataPDF = new ModelPDF();
 
@@ -483,17 +545,19 @@ const formatDetails = (details) => {
     .join("\n");
 };
 
+const formatFunctions = {
+  0: () => dataPDF.getCPUData(),
+  1: () => dataPDF.getMBData(),
+  2: () => dataPDF.getGPUData(),
+  3: () => dataPDF.getRAMData(),
+  4: () => dataPDF.getM2Data(),
+  5: () => dataPDF.getPSUData(),
+  6: () => dataPDF.getCaseData(),
+};
+
 const getFormattedDetails = (index) => {
-  switch (index) {
-    case 0: return formatDetails(dataPDF.getCPUData());
-    case 1: return formatDetails(dataPDF.getMBData());
-    case 2: return formatDetails(dataPDF.getGPUData());
-    case 3: return formatDetails(dataPDF.getRAMData());
-    case 4: return formatDetails(dataPDF.getM2Data());
-    case 5: return formatDetails(dataPDF.getPSUData());
-    case 6: return formatDetails(dataPDF.getCaseData());
-    default: return "N/A";
-  }
+  const formatFunction = formatFunctions[index];
+  return formatFunction ? formatDetails(formatFunction()) : "N/A";
 };
 
 const generatePDF = async () => {
@@ -573,13 +637,11 @@ const generatePDF = async () => {
 
   doc.save(`ComputerBuildList-${Date.now()}.pdf`);
 };
-
-
 </script>
 
 <style lang="scss" scoped>
 .Container {
-  transform: translateX(-15%) translateY(-10%);
+  transform: translateX(0);
   width: 100%;
   min-height: 400px;
   // background-color: #82B1FF;
@@ -589,8 +651,7 @@ const generatePDF = async () => {
 .Card {
   margin-top: 20px;
   width: 100%;
-  // height: 300px;
   background-color: #282b2c;
-  padding: 2px;
+  padding: 20px;
 }
 </style>

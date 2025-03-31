@@ -11,13 +11,21 @@
           </v-col>
 
           <v-col v-if="!isRegisterOrLoginPage" class="d-flex justify-center">
-            <v-btn text to="/" class="text-h5">Home</v-btn>
-            <v-btn text to="/about" class="text-h5">Computer Set</v-btn>
-            <v-btn text to="/customize" class="text-h5">Customize</v-btn>
-            <v-btn text to="/compare" class="text-h5">Compare</v-btn>
+            <v-btn text to="/" class="text-h5">
+              Home
+            </v-btn>
+            <v-btn text to="/about" class="text-h5">
+              Computer Set
+            </v-btn>
+            <v-btn text to="/customize" class="text-h5">
+              Customize
+            </v-btn>
+            <v-btn text to="/compare" class="text-h5">
+              Compare
+            </v-btn>
           </v-col>
 
-          <v-btn @click="toggleTheme" icon class="ml-2">
+          <v-btn icon class="ml-2" @click="toggleTheme">
             <v-icon>{{ isDarkMode ? 'mdi-weather-night' : 'mdi-white-balance-sunny' }}</v-icon>
           </v-btn>
 
@@ -32,7 +40,7 @@
                 <v-list-item>
                   <!-- Register -->
                   <v-list-item-title>
-                    <v-btn prepend-icon="mdi-account" @click="register" class="text-h6">
+                    <v-btn prepend-icon="mdi-account" class="text-h6" @click="register">
                       Register
                     </v-btn>
                   </v-list-item-title>
@@ -40,7 +48,7 @@
                 <!-- Login -->
                 <v-list-item>
                   <v-list-item-title>
-                    <v-btn prepend-icon="mdi-login" @click="login" class="text-h6">
+                    <v-btn prepend-icon="mdi-login" class="text-h6" @click="login">
                       Login
                     </v-btn>
                   </v-list-item-title>
@@ -60,12 +68,12 @@
               </template>
               <v-list>
                 <v-list-item>
-                  <v-btn prepend-icon="mdi-account" @click="myProfile" class="text-h6">
+                  <v-btn prepend-icon="mdi-account" class="text-h6" @click="myProfile">
                     My Profile
                   </v-btn>
                 </v-list-item>
                 <v-list-item>
-                  <v-btn prepend-icon="mdi-logout" @click="logout" class="text-h6">
+                  <v-btn prepend-icon="mdi-logout" class="text-h6" @click="logout">
                     Logout
                   </v-btn>
                 </v-list-item>
@@ -94,11 +102,9 @@
                 </v-list-item>
               </v-list>
             </v-menu>
-
           </v-col>
         </v-row>
       </v-container>
-
     </v-app-bar>
 
     <v-main style="--v-layout-top: 0px; --v-layout-bottom: 0px; padding-top: 0px;">
@@ -109,15 +115,23 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="4" class="text-center">
-            <v-img src="@/assets/logo1.png" alt="Logo" width="400" height="100" class="mr-4"></v-img>
+            <v-img src="@/assets/logo1.png" alt="Logo" width="400" height="100" class="mr-4" />
             <p>Judspeccom is a website where you can design your own dream computer.</p>
           </v-col>
           <v-col cols="12" md="4" class="text-center sitemap-links">
             <h4>Sitemap</h4>
-            <v-btn text to="/" class="footer-btn">Home</v-btn>
-            <v-btn text to="/about" class="footer-btn">Computer Set</v-btn>
-            <v-btn text to="/customize" class="footer-btn">Customize</v-btn>
-            <v-btn text to="/compare" class="footer-btn">Compare</v-btn>
+            <v-btn text to="/" class="footer-btn">
+              Home
+            </v-btn>
+            <v-btn text to="/about" class="footer-btn">
+              Computer Set
+            </v-btn>
+            <v-btn text to="/customize" class="footer-btn">
+              Customize
+            </v-btn>
+            <v-btn text to="/compare" class="footer-btn">
+              Compare
+            </v-btn>
           </v-col>
           <v-col cols="12" md="4" class="text-right">
             <h4>Let's get Social!</h4>
@@ -132,11 +146,10 @@
       </v-container>
     </footer>
   </v-app>
-
 </template>
 
 <script setup>
-import { ref, onMounted, provide } from "vue";
+import { ref, onMounted, provide, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 import authService from "@/services/AuthService"; //เรียก class AuthService
 import apiProxy from "@/services/AuthProxy"; //เรียก class AuthProxy
@@ -193,6 +206,13 @@ const loadUserFromServer = async () => {
   });
 
 };
+
+onMounted(() => {
+  setInterval(async () => {
+    await loadUserFromServer();
+  }, 10000); // ทุก 10 วินาที
+});
+
 
 const myProfile = () => {
   router.push("/profileUser");

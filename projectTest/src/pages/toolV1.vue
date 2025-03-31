@@ -7,7 +7,7 @@
   </template>
 
   <template v-else>
-    <v-card class="test" v-if="productStore">
+    <v-card v-if="productStore" class="test">
       <v-layout>
         <v-navigation-drawer ref="scrollContainer" class="Fill-product" permanent app>
           <v-card class="mt-2 sticky-total" elevation="4">
@@ -92,7 +92,9 @@
                   <template v-if="openTest === 2">
                     <v-dialog v-model="dialog" width="auto">
                       <v-card width="700" style="background-color: whitesmoke ; color: black; overflow-x: auto;">
-                        <p class="Titleinfo"> Product Info </p>
+                        <p class="Titleinfo">
+                          Product Info
+                        </p>
                         <v-card-text class="Finfo">
                           <p><strong>Name:</strong> {{ selectedProduct?.name || "N/A" }}</p>
                           <br>
@@ -100,19 +102,25 @@
                         </v-card-text>
                         <div class="Sinfo">
                           <thead class="F-Sinfo">
-                            <th style="transform: translateX(-50px);">Option</th>
-                            <th style="transform: translateX(10px);">Spec</th>
+                            <th style="transform: translateX(-50px);">
+                              Option
+                            </th>
+                            <th style="transform: translateX(10px);">
+                              Spec
+                            </th>
                           </thead>
                           <tbody class="S-Sinfo">
                             <tr v-for="(value, key) in selectedProduct?.additionalDetails" :key="key">
                               <td>{{ key }}</td>
-                              <td style=" transform: translateX(150px);">{{ value }}</td>
+                              <td style=" transform: translateX(150px);">
+                                {{ value }}
+                              </td>
                             </tr>
                           </tbody>
                         </div>
 
                         <template #actions>
-                          <v-btn class="ms-auto" text="Ok" @click="dialog = false" style="background-color: green;" />
+                          <v-btn class="ms-auto" text="Ok" style="background-color: green;" @click="dialog = false" />
                         </template>
                       </v-card>
                     </v-dialog>
@@ -331,6 +339,18 @@ class Products {
     return this.typeProducts[index]?.length ?? 0;
   }
 
+  getPage() {
+    return this.page;
+  }
+
+  getMax() {
+    return this.max;
+  }
+
+  get CurrentMenu() {
+    return this.currentMenu;
+  }
+
   getProduct() {
     if (this.currentMenu < 0 || this.page < 1) {
       console.log("❌ ERROR -> index < 0 && page < 1");
@@ -411,18 +431,6 @@ class Products {
       case 2: return normal.slice(this.start, this.end);
       default: return normal.slice(this.start, this.end);
     }
-  }
-
-  getPage() {
-    return this.page;
-  }
-
-  getMax() {
-    return this.max;
-  }
-
-  get CurrentMenu() {
-    return this.currentMenu;
   }
 }
 
@@ -523,7 +531,7 @@ const scrollToTop = () => {
 }
 
 // .dark-mode .main-search {
-//   background-color: #141414 !important;  
+//   background-color: #141414 !important;
 // }
 
 .search-container {
@@ -632,7 +640,7 @@ const scrollToTop = () => {
 .S-Sinfo {
   transform: translateX(80px);
   font-size: 18px;
-  // border: solid 2px green; 
+  // border: solid 2px green;
   // text-align: start ;
 }
 
