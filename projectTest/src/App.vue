@@ -312,7 +312,8 @@ p {
 }
 
 .v-main {
-  background-color: rgb(255, 255, 255) !important;
+  background-color: #141414 !important;
+  ;
 }
 
 .dark-mode {
@@ -320,9 +321,10 @@ p {
   color: rgb(255, 255, 255) !important;
 }
 
-.dark-mode .v-main {
-  background-color: #141414 !important;
-  color: rgb(255, 255, 255) !important;
-}
 
+
+.dark-mode .v-main {
+  background-color: rgb(255, 255, 255) !important;
+  color: rgb(0, 0, 0) !important;
+}
 </style>
