@@ -309,7 +309,6 @@ class ModelObjectPDF {
       keysToKeep.map((key) => [key, details[key]]).filter(([key, value]) => value !== undefined)
     );
   }
-
 }
 
 async function createUserBuild(userEmail, selectedParts) {

@@ -53,13 +53,11 @@ router.post('/user-builds', async (req, res) => {
   }
 })
 
-// GET: Retrieve all User Builds by User Email
 router.get('/user-builds', async (req, res) => {
   try {
-    const { userEmail } = req.query // รับค่า userEmail จาก query parameter
+    const { userEmail } = req.query
     console.log('📌 Fetching user builds for email:', userEmail)
 
-    // ใช้ find แทน findOne เพื่อดึงข้อมูลทั้งหมดที่ตรงกับ userEmail
     const userBuilds = await UserBuild.find({ userEmail })
 
     if (userBuilds.length === 0) {
@@ -68,10 +66,28 @@ router.get('/user-builds', async (req, res) => {
         .json({ error: 'No user builds found for this email' })
     }
 
-    // ส่งข้อมูลทั้งหมดที่พบกลับไป
     res.status(200).json({ message: 'User builds found', data: userBuilds })
   } catch (error) {
     console.error('❌ Error fetching user builds:', error)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+})
+
+router.delete('/delete-build/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const deletedBuild = await UserBuild.findByIdAndDelete(id)
+
+    if (!deletedBuild) {
+      return res.status(404).json({ error: 'Build not found' })
+    }
+
+    res
+      .status(200)
+      .json({ message: 'Build deleted successfully', data: deletedBuild })
+  } catch (error) {
+    console.error('❌ Error deleting user build:', error)
     res.status(500).json({ error: 'Internal Server Error' })
   }
 })

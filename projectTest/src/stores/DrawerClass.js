@@ -4,8 +4,6 @@ import { defineStore } from "pinia";
 import { reactive, ref } from "vue";
 //Import External Class.
 import { useProductStore } from "./ProductStore";
-//Import MDI icons.
-//https://pictogrammers.com/library/mdi/
 import {
   mdiCpu64Bit,
   mdiChip,
@@ -14,8 +12,6 @@ import {
   mdiNas,
   mdiGeneratorPortable,
   mdiServer,
-  // mdiFan,
-  // mdiMonitorScreenshot,
 } from "@mdi/js";
 
 //Main.
@@ -44,8 +40,6 @@ export const useDrawer = defineStore("Drawer", () => {
     { icon: mdiHarddisk, name: "SSD M.2" },
     { icon: mdiGeneratorPortable, name: "POWER SUPPLY" },
     { icon: mdiServer, name: "CASE" },
-    // { icon: mdiFan, name: "FAN" },
-    // { icon: mdiMonitorScreenshot, name: "MONITOR" },
   ]);
 
   //getter.
@@ -90,8 +84,8 @@ export const useDrawer = defineStore("Drawer", () => {
   let isProcessing = false;
 
   function StackAdd(item) {
-    if (isProcessing) return; // ถ้ากำลังประมวลผลอยู่แล้วให้หยุดทำงาน
-    isProcessing = true; // ตั้งค่าสถานะให้กำลังประมวลผล
+    if (isProcessing) return;
+    isProcessing = true;
 
     const temp = item;
     const CurrentMenu = products.getCurrentMenu();
@@ -133,7 +127,7 @@ export const useDrawer = defineStore("Drawer", () => {
 
     Calculate();
 
-    isProcessing = false; // เมื่อเสร็จแล้วกลับสู่สถานะปกติ
+    isProcessing = false;
   }
 
   function StackPop(index) {
@@ -200,6 +194,5 @@ export const useDrawer = defineStore("Drawer", () => {
     getStackAt,
     updateStackValues,
     stackEmpty,
-    // Stack,
   };
 });
