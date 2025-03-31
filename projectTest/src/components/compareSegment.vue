@@ -1,14 +1,14 @@
 <template>
   <v-container class="Body">
     <template v-if="isLoading">
-      <v-container class="d-flex align-center justify-center" style="height: 100vh;">
+      <v-container class="blockCompare">
         <v-progress-circular :size="130" :width="12" color="primary" indeterminate
           style="transform: translateY(-20vh);" />
       </v-container>
     </template>
     <template v-else>
       <template v-if="!isLoading">
-        <h1 style="color: #E1F5FE;">
+        <h1 style="color: black; transform: translateX(350px);">
           Compare Segment Computer
         </h1>
         <v-sheet class="mx-auto mt-2" max-width="100%">
@@ -40,16 +40,16 @@
                     <v-col cols="8">
                       <v-container>
                         <v-row>
-                          <v-card>
+                          <div class="name1" style="font-size: 18px; color: white;">
                             <p>{{ Utility.cleanNameItem(getStackDialogAt(0).object.name) }}</p>
-                          </v-card>
+                          </div>
                         </v-row>
                         <v-row>
-                          <v-card>
-                            <p style="font-size: 20px;">
+                          <div class="price1">
+                            <p style="font-size: 18px; color: white;">
                               {{ Utility.formatPrice(getStackDialogAt(0).object.price) }}
                             </p>
-                          </v-card>
+                          </div>
                         </v-row>
                         <v-row>
                           <v-btn color="#FF5722" block @click="ChangeStackDialogAt(0)">
@@ -65,18 +65,18 @@
                     </v-col>
                   </v-row>
                   <v-row>
-                    <v-card>
+                    <div class="info1" style="width: 500px; overflow-x: auto; color: white; font-size: 16px;" >
                       <thead>
                         <th>Option</th>
-                        <th>Spec</th>
+                        <th style="transform: translateX(-20px);">Spec</th>
                       </thead>
                       <tbody>
                         <tr v-for="(value, key) in getStackDialogAt(0).object.additionalDetails" :key="key">
-                          <td>{{ key }}</td>
-                          <td>{{ value }}</td>
+                          <td style="transform:  translateX(10px);">{{ key }}</td>
+                          <td style="transform: translateX(35px);">{{ value }}</td>
                         </tr>
                       </tbody>
-                    </v-card>
+                    </div>
                   </v-row>
                 </v-container>
               </v-col>
@@ -85,8 +85,8 @@
               <v-col cols="12" md="6" class="text-center">
                 <h2>Product I</h2>
                 <v-btn class="ItemBox" @click=" openItemDialog(0)">
-                  <svg-icon type="mdi" :path="mdiPlusCircle" size="50%" />
-                  <h2>Add first!</h2>
+                  <svg-icon type="mdi" :path="mdiPlusCircle" size="70%" />
+                  <!-- <h2>Add first!</h2> -->
                 </v-btn>
               </v-col>
             </template>
@@ -106,16 +106,16 @@
                     <v-col cols="8">
                       <v-container>
                         <v-row>
-                          <v-card>
+                          <div class="name2" style="font-size: 18px; color: white;">
                             <p>{{ Utility.cleanNameItem(getStackDialogAt(1).object.name) }}</p>
-                          </v-card>
+                          </div>
                         </v-row>
                         <v-row>
-                          <v-card>
+                          <div class="price2" style="font-size: 18px; color: white;">
                             <p style="font-size: 20px;">
                               {{ Utility.formatPrice(getStackDialogAt(1).object.price) }}
                             </p>
-                          </v-card>
+                          </div>
                         </v-row>
                         <v-row>
                           <v-btn color="#FF5722" block @click="ChangeStackDialogAt(1)">
@@ -131,18 +131,18 @@
                     </v-col>
                   </v-row>
                   <v-row>
-                    <v-card>
+                    <div class="info2" style="width: 500px; overflow-x: auto; color: white; font-size: 16px;">
                       <thead>
                         <th>Option</th>
-                        <th>Spec</th>
+                        <th style="transform: translateX(-20px);">Spec</th>
                       </thead>
                       <tbody>
                         <tr v-for="(value, key) in getStackDialogAt(1).object.additionalDetails" :key="key">
-                          <td>{{ key }}</td>
-                          <td>{{ value }}</td>
+                          <td style="transform:  translateX(10px);">{{ key }}</td>
+                          <td style="transform: translateX(35px);">{{ value }}</td>
                         </tr>
                       </tbody>
-                    </v-card>
+                    </div>
                   </v-row>
                 </v-container>
               </v-col>
@@ -151,8 +151,8 @@
               <v-col cols="12" md="6" class="text-center">
                 <h2>Product II</h2>
                 <v-btn class="ItemBox" @click="openItemDialog(1)">
-                  <svg-icon type="mdi" :path="mdiPlusCircle" size="50%" />
-                  <h2>Add after...</h2>
+                  <svg-icon type="mdi" :path="mdiPlusCircle" size="70%" />
+                  <h2></h2>
                 </v-btn>
               </v-col>
             </template>
@@ -163,16 +163,16 @@
         <v-container v-if="!isLoading && getCurrentMenu() >= 0" style="overflow-y: auto;">
           <v-row>
             <v-col v-for="(item, index) in currentProductList" :key="index" cols="2">
-              <button class="eachItem" @click="AddStackDialogAt(StrategyStep(), item)">
+              <button class="eachItem" @click="AddStackDialogAt(StrategyStep(), item) ">
                 <v-img :src="item?.img" width="100%" />
-                <v-container>
+                <v-container style=" min-height: 85px ">
                   <v-row>
-                    <p style="font-size: 12px; text-align: start;">
+                    <p style="font-size: 14px; text-align: start;">
                       {{ Utility.cleanNameItem(item?.name) }}
                     </p>
                   </v-row>
                   <v-row>
-                    <p>{{ Utility.formatPrice(item?.price) }}</p>
+                    <p style="font-size: 15px;">{{ Utility.formatPrice(item?.price) }}</p>
                   </v-row>
                 </v-container>
               </button>
@@ -327,9 +327,10 @@ function StrategyStep() {
 
 <style lang="scss" scoped>
 .Body {
-  min-width: 80%;
-  min-height: 60%;
-  background-color: #1A237E;
+  width: 2000px;
+  height: 1000px;
+  background-color: #ffffff;
+  color: black;
 }
 
 .ImageBox {
@@ -338,22 +339,31 @@ function StrategyStep() {
   background-color: #E8EAF6;
 }
 
-.ItemBox {
+.blockCompare{
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ItemBox {
+  // display: flex;
+  // flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  min-height: 500px;
-  background-color: #303F9F;
+  width: 520px;
+  height: 700px;
+  background-color: black;
   overflow-y: auto;
   text-align: start;
+  // margin-left: 30px;
 }
 
 .DialogBox {
-  width: 90%;
-  min-height: 90%;
+  width: 70%;
+  min-height: 70%;
   background-color: #304FFE;
+  margin-top: 50px;
 }
 
 .eachItem {

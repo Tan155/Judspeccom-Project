@@ -2,6 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="6">
+        <p class="Title">Judspeccom</p>
         <v-card>
           <v-card-title class="headline text-center">Login</v-card-title>
 
@@ -77,4 +78,20 @@ const login = async () => {
 };
 </script>
 
-<style></style>
+<style>
+
+.Title{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 25px 0 25px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: transparent;
+  position: relative;
+  -webkit-text-stroke: 3px darkmagenta;
+  font-size: 25px;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+</style>

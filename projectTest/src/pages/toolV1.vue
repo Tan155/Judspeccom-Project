@@ -28,7 +28,7 @@
               </template>
 
               <template v-else-if="(drawer?.getStackAt(index)?.status === 1)">
-                <v-card class="cursor-default" color="#BBDEFB" @click="products?.selectMenu(index)">
+                <v-card class="cursor-default" color="#BBDEFB" @click="products?.selectMenu(index)" style="border: solid 1px black; min-height: 120px;">
                   <v-row>
                     <v-col cols="6">
                       <v-img width="50px" class="cursor-pointer" :src="drawer?.getStackAt(index)?.img"
@@ -41,7 +41,7 @@
                     </v-col>
                   </v-row>
                   <v-row>
-                    <v-card-text>
+                    <v-card-text style="transform: translateY(-20px);">
                       {{ drawer?.getStackAt(index)?.name }}
                     </v-card-text>
                   </v-row>
@@ -50,7 +50,7 @@
             </v-list-item>
           </v-list>
           <Suspense>
-            <v-container style="margin-left: 30px;">
+            <v-container style="transform: translateX(10px);">
               <PDF ref="pdf" />
             </v-container>
           </Suspense>
@@ -91,7 +91,7 @@
                   </v-row>
                   <template v-if="openTest === 2">
                     <v-dialog v-model="dialog" width="auto">
-                      <v-card width="700" style="background-color: whitesmoke ; color: black; overflow-x: auto;">
+                      <v-card style="background-color: whitesmoke ; color: black; overflow-x: auto; overflow-y: auto; width: 800px; margin-top: 50px;">
                         <p class="Titleinfo"> Product Info </p>
                         <v-card-text class="Finfo">
                           <p><strong>Name:</strong> {{ selectedProduct?.name || "N/A" }}</p>
@@ -483,6 +483,15 @@ const scrollToTop = () => {
 
 <style lang="scss" scoped>
 // all main
+.test{
+  background-color: #141414;
+}
+
+.dark-mode .test{
+  background-color: rgb(250, 250, 250) !important;
+  color: black;
+}
+
 .sticky-total {
   position: sticky;
   top: 0;
@@ -657,7 +666,7 @@ body,
 .Fill-product {
   transform: translateY(0px);
   overflow-y: auto;
-  width: 300px !important;
+  // width: 300px !important;
   background-color: #FFFFFF !important;
   // border: solid 2px green;
 }

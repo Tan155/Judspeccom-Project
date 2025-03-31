@@ -2,6 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="6">
+        <p class="Title">Judpeccom</p>
         <v-card>
           <v-card-title class="headline text-center">Register</v-card-title>
           <v-card-text>

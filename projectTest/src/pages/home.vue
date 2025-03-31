@@ -24,7 +24,7 @@
       <h2>KNOWLAGE ABOUT COMPUTER</h2>
     </div>
 
-    <v-container>
+    <v-container style="transform: translateY(-150px);">
       <test />
     </v-container>
 

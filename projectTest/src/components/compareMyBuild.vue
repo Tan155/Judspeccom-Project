@@ -1,8 +1,8 @@
 <template>
   <v-container class="Body">
-    <v-row>
-      <v-col cols="8">
-        <h1>Compare My Build</h1>
+    <v-row style="display: flex; justify-content: center;">
+      <v-col cols="8" style="display: flex; justify-content: center;">
+        <h1 style="color: black;">Compare My Build</h1>
       </v-col>
       <!-- <v-col v-if="status" color="info" cols="4">
         Login Successful
@@ -12,13 +12,13 @@
       </v-col> -->
     </v-row>
 
-    <v-container>
-      <v-row justify="center" align="center" class="text-start" no-gutters>
+    <v-container class="blockCompare">
+      <v-row class="Compare" no-gutters>
         <!-- Column 1 -->
         <template v-if="getStackDialogAt(0).status">
-          <v-container class="ItemBox">
-            <v-row>
-              <h4>Set I</h4>
+          <v-container class="ItemBox" style="margin: 0 30px 0 0;">
+            <v-row style="font-size: 25px; display: flex; justify-content: center;">
+              <h4 style="color: white; font-size: 25px;">Set I</h4>
             </v-row>
             <v-row>
               <v-col cols="6">
@@ -33,11 +33,11 @@
               </v-col>
             </v-row>
             <v-row v-for="(item, index) in getStackDialogObjectAt(0)" :key="index">
-              <v-btn block :color="checkEqual(index) ? 'primary' : '#DD2C00'" min-height="60px" width="450px"
-                class="d-flex align-center" @click="swapIsSubObject(index)">
+              <v-btn block :color="checkEqual(index) ? 'primary' : '#DD2C00'" height="70px" width="450px"
+                style="display: flex; align-items: center; justify-content: start;" @click="swapIsSubObject(index)">
                 <!-- รูปภาพและชื่อ -->
-                <v-row class="d-flex">
-                  <v-col cols="2" class="d-flex justify-center">
+                <v-row class="d-flex" style=" width: 490px; height: 70px;">
+                  <v-col cols="2" style="display: flex ;justify-content: start;">
                     <v-img :src="item.img" width="40px" height="40px" />
                   </v-col>
                   <v-col cols="10" class="d-flex align-center text-wrap">
@@ -47,19 +47,21 @@
               </v-btn>
 
               <!-- รายละเอียดเพิ่มเติม -->
-              <v-row v-if="getIsSubObject(index)" class="d-flex flex-column">
+              <v-row v-if="getIsSubObject(index)" class="d-flex flex-column" style="height: auto;">
                 <v-col>
-                  <v-card color="#E3F2FD">
-                    <thead>
-                      <th>Option</th>
-                      <th>Spec</th>
-                    </thead>
-                    <tbody>
-                      <tr v-for="(value, key) in getStackDialogObjectAt(0)[index].additionalDetails" :key="key">
-                        <td>{{ key }}</td>
-                        <td>{{ value }}</td>
-                      </tr>
-                    </tbody>
+                  <v-card color="#E3F2FD" style="overflow-x: auto; display: flex; flex-direction: column;">
+                    <div class="opsec1" style="display: flex;">
+                      <h4 style="transform: translateX(40px);">Option</h4>
+                      <h4 style="transform: translateX(200px);">Spec</h4>
+                    </div>
+                    <div class="info" style="width: 460px;">
+                      <tbody>
+                        <tr v-for="(value, key) in getStackDialogObjectAt(0)[index].additionalDetails" :key="key">
+                          <p style="transform: translateX(10px); width: 180px;">{{ key }}</p>
+                          <td style="transform: translateX(30px);">{{ value }}</td>
+                        </tr>
+                      </tbody>
+                    </div>
                   </v-card>
                 </v-col>
               </v-row>
@@ -68,13 +70,12 @@
         </template>
         <template v-else>
           <v-col>
-            <v-row>
-              <h4>Product I</h4>
+            <v-row style="display: flex; justify-content: center;width: 500px;">
+              <h4 style="font-size: 25px ;">Product I</h4>
             </v-row>
             <v-row>
               <v-btn class="ItemBox" @click=" openItemDialog(0)">
                 <svg-icon type="mdi" :path="mdiPlusCircle" size="50%" />
-                <h2>Add first!</h2>
               </v-btn>
             </v-row>
           </v-col>
@@ -83,8 +84,8 @@
         <!-- Column 2 -->
         <template v-if="getStackDialogAt(1).status">
           <v-container class="ItemBox">
-            <v-row>
-              <h4>Set II</h4>
+            <v-row style="font-size: 25px; display: flex; justify-content: center;">
+              <h4 style="color: white; font-size: 25px;">Set II</h4>
             </v-row>
             <v-row>
               <v-col cols="6">
@@ -99,10 +100,10 @@
               </v-col>
             </v-row>
             <v-row v-for="(item, index) in getStackDialogObjectAt(1)" :key="index">
-              <v-btn block :color="checkEqual(index) ? 'primary' : '#DD2C00'" min-height="60px" width="450px"
-                class="d-flex align-center" @click="swapIsSubObject(index)">
+              <v-btn block :color="checkEqual(index) ? 'primary' : '#DD2C00'" height="70px" width="450px"
+                style="display: flex; justify-content: start;" @click="swapIsSubObject(index)">
                 <!-- รูปภาพและชื่อ -->
-                <v-row class="d-flex">
+                <v-row class="d-flex" style=" width: 490px; height: 70px;">
                   <v-col cols="2" class="d-flex justify-center">
                     <v-img :src="item.img" width="40px" height="40px" />
                   </v-col>
@@ -113,34 +114,36 @@
               </v-btn>
 
               <!-- รายละเอียดเพิ่มเติม -->
-              <v-row v-if="getIsSubObject(index)" class="d-flex flex-column">
-                <v-col>
-                  <v-card color="#E3F2FD">
-                    <thead>
-                      <th>Option</th>
-                      <th>Spec</th>
-                    </thead>
-                    <tbody>
-                      <tr v-for="(value, key) in getStackDialogObjectAt(1)[index].additionalDetails" :key="key">
-                        <td>{{ key }}</td>
-                        <td>{{ value }}</td>
-                      </tr>
-                    </tbody>
+              <v-row v-if="getIsSubObject(index)" class="d-flex flex-column" style="height: auto;">
+                <v-col >
+                  <v-card color="#E3F2FD" style=" overflow-x: auto; display: flex; flex-direction: column;">
+                    <div class="opsec" style="display: flex;">
+                      <h4 style="transform: translateX(40px);">Option</h4>
+                      <h4 style="transform: translateX(200px);">Spec</h4>
+                    </div>
+                    <div class="info" style="width: 460px; ">
+                      <tbody style=" ">
+                        <tr v-for="(value, key) in getStackDialogObjectAt(1)[index].additionalDetails" :key="key" >
+                          <p style="transform: translateX(10px); width: 180px;">{{ key }}</p>
+                          <td style="transform: translateX(30px);">{{ value }}</td>
+                        </tr>
+                      </tbody>
+                    </div>
                   </v-card>
                 </v-col>
               </v-row>
+              
             </v-row>
           </v-container>
         </template>
         <template v-else>
           <v-col>
-            <v-row>
-              <h2>Product II</h2>
+            <v-row style="display: flex; justify-content: center; width: 500px;">
+              <h2 style="font-size: 25px;">Product II</h2> 
             </v-row>
             <v-row>
               <v-btn class="ItemBox" @click=" openItemDialog(1)">
                 <svg-icon type="mdi" :path="mdiPlusCircle" size="50%" />
-                <h2>Add first!</h2>
               </v-btn>
             </v-row>
           </v-col>
@@ -148,20 +151,19 @@
       </v-row>
     </v-container>
 
-
     <v-dialog v-model="isItemDialog" scrollable :overlay="false" class="DialogBox" transition="dialog-transition">
       <v-container style="overflow-y: auto;">
         <v-row>
           <v-col v-for="(item, index) in arrProduct" :key="index" cols="4">
             <!-- ตรวจสอบว่า selectedParts มีข้อมูลก่อนที่จะเข้าถึง -->
-            <v-card v-if="!isOpenInfo[index].status" style="width: 300px; height: 400px; background-color: cadetblue;">
+            <v-card v-if="!isOpenInfo[index].status" style="width: 300px; height: 400px; background-color: #141414;">
               <v-container>
                 <v-row>
-                  <v-col cols="6">
+                  <v-col cols="6" style="color: white; font-size: 23px;">
                     Set {{ index + 1 }}
                   </v-col>
                   <v-col cols="6">
-                    <v-btn block color="#4CAF50" class="elevation-10" @click="swapIsOpenInfo(index)">
+                    <v-btn block color="#4CAF50" class="elevation-10" @click="swapIsOpenInfo(index)" style="height: 35px;">
                       Info
                     </v-btn>
                   </v-col>
@@ -196,11 +198,11 @@
                 </v-container>
               </button>
             </v-card>
-            <button v-else style="width: 300px; height: 400px; background-color: cadetblue;">
-              <v-container>
+            <button v-else style="width: 300px; height: auto; background-color: cadetblue;">
+              <v-container style="background-color: #141414;">
                 <v-row>
-                  <v-col cols="6">
-                    Set {{ index + 1 }}
+                  <v-col cols="6" style="font-size: 23px; color: white; transform: translateX(-40px);">
+                      Set {{ index + 1 }}
                   </v-col>
                   <v-col cols="6">
                     <v-btn block color="#FF5722" @click="swapIsOpenInfo(index)">
@@ -209,39 +211,39 @@
                   </v-col>
                 </v-row>
               </v-container>
-              <v-container class="text-start">
-                <v-row>
-                  <v-card block color="#E3F2FD">
+              <v-container style="height: auto; background-color: #141414;">
+                <v-row style="width: 290px;">
+                  <v-card block color="#E3F2FD" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.Cpu.name) }}
                   </v-card>
                 </v-row>
-                <v-row>
-                  <v-card block color="#BBDEFB">
+                <v-row style="width: 290px;">
+                  <v-card block color="#BBDEFB" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.Gpu.name) }}
                   </v-card>
                 </v-row>
-                <v-row>
-                  <v-card block color="#E3F2FD">
+                <v-row style="width: 290px;">
+                  <v-card block color="#E3F2FD" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.Mainboard.name) }}
                   </v-card>
                 </v-row>
-                <v-row>
-                  <v-card block color="#BBDEFB">
+                <v-row style="width: 290px;">
+                  <v-card block color="#BBDEFB" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.Ram.name) }}
                   </v-card>
                 </v-row>
-                <v-row>
-                  <v-card block color="#E3F2FD">
+                <v-row style="width: 290px;">
+                  <v-card block color="#E3F2FD" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.Psu.name) }}
                   </v-card>
                 </v-row>
-                <v-row>
-                  <v-card block color="#BBDEFB">
+                <v-row style="width: 290px;">
+                  <v-card block color="#BBDEFB" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.M2.name) }}
                   </v-card>
                 </v-row>
-                <v-row>
-                  <v-card block color="#E3F2FD">
+                <v-row style="width: 290px;">
+                  <v-card block color="#E3F2FD" style="width:99%; height: 80px; display: flex; align-items: center;">
                     {{ Utility.cleanNameItem(item.Case.name) }}
                   </v-card>
                 </v-row>
@@ -544,8 +546,11 @@ function StrategyStep() {
 <style lang="scss" scoped>
 .Body {
   min-width: 80%;
-  min-height: 60%;
-  background-color: #1A237E;
+  height: 800px;
+  background-color: #ffffff;
+  color: black;
+  // border: solid 2px black;
+  overflow-y: auto;
 }
 
 .ImageBox {
@@ -557,7 +562,7 @@ function StrategyStep() {
 .ItemBox {
   width: 500px;
   min-height: 500px;
-  background-color: #303F9F;
+  background-color: #000000;
   overflow-y: auto;
   text-align: start;
   padding-top: 20px;
@@ -566,7 +571,8 @@ function StrategyStep() {
 .DialogBox {
   width: 90%;
   min-height: 90%;
-  background-color: #304FFE;
+  background-color: rgb(248, 248, 248);
+  margin-top: 50px;
 }
 
 .eachItem {
@@ -607,5 +613,18 @@ function StrategyStep() {
   /* ทำให้ข้อความสามารถขึ้นบรรทัดใหม่ได้ */
   word-wrap: break-word;
   /* ตัดคำที่ยาวเกินไปให้อยู่ในบรรทัดใหม่ */
+}
+
+.blockCompare{
+  display: flex;
+  // border: solid 2px blue;
+  justify-content: space-between;
+}
+
+.Compare{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0 50px;
+  height: 600px;
 }
 </style>

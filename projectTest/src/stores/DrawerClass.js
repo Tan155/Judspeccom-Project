@@ -14,8 +14,8 @@ import {
   mdiNas,
   mdiGeneratorPortable,
   mdiServer,
-  mdiFan,
-  mdiMonitorScreenshot,
+  // mdiFan,
+  // mdiMonitorScreenshot,
 } from "@mdi/js";
 
 //Main.
@@ -44,8 +44,8 @@ export const useDrawer = defineStore("Drawer", () => {
     { icon: mdiHarddisk, name: "SSD M.2" },
     { icon: mdiGeneratorPortable, name: "POWER SUPPLY" },
     { icon: mdiServer, name: "CASE" },
-    { icon: mdiFan, name: "FAN" },
-    { icon: mdiMonitorScreenshot, name: "MONITOR" },
+    // { icon: mdiFan, name: "FAN" },
+    // { icon: mdiMonitorScreenshot, name: "MONITOR" },
   ]);
 
   //getter.

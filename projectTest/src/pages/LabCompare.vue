@@ -2,7 +2,7 @@
   <v-container width="300px">
     <v-row>
       <router-link to="/ToolV1">
-        <v-btn block dark>
+        <v-btn block dark style="width: 292px; border-radius: 7px; margin: 20px 0 8px 0;">
           Customize
         </v-btn>
       </router-link>

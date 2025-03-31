@@ -1,8 +1,8 @@
 <template>
   <v-app :class="{ 'dark-mode': isDarkMode }">
     <!-- NAVBAR -->
-    <v-app-bar fixed flat elevation="0" height="64"
-      style="background-color: transparent; z-index: 9999; position: fixed; top: 0; left: 0; width: 100%;">
+    <v-app-bar fixed flat elevation="0" height="65"
+      style="z-index: 9999; position: fixed; top: 0; left: 0; width: 100%; background-color: black; padding-bottom: 5px;">
       <v-container class="fill-width" style="max-width: none;">
         <v-row align="center" justify="space-between" class="fill-width" style="width: 100%;">
           <!-- Home Button (ซ้ายสุด) -->
@@ -12,9 +12,8 @@
 
           <v-col v-if="!isRegisterOrLoginPage" class="d-flex justify-center">
             <v-btn text to="/" class="text-h5">Home</v-btn>
-            <v-btn text to="/about" class="text-h5">Computer Set</v-btn>
-            <v-btn text to="/customize" class="text-h5">Customize</v-btn>
-            <v-btn text to="/compare" class="text-h5">Compare</v-btn>
+            <v-btn text to="/toolV1" class="text-h5">Customize</v-btn>
+            <v-btn text to="/LabCompare" class="text-h5">Compare</v-btn>
           </v-col>
 
           <v-btn @click="toggleTheme" icon class="ml-2">
@@ -313,7 +312,7 @@ p {
 }
 
 .v-main {
-  background-color: rgb(246, 249, 252);
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .dark-mode {
@@ -326,8 +325,4 @@ p {
   color: rgb(255, 255, 255) !important;
 }
 
-.dark-mode .v-app-bar {
-  background-color: rgb(246, 249, 252) !important;
-  color: black !important;
-}
 </style>
